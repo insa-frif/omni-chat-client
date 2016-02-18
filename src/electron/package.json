@@ -1,0 +1,11 @@
+{
+  "name": "ochat-electron",
+  "version": "0.1.0",
+  "description": "oChat electron app",
+  "main": "electron/electron/app.js",
+  "dependencies": {
+  },
+  "scripts": {
+    "start": "electron ."
+  }
+}

@@ -29,11 +29,9 @@ export class ContactsList {
   }
 
   public removeContact(contact:Contact) {
-    // console.log(contact);
     let idx = this.contacts.indexOf(contact);
     if (idx >= 0) {
       this.contacts.splice(idx, 1);
     }
-    // console.log(this);
   }
 }
