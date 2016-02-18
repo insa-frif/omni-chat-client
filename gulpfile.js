@@ -33,4 +33,4 @@ gulp.task('build.browser.assets', function(){
 });
 
 gulp.task("build.browser", ["build.browser.systemjs", "build.browser.jade", "build.browser.assets"]);
-gulp.task("build", ["build.browser", "build.node"]);
+gulp.task("build", ["build.browser", "build.node", "build.electron"]);

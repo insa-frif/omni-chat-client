@@ -23,7 +23,7 @@
     "gulp": "^3.9.0",
     "gulp-jade": "^1.1.0",
     "typescript": "^1.8.0-dev.20160125",
-    "via-build-tools": "^0.7.3"
+    "via-build-tools": "^0.7.4"
   },
   "jspm": {
     "configFile": "systemjs.config.js",
@@ -37,7 +37,6 @@
   "dependencies": {
     "angular2": "^2.0.0-beta.6",
     "bluebird": "^3.2.1",
-    "electron": "^0.4.1",
     "es6-promise": "^3.1.2",
     "es6-shim": "^0.34.4",
     "express": "^4.13.4",
