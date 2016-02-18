@@ -1,0 +1,5 @@
+.wrapper
+    ul.contacts
+        li("*ngFor"="#contact of contacts").contact
+            span.author {{contact.realname}}
+            button("(click)" = "removeContact(contact)") Supprimer
