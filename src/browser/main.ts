@@ -1,9 +1,10 @@
 import 'reflect-metadata';
 
+import {Type} from "angular2/core";
 import {bootstrap} from 'angular2/platform/browser';
 import {AppComponent} from './components/app/app';
 
-bootstrap(AppComponent);
+bootstrap(<Type>AppComponent);
 
 // aides:
 // https://angular.io/docs/ts/latest/tutorial/   (très conseillé, je vais le suivre aussi)

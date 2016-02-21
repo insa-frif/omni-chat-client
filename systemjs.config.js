@@ -9,6 +9,7 @@ System.config({
 
   map: {
     "angular2": "npm:angular2@2.0.0-beta.7",
+    "bluebird": "npm:bluebird@3.3.1",
     "lodash": "npm:lodash@4.5.0",
     "reflect-metadata": "npm:reflect-metadata@0.1.3",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -64,6 +65,9 @@ System.config({
     },
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
+    },
+    "npm:bluebird@3.3.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:bn.js@4.10.3": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
