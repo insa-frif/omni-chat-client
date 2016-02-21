@@ -1,0 +1,13 @@
+h1 {{title}}
+
+h2 My Heroes
+ul.heroes
+    li(
+        "*ngFor"="#hero of heroes",
+        "(click)"="onSelect(hero)",
+        "[class.selected]"="hero === selectedHero"
+    )
+        span.badge {{hero.id}}
+        | {{hero.name}}
+
+my-hero-detail("[hero]"="selectedHero")

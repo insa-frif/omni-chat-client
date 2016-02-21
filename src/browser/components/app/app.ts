@@ -1,9 +1,7 @@
 import {Component, NgZone} from 'angular2/core';
 
-export interface Hero {
-  id: number;
-  name: string;
-}
+import {Hero} from "../../interfaces/hero";
+import {HeroDetailComponent} from "../hero-detail/hero-detail";
 
 let HEROES: Hero[] = [
   { "id": 11, "name": "Mr. Nice" },
@@ -19,11 +17,12 @@ let HEROES: Hero[] = [
 ];
 
 @Component({
-  selector: 'tuto-app',
-  templateUrl: './components/tuto-app/tuto-app.html',
-  styleUrls: ['./components/tuto-app/tuto-app.css']
+  selector: 'my-app',
+  templateUrl: './components/app/app.html',
+  styleUrls: ['./components/app/app.css'],
+  directives: [HeroDetailComponent]
 })
-export class TutoApp {
+export class AppComponent {
   public title = 'Tour of Heroes';
   public heroes = HEROES;
   selectedHero: Hero;

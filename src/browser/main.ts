@@ -1,9 +1,9 @@
 import 'reflect-metadata';
 
 import {bootstrap} from 'angular2/platform/browser';
-import {TutoApp} from './components/tuto-app/tuto-app';
+import {AppComponent} from './components/app/app';
 
-bootstrap(TutoApp);
+bootstrap(AppComponent);
 
 // aides:
 // https://angular.io/docs/ts/latest/tutorial/   (très conseillé, je vais le suivre aussi)
