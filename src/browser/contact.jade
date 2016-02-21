@@ -8,12 +8,17 @@ html
     base(href="/")
 
   body
-    h1 oChat Client
-    contacts-list
-      div CHARGEMENT
+    h1 Contact
+    p Voicci comment nous contacter:
+    ul
+        li
+            a(href="https://github.com/insa-frif/omni-chat-client") Github
+        li
+            a(href="mailto:contact@ochat.com") Mail
 
     footer
-      a(href="/contact.html") Contact
+        a(href="/") Retour à l'accueil
+
 
     script(src="https://code.angularjs.org/2.0.0-beta.6/angular2-polyfills.js")
     script(src="./browser/main.js")
