@@ -1,3 +1,6 @@
+// TODO : separer les deux
+
+// PARTIE SERVEUR
 import * as http from 'http';
 import {HOST, PORT as SERVER_PORT} from '../core/config';
 const PORT = SERVER_PORT + 1;
@@ -16,7 +19,7 @@ server.listen(PORT, HOST, () => {
   console.log(`Server running at http://${HOST}:${PORT}/`);
 });
 
-
+// PARTIE GRAPHIQUE
 import * as electron from 'electron';
 
 const app = electron.app; // Module to control application life.
@@ -46,6 +49,7 @@ app.on('ready', () => {
 
   // and load the index.html of the app.
   mainWindow.loadURL(`http://${HOST}:${PORT}/`);
+    // NB : mettre autre chose a la fin si on veut charger un autre html
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();

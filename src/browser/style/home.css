@@ -1,0 +1,8 @@
+/* Global CSS rules */
+
+body
+{
+	background : no-repeat white url(../pictures/fond.jpg);
+	background-size: cover;
+}
+

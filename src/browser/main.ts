@@ -1,10 +1,13 @@
 import 'reflect-metadata';
 
 import {bootstrap} from 'angular2/platform/browser';
-import {ContactsList} from './components/contacts-list/contacts-list';
 
-bootstrap(ContactsList);
+console.log("hello !");
 
-import {sqrtAbs} from "../core/test";
+function gw(): void
+{
+	document.write(window.innerWidth.toString());
+	alert("f*ck off");
+}
 
-console.log(sqrtAbs(-4));
+document.getElementById("b").addEventListener("onclick", gw);

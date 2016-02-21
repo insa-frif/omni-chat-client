@@ -1,3 +1,5 @@
+// This only provides a servor to send the ressources asked by users
+
 import * as http from 'http';
 import {HOST, PORT} from '../core/config';
 import * as express from 'express';
