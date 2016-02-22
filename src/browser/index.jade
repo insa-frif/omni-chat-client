@@ -1,10 +1,21 @@
 doctype html
 html
-  head
-    title OmniChat : a chat to rule them all
-    meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
-    link(rel="stylesheet", type="text/css", href="/style/home.css")
-  body
-    h1 Welcome you !
-    button#b Bouton
-    script(type="text/javascript" src="./browser/main.js")
+	head
+		title OmniChat : a chat to rule them all
+		meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+		link(rel="stylesheet", type="text/css", href="/style/home.css")
+	body
+		div.upperBand#upperContainer
+			div.upperBandContainer#right
+				form#connectForm
+					input.formTextArea#username(type="text" name="username" placeholder="Username")
+					input.formTextArea#password(type="password" name="password" placeholder="Password")
+					button.homeButton#connect(title="Connect and chat with your friends") Log in
+					input.logOption#keepLogged(type="checkbox" value="Keep me logged" checked="checked")
+					label.text(for="keepLogged") Keep me logged in
+			div.upperBandContainer#left
+				button.homeButton#sign(title="Join us !") Sign in
+		div.global
+			div.title
+				h1.welcome Welcome you !
+		script(type="text/javascript" src="./browser/main.js")
