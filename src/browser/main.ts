@@ -4,9 +4,15 @@ import {bootstrap} from 'angular2/platform/browser';
 
 console.log("hello !");
 
-function gw(): void
+function logIn(): void
 {
-	alert("f*ck off");
+	alert("Impossible to log in for the moment. Be patient !");
 }
 
-window.document.getElementById("connect").addEventListener("click", gw, true);
+function signIn(): void
+{
+	alert("Impossible to sign in for the moment. Be patient !");
+}
+
+window.document.getElementById("connect").addEventListener("click", logIn, true);
+window.document.getElementById("sign").addEventListener("click", signIn, true);

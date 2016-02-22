@@ -27,7 +27,8 @@ gulp.task('build.browser.jade', function(){
 gulp.task('build.browser.assets', function(){
   return gulp.src([
       'src/browser/**/*.css',
-      'src/browser/**/*.html'
+      'src/browser/**/*.html',
+      'src/browser/**/*.jpg'
     ], {base: 'src/browser'})
     .pipe(gulp.dest('build/browser'));
 });
