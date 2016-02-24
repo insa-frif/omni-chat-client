@@ -8,6 +8,9 @@ typings
 # JSPM packages
 jspm_packages
 
+# Proto directory
+proto
+
 ### Build directory ###
 build
 coverage
