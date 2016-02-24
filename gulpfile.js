@@ -35,3 +35,21 @@ gulp.task('build.browser.assets', function(){
 
 gulp.task("build.browser", ["build.browser.systemjs", "build.browser.jade", "build.browser.assets"]);
 gulp.task("build", ["build.browser", "build.node", "build.electron"]);
+
+var del = require('del');
+
+gulp.task('clean.node', function () {
+    return del(['build/node/**/*']);
+});
+
+gulp.task('clean.browser', function () {
+    return del(['build/browser/**/*', 'build/systemjs/**/*']);
+});
+
+gulp.task('clean.electron', function () {
+    return del(['build/electron/**/*']);
+});
+
+gulp.task('clean', function () {
+    return del(['build/**/*']);
+});
