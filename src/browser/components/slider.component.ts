@@ -40,13 +40,14 @@ export class SliderComponent implements OnInit
 			} );
 	}
 
-	public onClick(): void
+	public nextPicture(): void
 	{
-		this.currentPic < this.pictures.length-1 ? this.currentPic++ : this.currentPic=0;
+    if(!this.pictures) {
+      return;
+    }
+		this.currentPic = (this.currentPic + 1) % this.pictures.length;
 		console.log(this.currentPic);
 		// TODO(Ruben) : remove console.log when clean
-		// NB : On voit ici que le clique sur l'image est detecte, et que currentPic evolue correctement.
-		//      Mais Angular ne met rien a jour.
 	}
 
 	constructor(private _sliderService: SliderService)

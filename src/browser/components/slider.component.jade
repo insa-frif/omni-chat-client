@@ -1,5 +1,5 @@
 div.slider
 	h1 {{title}}
-	div("*ngIf"="pictures && currentPic")
+	div("*ngIf"="pictures")
 		div("*ngFor"="#pic of pictures ; #i=index", "[class.current]"="i === currentPic", "[class.hidden]"="i !== currentPic")
-			img.pic(src="{{pic}}", "(click)"="onClick()")
+			img.pic(src="{{pic}}", "(click)"="nextPicture()")
