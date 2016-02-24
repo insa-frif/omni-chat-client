@@ -1,9 +1,12 @@
 import 'reflect-metadata';
-
 import {bootstrap} from 'angular2/platform/browser';
 
-console.log("hello !");
+import {SliderComponent} from './components/slider.component';
 
+bootstrap(SliderComponent);
+
+/* LISTENERS */
+// TODO : deplacer ce qui suit dans un nouveau fichier
 function logIn(): void
 {
 	alert("Impossible to log in for the moment. Be patient !");

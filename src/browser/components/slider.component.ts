@@ -2,12 +2,12 @@
  * Created by Ruben on 24/02/2016.
  */
 
-import {Component} from '../../../node_modules/angular2/core.d';
+import {Component} from 'angular2/core';
 
 @Component({
 	selector: "slider",
-	templateUrl: "./slider.component.html",
-	styleUrls: ["./slider.component.css"]
+	templateUrl: "./components/slider.component.html",
+	styleUrls: ["./components/slider.component.css"]
 })
 export class SliderComponent
 {
