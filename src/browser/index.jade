@@ -1,32 +1,14 @@
 doctype html
 html
-    head
-        title OmniChat : a chat to rule them all
-        meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
-        link(rel="stylesheet", type="text/css", href="/style/home.css")
-    body
-        // Everything important (except the background (?), html's head and script tags) should live in angular:
-        // We use a custom component app: it is a custom component so its tag name is prefixed by "oc" (omni-chat)
-        // oc-app
-        // TODO: create AppComponent and move everything inside
+	head
+		base(href="/")
+		title OmniChat : a chat to rule them all
+		meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+		link(rel="stylesheet", type="text/css", href="/style/home.css")
+	body
+		oc-app Loading oc-app...
 
-
-        div.upperBand#upperContainer
-            div.upperBandContainer#right
-                form#connectForm
-                    input.formTextArea#username(type="text" name="username" placeholder="Username")
-                    input.formTextArea#password(type="password" name="password" placeholder="Password")
-                    button.homeButton#connect(title="Connect and chat with your friends") Log in
-                    input.logOption#keepLogged(type="checkbox" value="Keep me logged" checked="checked")
-                    label.text(for="keepLogged") Keep me logged in
-            div.upperBandContainer#left
-                button.homeButton#sign(title="Join us !") Sign in
-        div.global
-            div.title
-                h1.welcome Welcome you !
-            slider Loading slider...
-
-        // Add support for observable objects (detect changes)
-        script(src="https://code.angularjs.org/2.0.0-beta.7/angular2-polyfills.js")
-        // Import the main script
-        script(src="/browser/main.js")
+		// Add support for observable objects (detect changes)
+		script(src="https://code.angularjs.org/2.0.0-beta.7/angular2-polyfills.js")
+		// Import the main script
+		script(src="/browser/main.js")
