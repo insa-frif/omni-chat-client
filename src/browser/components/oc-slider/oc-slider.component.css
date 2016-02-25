@@ -1,0 +1,17 @@
+.sliderPic
+{
+	position: absolute;
+	top: 100%;
+}
+
+.current
+{
+	transition: opacity 0.5s linear;
+	opacity : 1;
+}
+
+.hidden
+{
+	transition: opacity 0.5s linear;
+	opacity: 0;
+}
