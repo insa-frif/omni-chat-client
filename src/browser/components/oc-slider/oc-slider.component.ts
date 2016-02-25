@@ -17,10 +17,12 @@ export class SliderComponent implements OnInit
 	public title: string = "Mon slider";
 	public pictures: string[];
 	public currentPic: number;
+	public intervalID: any;
 
 	public ngOnInit() : void
 	{
 		this.loadPictures();
+
 	}
 
 	public loadPictures(): void
@@ -29,6 +31,7 @@ export class SliderComponent implements OnInit
 			.then( (pics: string[]) => {
 				this.pictures = pics;
 				this.currentPic = 0;
+				this.initInterval();
 			} );
 	}
 
@@ -38,6 +41,13 @@ export class SliderComponent implements OnInit
 	      return;
 	    }
 		this.currentPic = (this.currentPic + 1) % this.pictures.length;
+		clearInterval(this.intervalID);
+		this.initInterval();
+	}
+
+	public initInterval(): void
+	{
+		this.intervalID = setInterval(() => {this.nextPicture()}, 5000);
 	}
 
 	constructor(private _sliderService: SliderService)
