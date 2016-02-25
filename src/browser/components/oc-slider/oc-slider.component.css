@@ -1,17 +1,23 @@
 .slider
 {
 	background-color: rebeccapurple;
+	text-align: center; /* TEMP until title disappear */
 }
 
 .sliderPic
 {
-	position: absolute;
 	top: 100%;
-	width: 100%;
+	width: 90%;
+}
+
+.superposition
+{
+	position: absolute;
 }
 
 .centeredContent
 {
+	text-align: center;
 }
 
 .current
