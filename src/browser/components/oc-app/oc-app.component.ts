@@ -28,7 +28,9 @@ export class OcApp implements OnInit
 			"click",
 			() => { alert("Impossible to sign in for the moment. Be patient !"); },
 			true);
+		// TODO (later) : use true methods when available from library
 	}
+
 	constructor()
 	{
 		// TODO(Ruben) : fill it when necessary
