@@ -1,9 +1,11 @@
 import 'reflect-metadata';
+import {Type} from "angular2/core";
 import {bootstrap} from 'angular2/platform/browser';
 
 import {SliderComponent} from './components/slider.component';
 
-bootstrap(SliderComponent);
+
+bootstrap(<Type>SliderComponent);
 
 /* LISTENERS */
 // TODO : deplacer ce qui suit dans un nouveau fichier
