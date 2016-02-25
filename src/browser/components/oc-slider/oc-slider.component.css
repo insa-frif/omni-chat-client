@@ -5,13 +5,13 @@
 
 .sliderPic
 {
-	position: inherit;
+	position: absolute;
 	top: 100%;
+	width: 100%;
 }
 
 .centeredContent
 {
-	text-align: center;
 }
 
 .current
