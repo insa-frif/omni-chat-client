@@ -76,20 +76,14 @@
 
 .global
 {
-	position: fixed;
+	position: absolute;
 	top: 50px;
+	left: 0;
+	right: 0;
 }
 
-/* SLIDER */
-
-
-/* DEBUG */
 .title
 {
 	background-color: gold;
-}
-
-.global
-{
-	background-color: #00D6B2;
+	text-align: center;
 }

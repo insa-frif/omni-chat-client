@@ -1,7 +1,17 @@
+.slider
+{
+	background-color: rebeccapurple;
+}
+
 .sliderPic
 {
-	position: absolute;
+	position: inherit;
 	top: 100%;
+}
+
+.centeredContent
+{
+	text-align: center;
 }
 
 .current
