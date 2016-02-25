@@ -14,7 +14,6 @@ import {SliderService} from "../../services/oc-slider.service";
 })
 export class SliderComponent implements OnInit
 {
-	public title: string = "Mon slider";
 	public pictures: string[];
 	public currentPic: number;
 	public intervalID: any;

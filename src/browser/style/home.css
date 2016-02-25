@@ -1,6 +1,7 @@
 /* CSS RULES FOR HOME PAGE */
 body
 {
-	background : no-repeat white url(../pictures/background.jpg);
+	background: url(../pictures/background.jpg) no-repeat, url(../pictures/background2.jpg) repeat-y;
+	/* TODO : find a way to cover bottom of the page when the width is really short */
 	background-size: cover;
 }

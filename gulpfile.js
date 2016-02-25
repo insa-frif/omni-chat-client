@@ -28,7 +28,8 @@ gulp.task('build.browser.assets', function(){
   return gulp.src([
       'src/browser/**/*.css',
       'src/browser/**/*.html',
-      'src/browser/**/*.jpg'
+      'src/browser/**/*.jpg',
+      'src/browser/**/*.png'
     ], {base: 'src/browser'})
     .pipe(gulp.dest('build/browser'));
 });

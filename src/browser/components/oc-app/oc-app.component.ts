@@ -16,7 +16,7 @@ import {SliderComponent} from '../oc-slider/oc-slider.component';
 })
 export class OcApp implements OnInit
 {
-	title: string = "Welcome you !";
+	title: string = "OmniChat - Client";
 
 	public ngOnInit(): void
 	{
