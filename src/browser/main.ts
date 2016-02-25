@@ -2,8 +2,7 @@ import 'reflect-metadata';
 import {Type} from "angular2/core";
 import {bootstrap} from 'angular2/platform/browser';
 
-import {SliderComponent} from './components/slider.component';
-
+import {SliderComponent} from './components/oc-slider/oc-slider.component';
 
 bootstrap(<Type>SliderComponent);
 

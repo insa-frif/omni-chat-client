@@ -16,8 +16,8 @@ export class SliderService
 	private loadPicFromHard(): Promise<string[]>
 	{
 		let pics: string[] = [
-			"../pictures/j1.jpg",
-			"../pictures/j2.jpg"
+			"../../pictures/j1.jpg",
+			"../../pictures/j2.jpg"
 		];
 		return Promise.resolve(pics);
 	}

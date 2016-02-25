@@ -10,7 +10,7 @@
   "scripts": {
     "test": "gulp test",
     "postinstall": "gulp install.noNpm",
-    "start": "node build/node/node/main.js",
+    "start": "node build/node/node/browserServor.js",
     "electron": "cd build/electron && npm start"
   },
   "keywords": [
@@ -21,6 +21,7 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "del": "^2.2.0",
+    "graceful-fs": "^4.1.3",
     "gulp": "^3.9.0",
     "gulp-jade": "^1.1.0",
     "typescript": "^1.8.0-dev.20160125",
