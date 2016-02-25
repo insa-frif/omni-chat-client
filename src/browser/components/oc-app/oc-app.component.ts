@@ -3,7 +3,8 @@
  */
 
 import {Component} from 'angular2/core';
-import {Type} from "angular2/core";
+import {Type} from 'angular2/core';
+import {OnInit} from 'angular2/core';
 
 import {SliderComponent} from '../oc-slider/oc-slider.component';
 
@@ -13,10 +14,21 @@ import {SliderComponent} from '../oc-slider/oc-slider.component';
 	styleUrls: ["./components/oc-app/oc-app.component.css"],
 	directives: [<Type>SliderComponent],
 })
-export class OcApp
+export class OcApp implements OnInit
 {
 	title: string = "Welcome you !";
 
+	public ngOnInit(): void
+	{
+		window.document.getElementById("connect").addEventListener(
+			"click",
+			() => { alert("Impossible to log in for the moment. Be patient !"); },
+			true);
+		window.document.getElementById("sign").addEventListener(
+			"click",
+			() => { alert("Impossible to sign in for the moment. Be patient !"); },
+			true);
+	}
 	constructor()
 	{
 		// TODO(Ruben) : fill it when necessary
