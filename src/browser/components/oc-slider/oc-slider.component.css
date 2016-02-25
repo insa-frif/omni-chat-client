@@ -1,7 +1,6 @@
 .slider
 {
-	background-color: rebeccapurple;
-	text-align: center; /* TEMP until title disappear */
+	text-align: center; /* TODO: remove when title disappear */
 }
 
 .sliderPic

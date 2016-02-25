@@ -39,7 +39,7 @@
 
 .homeButton
 {
-	background-color: #008000;
+	background-color: #3073B0;
 	color: white;
 	border-radius: 5px;
 	margin-right: 5px;
@@ -84,6 +84,5 @@
 
 .title
 {
-	background-color: gold;
 	text-align: center;
 }

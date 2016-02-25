@@ -1,6 +1,6 @@
 /* CSS RULES FOR HOME PAGE */
 body
 {
-	background : no-repeat white url(../pictures/fond.jpg);
+	background : no-repeat white url(../pictures/background.jpg);
 	background-size: cover;
 }
