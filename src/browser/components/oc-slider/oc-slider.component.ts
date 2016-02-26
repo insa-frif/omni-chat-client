@@ -53,6 +53,8 @@ export class SliderComponent implements OnInit
 			{
 				this.currentPic = this.pictures.length-1;
 			}
+			clearInterval(this.intervalID);
+			this.initInterval();
 		}
 	}
 
