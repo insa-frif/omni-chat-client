@@ -5,7 +5,7 @@
 
 .sliderPic
 {
-	width: 90%;
+	width: 95%;
 }
 
 .superposition
@@ -34,8 +34,31 @@
 .arrow
 {
 	position: absolute;
-	left: 7%;
-	top: 40%;
+	z-index: 999;   /* Have to be at the top */
+	top: 37%;
 	width: 3%;
+	transition: opacity 0.2s linear;
+	opacity: 1;
+}
+
+.arrow.left
+{
+	left: 3%;
+}
+
+.arrow.right
+{
+	right: 3%;
+}
+
+.arrow:hover
+{
+	transition: opacity 0.2s linear;
+	opacity: 0.7;
 	cursor: pointer;
+}
+
+#leftarrow, #rightarrow
+{
+	width: 60%;
 }
