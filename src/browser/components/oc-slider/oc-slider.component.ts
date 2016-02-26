@@ -13,6 +13,8 @@ import {SliderService} from "../../services/oc-slider.service";
 	providers: [SliderService]
 })
 export class SliderComponent implements OnInit
+// TODO : rename to follow Angular naming rules
+// TODO : add a link to each picture (example: git hub when explaining modules)
 {
 	public pictures: string[];
 	public currentPic: number;
@@ -20,18 +22,22 @@ export class SliderComponent implements OnInit
 
 	public ngOnInit() : void
 	{
-		this.loadPictures();
-
+		this.loadPictures()
+			.then( () => {
+				this.initInterval();
+			}
+			);
 	}
 
-	public loadPictures(): void
+	public loadPictures(): Promise<any>
 	{
-		this._sliderService.loadPictures()
-			.then( (pics: string[]) => {
-				this.pictures = pics;
-				this.currentPic = 0;
-				this.initInterval();
-			} );
+		return Promise
+			.resolve(this._sliderService.loadPictures()
+				.then( (pics: string[]) => {
+					this.pictures = pics;
+					this.currentPic = 0;
+				} )
+			);
 	}
 
 	public nextPicture(): void

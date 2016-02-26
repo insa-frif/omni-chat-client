@@ -15,6 +15,7 @@ import {SliderComponent} from '../oc-slider/oc-slider.component';
 	directives: [<Type>SliderComponent],
 })
 export class OcApp implements OnInit
+// TODO : rename to follow Angular naming rules
 {
 	title: string = "OmniChat - Client";
 
