@@ -1,0 +1,7 @@
+div.contactsList
+	h1.welcome {{title}}
+	div("*ngIf"="contacts")
+		ul.list("*ngFor"="#c of contacts")
+			li.contact
+				span.name {{c.username}}
+				button a button

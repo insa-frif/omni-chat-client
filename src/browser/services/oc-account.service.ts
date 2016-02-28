@@ -8,16 +8,15 @@ import {Injectable} from 'angular2/core';
 export class AccountService
 // TODO : rename to follow Angular naming rules
 {
-	public loadContacts(user: User): Contact[]
+	public loadContacts(username: string): Promise<Contact[]>
 	{
-		return this.loadContactsFromHard(user);
+		return this.loadContactsFromHard(username);
 	}
 
-	private loadContactsFromHard(user: User)
+	private loadContactsFromHard(username: string) : Promise<Contact[]>
 	// TODO : remove this and update loadContacts when oc-library will be availlable
 	{
-		user = userG;
-		return user.contacts;
+		return Promise.resolve(userG.contacts);
 	}
 }
 
@@ -28,13 +27,13 @@ class User
 	public contacts: Contact[];
 }
 
-class Contact
+export class Contact
 {
-	public username: string;
 	public accounts: Account[];
+	public username: string;
 }
 
-class Account
+export class Account
 {
 	public type: string;
 }

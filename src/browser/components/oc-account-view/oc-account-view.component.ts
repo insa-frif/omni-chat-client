@@ -5,10 +5,13 @@
 import {Component} from 'angular2/core';
 import {OnInit} from 'angular2/core';
 
+import {OcContactListComponent} from '../oc-contacts-list/oc-contacts-list.component';
+
 @Component({
 	selector: "oc-account-view",
 	templateUrl: "./components/oc-account-view/oc-account-view.component.html",
-	styleUrls: ["./components/oc-account-view/oc-account-view.component.css"]
+	styleUrls: ["./components/oc-account-view/oc-account-view.component.css"],
+	directives: [OcContactListComponent]
 })
 export class OcAccountViewComponent implements OnInit
 {
@@ -18,8 +21,7 @@ export class OcAccountViewComponent implements OnInit
 	public ngOnInit(): void
 	{
 		this.username = "Joseph";
-		console.log(this.username);
-		// TODO : bind username
+		// TODO(Ruben) : bind username
 	}
 
 	constructor()
