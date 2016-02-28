@@ -7,6 +7,7 @@ import {Injectable} from 'angular2/core';
 
 @Injectable()
 export class SliderService
+// TODO : rename to follow Angular naming rules
 {
 	public loadPictures(): Promise<string[]>
 	{
