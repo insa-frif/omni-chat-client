@@ -12,6 +12,9 @@ let app = express();
 let server = http.createServer(app);
 
 app.use(express.static(browserRoot));
+app.get("*",  (req, res, next) => {
+	res.sendFile("index.html", {root: browserRoot});
+});
 
 server.listen(PORT, HOST, () => {
   console.log(`Server running at http://${HOST}:${PORT}/`);

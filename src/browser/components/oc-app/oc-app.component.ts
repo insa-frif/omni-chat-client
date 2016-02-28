@@ -4,36 +4,27 @@
 
 import {Component} from 'angular2/core';
 import {Type} from 'angular2/core';
-import {OnInit} from 'angular2/core';
+import {provide} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
-import {SliderComponent} from '../oc-slider/oc-slider.component';
+import {OcHomeComponent} from '../oc-home/oc-home.component';
+import {OcAccountViewComponent} from '../oc-account-view/oc-account-view.component';
 
 @Component({
 	selector: "oc-app",
 	templateUrl: "./components/oc-app/oc-app.component.html",
 	styleUrls: ["./components/oc-app/oc-app.component.css"],
-	directives: [<Type>SliderComponent],
+	directives: [ROUTER_DIRECTIVES],
+	providers: [ROUTER_PROVIDERS]
 })
-export class OcApp implements OnInit
+@RouteConfig([
+	{path: '/home', name: 'Home', component: <Type>OcHomeComponent, useAsDefault: true},
+	{path: '/account', name: 'Account', component: <Type>OcAccountViewComponent}
+	// TODO : /account/:username + ?
+	// TODO : add a path to a sign up formular
+])
+export class OcAppComponent
 // TODO : rename to follow Angular naming rules
 {
 	title: string = "OmniChat - Client";
-
-	public ngOnInit(): void
-	{
-		window.document.getElementById("connect").addEventListener(
-			"click",
-			() => { alert("Impossible to log in for the moment. Be patient !"); },
-			true);
-		window.document.getElementById("sign").addEventListener(
-			"click",
-			() => { alert("Impossible to sign in for the moment. Be patient !"); },
-			true);
-		// TODO (later) : use true methods when available from library
-	}
-
-	constructor()
-	{
-		// TODO(Ruben) : fill it when necessary
-	}
 }
