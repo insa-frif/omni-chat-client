@@ -25,7 +25,7 @@ export class OcHomeComponent implements OnInit
 			"click",
 			() => { this._router.navigate(['Account']); },
 			true);
-		// TODO : use the formular and chack for an existant account or not before connecting
+		// TODO : use the formular and check for an existant account or not before connecting
 		window.document.getElementById("sign").addEventListener(
 			"click",
 			() => { alert("Impossible to sign up for the moment. Be patient !"); },

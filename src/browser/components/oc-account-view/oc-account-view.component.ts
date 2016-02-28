@@ -6,12 +6,16 @@ import {Component} from 'angular2/core';
 import {OnInit} from 'angular2/core';
 
 import {OcContactListComponent} from '../oc-contacts-list/oc-contacts-list.component';
+import {OcToolbarComponent} from '../oc-toolbar/oc-toolbar.component';
 
 @Component({
 	selector: "oc-account-view",
 	templateUrl: "./components/oc-account-view/oc-account-view.component.html",
 	styleUrls: ["./components/oc-account-view/oc-account-view.component.css"],
-	directives: [OcContactListComponent]
+	directives: [
+		OcContactListComponent,
+		OcToolbarComponent
+	]
 })
 export class OcAccountViewComponent implements OnInit
 {

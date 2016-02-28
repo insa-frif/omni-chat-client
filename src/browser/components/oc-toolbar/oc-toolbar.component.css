@@ -1,4 +1,6 @@
-.upperBand
+/* TODO : erase useless things */
+
+.toolbar
 {
 	position: absolute;
 	background-color: black;
@@ -12,9 +14,9 @@
 	opacity: 0.75;
 }
 
-.upperBand:hover
+.toolbar:hover
 {
-	opacity: 1; /* Transition thanks to the rule .upperBand */
+	opacity: 1; /* Transition thanks to the rule .toolbar */
 }
 
 .upperBandContainer
@@ -62,26 +64,4 @@
 	font-size: 12px;
 	top: -2px;
 	color: white;
-}
-
-#sign
-{
-	/* No specific rule */
-}
-#connect
-{
-	/* No specific rule */
-}
-
-.global
-{
-	position: absolute;
-	top: 75px;
-	left: 0;
-	right: 0;
-}
-
-.title
-{
-	text-align: center;
 }
