@@ -5,6 +5,7 @@
 import {Component} from 'angular2/core';
 import {Type} from 'angular2/core';
 import {OnInit} from 'angular2/core';
+import {Router} from 'angular2/router';
 
 import {SliderComponent} from '../oc-slider/oc-slider.component';
 
@@ -22,8 +23,9 @@ export class OcHomeComponent implements OnInit
 	{
 		window.document.getElementById("connect").addEventListener(
 			"click",
-			() => { alert("Impossible to sign in for the moment. Be patient !"); },
+			() => { this._router.navigate(['Account']); },
 			true);
+		// TODO : use the formular and chack for an existant account or not before connecting
 		window.document.getElementById("sign").addEventListener(
 			"click",
 			() => { alert("Impossible to sign up for the moment. Be patient !"); },
@@ -31,8 +33,8 @@ export class OcHomeComponent implements OnInit
 		// TODO (later) : use true methods when available from library
 	}
 
-	constructor()
+	constructor(private _router: Router)
 	{
-		// TODO(Ruben) : fill it when necessary
+		// Nothing to do here
 	}
 }
