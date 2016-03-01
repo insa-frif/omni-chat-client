@@ -1,7 +1,10 @@
-div.contactsList
-	h1.title {{title}}
-	div("*ngIf"="contacts")
-		ul.list("*ngFor"="#c of contacts")
-			li.contact
-				span.name {{c.username}}
-				button a button
+md-list
+  md-subheader.md-no-sticky Recent...
+  md-list-item("*ngFor"="#c of contacts; #index = index")
+    h3.name {{c.username}}
+    button("md-raised-button"="").md-raised A material button
+  md-divider
+  md-subheader.md-no-sticky Older...
+  md-list-item("*ngFor"="#c of contacts; #index = index")
+    h3.name {{c.username}}
+    button("md-raised-button"="").md-raised A material button
