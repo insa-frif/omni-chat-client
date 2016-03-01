@@ -2,8 +2,10 @@
 
 var path = require('path');
 var gulp = require('gulp');
+var del = require('del');
 var typescript = require('typescript');
 var buildTools = require('via-build-tools');
+var sass = require('gulp-sass');
 
 var locations = new buildTools.config.Locations({
   root: path.resolve(__dirname)
@@ -34,10 +36,16 @@ gulp.task('build.browser.assets', function(){
     .pipe(gulp.dest('build/browser'));
 });
 
-gulp.task("build.browser", ["build.browser.systemjs", "build.browser.jade", "build.browser.assets"]);
+gulp.task('build.browser.sass', function(){
+  return gulp.src(['src/browser/**/*.scss'], {base: 'src/browser'})
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('build/browser'));
+});
+
+gulp.task("build.browser", ["build.browser.systemjs", "build.browser.jade", 'build.browser.sass', "build.browser.assets"]);
 gulp.task("build", ["build.browser", "build.node", "build.electron"]);
 
-var del = require('del');
+
 
 gulp.task('clean.node', function () {
     return del(['build/node/**/*']);
@@ -54,3 +62,5 @@ gulp.task('clean.electron', function () {
 gulp.task('clean', function () {
     return del(['build/**/*']);
 });
+
+
