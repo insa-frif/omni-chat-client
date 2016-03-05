@@ -37,7 +37,7 @@ gulp.task('build.browser.assets', function(){
 });
 
 gulp.task('build.browser.sass', function(){
-  return gulp.src(['src/browser/**/*.scss'], {base: 'src/browser'})
+  return gulp.src(['src/browser/**/*.scss', 'src/browser/**/*.sass'], {base: 'src/browser'})
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('build/browser'));
 });
