@@ -4,10 +4,12 @@
 
 import {Component, Type, provide} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
-import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from "ng2-material/all";
+import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from 'ng2-material/all';
 
 import {OcHomeComponent} from '../oc-home/oc-home.component';
 import {OcAccountViewComponent} from '../oc-account-view/oc-account-view.component';
+import {OcConnectionFormComponent} from '../oc-connection-form/oc-connection-form.component';
+import {OcRegistrationFormComponent} from '../oc-registration-form/oc-registration-form.component';
 
 @Component({
   selector: "oc-app",
@@ -17,8 +19,10 @@ import {OcAccountViewComponent} from '../oc-account-view/oc-account-view.compone
   providers: [ROUTER_PROVIDERS, MATERIAL_PROVIDERS]
 })
 @RouteConfig([
-  {path: '/home', name: 'Home', component: <Type>OcHomeComponent, useAsDefault: true},
-  {path: '/account', name: 'Account', component: <Type>OcAccountViewComponent}
+  {path: '/home', name: 'Home', component: <Type>OcHomeComponent},
+  {path: '/account', name: 'Account', component: <Type>OcAccountViewComponent},
+  {path: '/connection', name: 'Connection', component: <Type>OcConnectionFormComponent, useAsDefault: true},
+	{path: '/registration', name: 'Registration', component: <Type>OcRegistrationFormComponent}
   // TODO : /account/:username + ?
   // TODO : add a path to a sign up formular
 ])

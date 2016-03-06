@@ -1,0 +1,23 @@
+div#bloc
+	div.md-whiteframe-5dp.md-inline-form(layout="column")
+		md-content(layout-padding="").back
+			div
+				form(name="userForm")
+					div(layout-gt-sm="column")
+						md-input-container.md-whiteframe-3dp
+							label Mail address
+							input.md-input("[(value)]"="_registrationItems.mailAddress")
+						md-input-container.md-whiteframe-3dp
+							label Username
+							input.md-input("[(value)]"="_registrationItems.username")
+						md-input-container.md-whiteframe-3dp
+							label Password
+							input.md-input("[(value)]"="_registrationItems.password", type="password")
+						button.md-raised#registerButton("md-raised-button"="", title="Join us !",
+							"[class.ok]"="_registrationItems.password && _registrationItems.username && _registrationItems.mailAddress",
+							"[disabled]"="!_registrationItems.password || !_registrationItems.username || !_registrationItems.mailAddress"
+							) Register
+						md-divider.awayfromtop
+						div.centered.awayfromtop(layout-gt-sm="column")
+							span Already a member ?
+							span#toSignIn Sign in !
