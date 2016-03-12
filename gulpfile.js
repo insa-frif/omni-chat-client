@@ -13,9 +13,9 @@ var locations = new buildTools.config.Locations({
 
 buildTools.tasks.build(gulp, locations, {
   tsc: {
-    typescript: typescript,
-    forceConsistentCasingInFileNames: true,
-    allowSyntheticDefaultImports: true
+    typescript: typescript
+    // forceConsistentCasingInFileNames: true,
+    // allowSyntheticDefaultImports: true
   }
 });
 buildTools.tasks.install(gulp, locations);

@@ -9,6 +9,7 @@ System.config({
 
   map: {
     "angular2": "npm:angular2@2.0.0-beta.7",
+    "jquery": "npm:jquery@2.2.1",
     "lodash": "npm:lodash@4.6.1",
     "ng2-material": "npm:ng2-material@0.2.8",
     "reflect-metadata": "npm:reflect-metadata@0.1.3",

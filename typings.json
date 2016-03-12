@@ -8,6 +8,7 @@
     "express": "github:DefinitelyTyped/DefinitelyTyped/express/express.d.ts#dd638012d63e069f2c99d06ef4dcc9616a943ee4",
     "github-electron": "github:DefinitelyTyped/DefinitelyTyped/github-electron/github-electron.d.ts#ecf4bb33465b2a3f6f3a719ebd028575261137a8",
     "irc": "github:DefinitelyTyped/DefinitelyTyped/irc/irc.d.ts#38571cb9dd66f6979bbf02b102bddc8a1dbc7472",
+    "jquery": "registry:dt/jquery#1.10.0+20160303223636",
     "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#ef1741f3d614a6da73e3a46d4dc191def7e645a4",
     "mime": "github:DefinitelyTyped/DefinitelyTyped/mime/mime.d.ts#cb5206a8ac1c9a3ddfd126f5ecea6729b2361452",
     "mocha": "github:DefinitelyTyped/DefinitelyTyped/mocha/mocha.d.ts#ef1741f3d614a6da73e3a46d4dc191def7e645a4",
