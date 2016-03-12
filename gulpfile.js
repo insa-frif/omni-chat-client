@@ -11,7 +11,13 @@ var locations = new buildTools.config.Locations({
   root: path.resolve(__dirname)
 });
 
-buildTools.tasks.build(gulp, locations, {tsc: {typescript: typescript}});
+buildTools.tasks.build(gulp, locations, {
+  tsc: {
+    typescript: typescript,
+    forceConsistentCasingInFileNames: true,
+    allowSyntheticDefaultImports: true
+  }
+});
 buildTools.tasks.install(gulp, locations);
 buildTools.tasks.project(gulp, locations);
 buildTools.tasks.test(gulp, locations);
@@ -45,22 +51,20 @@ gulp.task('build.browser.sass', function(){
 gulp.task("build.browser", ["build.browser.systemjs", "build.browser.jade", 'build.browser.sass', "build.browser.assets"]);
 gulp.task("build", ["build.browser", "build.node", "build.electron"]);
 
-
-
 gulp.task('clean.node', function () {
-    return del(['build/node/**/*']);
+  return del(['build/node/**/*']);
 });
 
 gulp.task('clean.browser', function () {
-    return del(['build/browser/**/*', 'build/systemjs/**/*']);
+  return del(['build/browser/**/*', 'build/systemjs/**/*']);
 });
 
 gulp.task('clean.electron', function () {
-    return del(['build/electron/**/*']);
+  return del(['build/electron/**/*']);
 });
 
 gulp.task('clean', function () {
-    return del(['build/**/*']);
+  return del(['build/**/*']);
 });
 
 
