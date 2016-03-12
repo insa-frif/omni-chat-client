@@ -4,13 +4,13 @@ div#bloc
 			div
 				form(name="userForm")
 					div(layout-gt-sm="column")
-						md-input-container.md-whiteframe-3dp
+						md-input-container
 							label Mail address
 							input.md-input("[(value)]"="_registrationItems.mailAddress")
-						md-input-container.md-whiteframe-3dp
+						md-input-container
 							label Username
 							input.md-input("[(value)]"="_registrationItems.username")
-						md-input-container.md-whiteframe-3dp
+						md-input-container
 							label Password
 							input.md-input("[(value)]"="_registrationItems.password", type="password")
 						button.md-raised#registerButton("md-raised-button"="", title="Join us !",

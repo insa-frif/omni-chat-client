@@ -4,10 +4,10 @@ div#bloc
 			div
 				form(name="userForm")
 					div(layout-gt-sm="column")
-						md-input-container.md-whiteframe-3dp
+						md-input-container
 							label Username
 							input.md-input("[(value)]"="_connectionItems.username")
-						md-input-container.md-whiteframe-3dp
+						md-input-container
 							label Password
 							input.md-input("[(value)]"="_connectionItems.password", type="password")
 						md-checkbox("[(checked)]"="_connectionItems.keep", aria-label="Keep me connected") Keep me connected

@@ -34,4 +34,5 @@ export class OcAccountViewComponent implements OnInit
   {
     // TODO : fill it when necessary
   }
+
 }

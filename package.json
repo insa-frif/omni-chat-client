@@ -25,6 +25,7 @@
     "gulp": "^3.9.0",
     "gulp-jade": "^1.1.0",
     "gulp-sass": "^2.2.0",
+    "jquery": "^2.2.1",
     "typescript": "^1.8.0-dev.20160125",
     "via-build-tools": "^0.7.5"
   },
@@ -44,6 +45,7 @@
     "es6-promise": "^3.1.2",
     "es6-shim": "^0.34.4",
     "express": "^4.13.4",
+    "jquery": "^2.2.1",
     "lodash": "^4.0.0",
     "ng2-material": "^0.2.8",
     "reflect-metadata": "^0.1.3",

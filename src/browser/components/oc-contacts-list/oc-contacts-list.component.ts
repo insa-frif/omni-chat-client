@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit} from 'angular2/core';
-import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from "ng2-material/all";
+import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS, Media, SidenavService} from "ng2-material/all";
 
 import {AccountService} from '../../services/oc-account.service';
 import {Contact} from '../../services/oc-account.service';
@@ -13,7 +13,11 @@ import {Contact} from '../../services/oc-account.service';
   templateUrl: "./components/oc-contacts-list/oc-contacts-list.component.html",
   styleUrls: ["./components/oc-contacts-list/oc-contacts-list.component.css"],
   directives: [MATERIAL_DIRECTIVES],
-  providers: [AccountService, MATERIAL_PROVIDERS]
+  providers: [
+    AccountService,
+    MATERIAL_PROVIDERS,
+    SidenavService
+  ]
 })
 export class OcContactListComponent implements OnInit
 // TODO : rename to follow Angular naming rules
@@ -35,7 +39,19 @@ export class OcContactListComponent implements OnInit
     this.loadContacts();
   }
 
-  constructor(private _accountService: AccountService)
+  public hasMedia(breakSize: string): boolean {
+    return Media.hasMedia(breakSize);
+  }
+  public open(name: string) {
+    this.sidenav.show(name);
+  }
+  public close(name: string) {
+    this.sidenav.hide(name);
+  }
+
+  constructor(
+    private _accountService: AccountService,
+    public sidenav: SidenavService)
   {
     // Nothing to do here
   }

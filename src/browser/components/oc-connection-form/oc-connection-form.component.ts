@@ -4,7 +4,8 @@
 
 import {Component, OnInit} from 'angular2/core';
 import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from 'ng2-material/all';
-import {Router} from 'angular2/router'
+import {Router} from 'angular2/router';
+//import $ from 'jquery';
 
 @Component({
 	selector: "oc-connection-form",
@@ -32,6 +33,9 @@ export class OcConnectionFormComponent implements OnInit
 			"click",
 			() => { this._router.navigate(['Registration']); },
 			true);
+		//$(".raisable").on('focus', () => {
+		//	$(this).addClass('md-whiteframe-3dp');
+		//})
 	}
 
 	constructor(private _router: Router)

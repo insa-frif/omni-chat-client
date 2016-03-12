@@ -1,10 +1,18 @@
-md-list
-  md-subheader.md-no-sticky Recent...
-  md-list-item("*ngFor"="#c of contacts; #index = index")
-    h3.name {{c.username}}
-    button("md-raised-button"="").md-raised A material button
-  md-divider
-  md-subheader.md-no-sticky Older...
-  md-list-item("*ngFor"="#c of contacts; #index = index")
-    h3.name {{c.username}}
-    button("md-raised-button"="").md-raised A material button
+md-sidenav-container(layout="row")
+	md-sidenav(name="Contacts", "[style]"="hasMedia('gt-sm') ? 'side' : 'over'")
+		md-toolbar
+			h1.md-toolbar-tools Sidenav Left
+		md-list
+			div.centered
+				md-input-container
+					input.md-input(placeholder="Filters...", type="text")
+			md-subheader.md-no-sticky Recent...
+			md-list-item("*ngFor"="#c of contacts; #index = index")
+				h3.name {{c.username}}
+				button("md-raised-button"="").md-raised A material button
+			md-divider
+			md-subheader.md-no-sticky Older...
+			md-list-item("*ngFor"="#c of contacts; #index = index")
+				h3.name {{c.username}}
+				button("md-raised-button"="").md-raised A material button
+
