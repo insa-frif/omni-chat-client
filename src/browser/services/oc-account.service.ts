@@ -62,6 +62,42 @@ let userG: User = {
         {type: "fb"},
         {type: "xmpp"}
       ]
-    }
+    },
+    {
+      username: "Ruben",
+      accounts: [
+        {type: "fb"},
+        {type: "skype"}
+      ]
+    },
+	  {
+		  username: "Charles",
+		  accounts: [
+			  {type: "fb"},
+			  {type: "irc"},
+			  {type: "xmpp"}
+		  ]
+	  },
+	  {
+		  username: "Nicolas",
+		  accounts: [
+			  {type: "fb"},
+			  {type: "irc"}
+		  ]
+	  },
+	  {
+		  username: "Alan",
+		  accounts: [
+			  {type: "fb"},
+			  {type: "xmpp"}
+		  ]
+	  },
+	  {
+		  username: "Ruben",
+		  accounts: [
+			  {type: "fb"},
+			  {type: "skype"}
+		  ]
+	  }
   ]
 }

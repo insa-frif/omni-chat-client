@@ -25,6 +25,7 @@ export class OcContactListComponent implements OnInit
 {
   public title: string = "Contact List";
   public contacts: Contact[];
+	public selectedContact: Contact;
 
   public loadContacts(): void
   {
@@ -33,6 +34,11 @@ export class OcContactListComponent implements OnInit
         this.contacts = contacts;
       });
   }
+
+	public selectContact(c: Contact): void
+	{
+		this.selectedContact = c;
+	}
 
   public ngOnInit(): void
   {
