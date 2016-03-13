@@ -21,7 +21,7 @@ export class AccountService
 }
 
 // TODO : replace the following by database access from oc-library
-class User
+export class User
 {
   public username: string;
   public contacts: Contact[];
@@ -38,7 +38,7 @@ export class Account
   public type: string;
 }
 
-let userG: User = {
+export let userG: User = {
   username: "Ruben",
   contacts: [
     {
@@ -100,4 +100,4 @@ let userG: User = {
 		  ]
 	  }
   ]
-}
+};
