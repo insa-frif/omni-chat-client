@@ -4,20 +4,14 @@ md-divider
   margin-top: 10px
   margin-bottom: 10px
 
-.centered
-  text-align: center
-
 md-input-container md-input
   text-align: center
 
 md-input-container
-  width: 100%
+  width: 99%  // Prevent a lateral scrollbar from appearing
 
 md-list-item:hover
-  background-color: md-color($md-accent)
-
-md-list-item:active
-  background-color: md-color($md-accent)
-
-.selected
   background-color: md-color($md-accent, lighter)
+
+.selected, .selected:hover
+  background-color: md-color($md-accent)

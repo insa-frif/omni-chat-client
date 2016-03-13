@@ -1,13 +1,13 @@
 md-sidenav-container(layout="row")
 	md-sidenav(name="Contacts", "[style]"="hasMedia('gt-sm') ? 'side' : 'over'")
 		md-toolbar
-			h1.md-toolbar-tools Sidenav Left
+			h1.md-toolbar-tools Your contacts
 		md-list
-			//div.centered
-			//	md-input-container
-			//		input.md-input(placeholder="Search...", type="text")
+			md-input-container
+				input.md-input(placeholder="Search...", type="text")
 			md-subheader.md-no-sticky Recent...
-			md-list-item("*ngFor"="#c of contacts; #index = index", "[class.selected]"="c === selectedContact", "(click)"="selectContact(c)")
+			md-list-item("*ngFor"="#c of contacts; #index = index", "[class.selected]"="c === selectedContact",
+				"(click)"="selectContact(c)")
 				h3.name {{c.username}}
 				button("md-raised-button"="").md-raised A material button
 			md-divider
