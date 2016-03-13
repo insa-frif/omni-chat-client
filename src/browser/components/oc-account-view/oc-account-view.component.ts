@@ -2,11 +2,12 @@
  * Created by Ruben on 26/02/2016.
  */
 
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit, Type} from 'angular2/core';
 import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from "ng2-material/all";
 
 import {OcContactListComponent} from '../oc-contacts-list/oc-contacts-list.component';
 import {OcToolbarComponent} from '../oc-toolbar/oc-toolbar.component';
+import {OcDiscussionsTabsComponent} from '../oc-discussions-tabs/oc-discussions-tabs.component';
 
 @Component({
   selector: "oc-account-view",
@@ -14,8 +15,9 @@ import {OcToolbarComponent} from '../oc-toolbar/oc-toolbar.component';
   styleUrls: ["./components/oc-account-view/oc-account-view.component.css"],
   directives: [
     MATERIAL_DIRECTIVES,
-    OcContactListComponent,
-    OcToolbarComponent
+    <Type>OcContactListComponent,
+    <Type>OcToolbarComponent,
+    <Type>OcDiscussionsTabsComponent
   ],
   providers: [MATERIAL_PROVIDERS]
 })

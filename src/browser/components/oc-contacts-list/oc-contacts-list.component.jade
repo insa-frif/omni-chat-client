@@ -9,7 +9,7 @@ md-sidenav-container(layout="row")
 			md-list-item("*ngFor"="#c of contacts; #index = index", "[class.selected]"="c === selectedContact",
 				"(click)"="selectContact(c)")
 				h3.name {{c.username}}
-				button("md-raised-button"="").md-raised A material button
+				button("*ngIf"="c === selectedContact", "md-raised-button"="", "(click)"="sendEvent()" ).md-raised A material button
 			md-divider
 			md-subheader.md-no-sticky Older...
 			md-list-item("*ngFor"="#c of contacts; #index = index")

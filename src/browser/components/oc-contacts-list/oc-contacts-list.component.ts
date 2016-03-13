@@ -27,16 +27,29 @@ export class OcContactListComponent implements OnInit
   public contacts: Contact[];
 	public selectedContact: Contact;
 
-  public loadContacts(): void
-  {
+  public loadContacts(): void {
     this._accountService.loadContacts("Someone")
       .then( (contacts: Contact[]) => {
         this.contacts = contacts;
       });
   }
 
-	public selectContact(c: Contact): void
-	{
+	public sendEvent(): void {
+		let myEvent = new CustomEvent(
+			"discussionWanted",
+			{
+				detail : {
+					contact: this.selectedContact,
+					bubbles: true,
+					cancelable: true
+				}
+			}
+		);
+		console.log("Event envoyé ! " + myEvent);
+		window.document.getElementById("handleEventDiscussionWanted").dispatchEvent(myEvent);
+	}
+
+	public selectContact(c: Contact): void {
 		this.selectedContact = c;
 	}
 
@@ -57,8 +70,8 @@ export class OcContactListComponent implements OnInit
 
   constructor(
     private _accountService: AccountService,
-    public sidenav: SidenavService)
-  {
+    public sidenav: SidenavService
+  ) {
     // Nothing to do here
   }
 }

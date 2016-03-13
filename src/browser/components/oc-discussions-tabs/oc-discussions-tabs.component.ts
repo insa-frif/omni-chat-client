@@ -14,17 +14,21 @@ import {DiscussionService} from '../../services/oc-discussion.service';
 	templateUrl: "./components/oc-discussions-tabs/oc-discussions-tabs.component.html",
 	styleUrls: ["./components/oc-discussions-tabs/oc-discussions-tabs.component.css"],
 	directives: [MATERIAL_DIRECTIVES],
-	providers: [MATERIAL_PROVIDERS]
+	providers: [
+		MATERIAL_PROVIDERS,
+		DiscussionService
+	]
 })
-export class OcDiscussionsTabs {
+export class OcDiscussionsTabsComponent implements OnInit {
 	public discussions: Discussion[] = null;
 
 	public getOrCreateDiscussion(c: Contact): void {
 		this._discussionService.getOrCreateDiscussion(c).then(
 			(d: Discussion) => {
 				let exists: boolean = false;
-				for(var dsc: Discussion in this.discussions) {
-					if(!(dsc === d)){
+				for(let i = 0; i<this.discussions.length; i++) {
+					let discuss: Discussion = this.discussions[i];
+					if(!(discuss === d)){
 						exists = true;
 						break;
 					}
@@ -32,6 +36,17 @@ export class OcDiscussionsTabs {
 				if(!exists){
 					this.discussions.push(d);
 				}
+			}
+		)
+	}
+
+	public ngOnInit(): void
+	{
+		window.document.getElementById("handleEventDiscussionWanted").addEventListener(
+			"discussionWanted",
+			(event: CustomEvent) => {
+				console.log("Event received !");
+				console.log(event.detail.contact);
 			}
 		)
 	}
