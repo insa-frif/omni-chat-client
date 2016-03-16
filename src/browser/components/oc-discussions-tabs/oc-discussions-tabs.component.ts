@@ -42,11 +42,13 @@ export class OcDiscussionsTabsComponent implements OnInit {
 
 	public ngOnInit(): void
 	{
+		this.discussions = new Array();
 		window.document.getElementById("handleEventDiscussionWanted").addEventListener(
 			"discussionWanted",
 			(event: CustomEvent) => {
 				console.log("Event received !");
 				console.log(event.detail.contact);
+				this.getOrCreateDiscussion(event.detail.contact);
 			}
 		)
 	}
