@@ -4,14 +4,20 @@ System.config({
   transpiler: false,
   paths: {
     "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*"
+    "npm:*": "jspm_packages/npm/*",
+    "bower:*": "jspm_packages/bower/*"
   },
 
   map: {
     "angular2": "npm:angular2@2.0.0-beta.7",
     "lodash": "npm:lodash@4.6.1",
     "ng2-material": "npm:ng2-material@0.2.8",
+    "polymer": "bower:polymer@1.3.1",
     "reflect-metadata": "npm:reflect-metadata@0.1.3",
+    "underscore": "bower:underscore@1.8.3",
+    "bower:polymer@1.3.1": {
+      "webcomponentsjs": "bower:webcomponentsjs@0.7.21"
+    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
