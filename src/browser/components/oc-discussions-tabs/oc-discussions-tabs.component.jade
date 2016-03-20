@@ -3,3 +3,4 @@ md-tabs#handleEventDiscussionWanted(md-dynamic-height="", md-border-bottom="")
 		md-content.md-padding
 			h1 {{disc.title}}
 			div("*ngFor"="#contact of disc.contacts") {{contact.username}}
+			button.md-raised("md-raised-button"="", "(click)"="closeTab(disc)" ) Close Discussion

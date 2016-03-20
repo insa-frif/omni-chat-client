@@ -40,8 +40,17 @@ export class OcDiscussionsTabsComponent implements OnInit {
 		)
 	}
 
-	public ngOnInit(): void
-	{
+	public closeTab(disc: Discussion): void {
+		for(let i: number = 0; i< this.discussions.length; i++) {
+			let discussion = this.discussions[i];
+			if(discussion === disc) {
+				this.discussions.splice(i, 1);
+				break;
+			}
+		}
+	}
+
+	public ngOnInit(): void {
 		this.discussions = new Array();
 		window.document.getElementById("handleEventDiscussionWanted").addEventListener(
 			"discussionWanted",
