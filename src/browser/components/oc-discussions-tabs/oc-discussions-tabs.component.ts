@@ -28,7 +28,7 @@ export class OcDiscussionsTabsComponent implements OnInit {
 				let exists: boolean = false;
 				for(let i = 0; i<this.discussions.length; i++) {
 					let discuss: Discussion = this.discussions[i];
-					if(!(discuss === d)){
+					if(discuss === d){
 						exists = true;
 						break;
 					}
