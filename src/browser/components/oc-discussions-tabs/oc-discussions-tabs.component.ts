@@ -25,15 +25,18 @@ export class OcDiscussionsTabsComponent implements OnInit {
 	public getOrCreateDiscussion(c: Contact): void {
 		this._discussionService.getOrCreateDiscussion(c).then(
 			(d: Discussion) => {
+				console.log(d);
 				let exists: boolean = false;
 				for(let i = 0; i<this.discussions.length; i++) {
 					let discuss: Discussion = this.discussions[i];
-					if(discuss === d){
+					if(discuss.contacts[0] === d.contacts[0]){
+						console.log("This discussion already exists !");
 						exists = true;
 						break;
 					}
 				}
 				if(!exists){
+					console.log("This discussion doesn't exist : let's create it");
 					this.discussions.push(d);
 				}
 			}

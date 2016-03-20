@@ -18,7 +18,7 @@ export class DiscussionService {
 
 	private createDiscussionOnTheFlight(c: Contact): Promise<Discussion> {
 		let disc: Discussion = {
-			title: "My conv with" + c.username,
+			title: "My conv with " + c.username,
 			contacts: [
 				c
 			]
