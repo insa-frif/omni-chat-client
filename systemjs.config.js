@@ -8,11 +8,11 @@ System.config({
   },
 
   map: {
-    "angular2": "npm:angular2@2.0.0-beta.7",
+    "angular2": "npm:angular2@2.0.0-beta.13",
     "crypto": "github:jspm/nodelibs-crypto@0.1.0",
     "lodash": "npm:lodash@4.8.2",
-    "ng2-material": "npm:ng2-material@0.2.8",
-    "reflect-metadata": "npm:reflect-metadata@0.1.3",
+    "ng2-material": "npm:ng2-material@0.3.4",
+    "reflect-metadata": "npm:reflect-metadata@0.1.2",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -27,9 +27,6 @@ System.config({
     },
     "github:jspm/nodelibs-events@0.1.1": {
       "events": "npm:events@1.0.2"
-    },
-    "github:jspm/nodelibs-os@0.1.0": {
-      "os-browserify": "npm:os-browserify@0.1.2"
     },
     "github:jspm/nodelibs-path@0.1.0": {
       "path-browserify": "npm:path-browserify@0.0.0"
@@ -49,14 +46,10 @@ System.config({
     "github:jspm/nodelibs-vm@0.1.0": {
       "vm-browserify": "npm:vm-browserify@0.0.4"
     },
-    "npm:angular2@2.0.0-beta.7": {
-      "crypto": "github:jspm/nodelibs-crypto@0.1.0",
-      "es6-promise": "npm:es6-promise@3.0.2",
-      "es6-shim": "npm:es6-shim@0.33.13",
-      "process": "github:jspm/nodelibs-process@0.1.2",
+    "npm:angular2@2.0.0-beta.13": {
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
       "rxjs": "npm:rxjs@5.0.0-beta.2",
-      "zone.js": "npm:zone.js@0.5.15"
+      "zone.js": "npm:zone.js@0.6.9"
     },
     "npm:asn1.js@4.5.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
@@ -195,17 +188,10 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
-    "npm:es6-module-loader@0.17.11": {
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "process": "github:jspm/nodelibs-process@0.1.2",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0",
-      "util": "github:jspm/nodelibs-util@0.1.0",
-      "when": "npm:when@3.7.7"
-    },
-    "npm:es6-promise@3.0.2": {
+    "npm:es6-promise@3.1.2": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:es6-shim@0.33.13": {
+    "npm:es6-shim@0.35.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:evp_bytestokey@1.0.0": {
@@ -227,18 +213,13 @@ System.config({
       "bn.js": "npm:bn.js@4.11.1",
       "brorand": "npm:brorand@1.0.5"
     },
-    "npm:ng2-material@0.2.8": {
-      "angular2": "npm:angular2@2.0.0-beta.7",
-      "es6-promise": "npm:es6-promise@3.0.2",
-      "es6-shim": "npm:es6-shim@0.33.13",
+    "npm:ng2-material@0.3.4": {
+      "angular2": "npm:angular2@2.0.0-beta.13",
+      "es6-promise": "npm:es6-promise@3.1.2",
+      "es6-shim": "npm:es6-shim@0.35.0",
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
       "rxjs": "npm:rxjs@5.0.0-beta.2",
-      "systemjs": "npm:systemjs@0.19.2",
-      "typescript": "npm:typescript@1.8.0",
-      "zone.js": "npm:zone.js@0.5.15"
-    },
-    "npm:os-browserify@0.1.2": {
-      "os": "github:jspm/nodelibs-os@0.1.0"
+      "zone.js": "npm:zone.js@0.6.9"
     },
     "npm:parse-asn1@5.0.0": {
       "asn1.js": "npm:asn1.js@4.5.2",
@@ -292,10 +273,6 @@ System.config({
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:reflect-metadata@0.1.3": {
-      "assert": "github:jspm/nodelibs-assert@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
     "npm:ripemd160@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
@@ -318,17 +295,6 @@ System.config({
     "npm:string_decoder@0.10.31": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:systemjs@0.19.2": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "es6-module-loader": "npm:es6-module-loader@0.17.11",
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "process": "github:jspm/nodelibs-process@0.1.2",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0",
-      "when": "npm:when@3.7.7"
-    },
-    "npm:typescript@1.8.0": {
-      "os": "github:jspm/nodelibs-os@0.1.0"
-    },
     "npm:util@0.10.3": {
       "inherits": "npm:inherits@2.0.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
@@ -336,11 +302,7 @@ System.config({
     "npm:vm-browserify@0.0.4": {
       "indexof": "npm:indexof@0.0.1"
     },
-    "npm:when@3.7.7": {
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:zone.js@0.5.15": {
-      "es6-promise": "npm:es6-promise@3.0.2",
+    "npm:zone.js@0.6.9": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     }
   }
