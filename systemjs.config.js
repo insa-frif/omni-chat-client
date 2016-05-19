@@ -16,7 +16,14 @@ System.config({
     "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
     "@angular/router": "npm:@angular/router@2.0.0-rc.1",
     "@angular/upgrade": "npm:@angular/upgrade@2.0.0-rc.1",
+    "@angular2-material/button": "npm:@angular2-material/button@2.0.0-alpha.4",
+    "@angular2-material/card": "npm:@angular2-material/card@2.0.0-alpha.4",
+    "@angular2-material/checkbox": "npm:@angular2-material/checkbox@2.0.0-alpha.4",
+    "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4",
+    "@angular2-material/input": "npm:@angular2-material/input@2.0.0-alpha.4",
+    "@angular2-material/toolbar": "npm:@angular2-material/toolbar@2.0.0-alpha.4",
     "angular2": "npm:angular2@2.0.0-beta.14",
+    "bluebird": "npm:bluebird@3.4.0",
     "crypto": "github:jspm/nodelibs-crypto@0.1.0",
     "lodash": "npm:lodash@4.8.2",
     "ng2-material": "npm:ng2-material@0.3.4",
@@ -95,12 +102,38 @@ System.config({
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
       "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1"
     },
+    "npm:@angular2-material/button@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
+    },
+    "npm:@angular2-material/card@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4",
+      "angular2": "npm:angular2@2.0.0-beta.17"
+    },
+    "npm:@angular2-material/checkbox@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4",
+      "angular2": "npm:angular2@2.0.0-beta.17"
+    },
+    "npm:@angular2-material/core@2.0.0-alpha.4": {
+      "@angular/common": "npm:@angular/common@2.0.0-rc.1",
+      "@angular/core": "npm:@angular/core@2.0.0-rc.1"
+    },
+    "npm:@angular2-material/input@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
+    },
+    "npm:@angular2-material/toolbar@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
+    },
     "npm:angular2@2.0.0-beta.13": {
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
       "rxjs": "npm:rxjs@5.0.0-beta.2",
       "zone.js": "npm:zone.js@0.6.9"
     },
     "npm:angular2@2.0.0-beta.14": {
+      "reflect-metadata": "npm:reflect-metadata@0.1.2",
+      "rxjs": "npm:rxjs@5.0.0-beta.6",
+      "zone.js": "npm:zone.js@0.6.12"
+    },
+    "npm:angular2@2.0.0-beta.17": {
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
       "rxjs": "npm:rxjs@5.0.0-beta.6",
       "zone.js": "npm:zone.js@0.6.12"
@@ -120,6 +153,9 @@ System.config({
       "buffer-shims": "npm:buffer-shims@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "util": "npm:util@0.10.3"
+    },
+    "npm:bluebird@3.4.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:bn.js@4.11.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
