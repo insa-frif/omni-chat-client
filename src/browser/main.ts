@@ -1,6 +1,6 @@
 import 'reflect-metadata';
-import {Type} from "angular2/core";
-import {bootstrap} from 'angular2/platform/browser';
+import {Type} from "@angular/core";
+import {bootstrap} from '@angular/platform-browser-dynamic';
 
 import {OcAppComponent} from './components/oc-app/oc-app.component';
 

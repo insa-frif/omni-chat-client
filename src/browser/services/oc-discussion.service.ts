@@ -1,8 +1,4 @@
-/**
- * Created by Ruben on 13/03/2016.
- */
-
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 
 import {Contact, User, userG} from './oc-account.service';
 

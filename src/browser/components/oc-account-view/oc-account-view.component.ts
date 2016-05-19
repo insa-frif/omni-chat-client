@@ -1,8 +1,4 @@
-/**
- * Created by Ruben on 26/02/2016.
- */
-
-import {Component, OnInit, Type} from 'angular2/core';
+import {Component, OnInit, Type} from '@angular/core';
 import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from "ng2-material/all";
 
 import {OcContactListComponent} from '../oc-contacts-list/oc-contacts-list.component';

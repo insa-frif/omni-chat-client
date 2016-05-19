@@ -1,9 +1,5 @@
-/**
- * Created by Ruben on 28/02/2016.
- */
-
-import {Component, OnInit} from 'angular2/core';
-import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS, Media, SidenavService} from "ng2-material/all";
+import {Component, OnInit} from '@angular/core';
+import {MATERIAL_DIRECTIVES, MATERIAL_BROWSER_PROVIDERS, Media, SidenavService} from "ng2-material/all";
 
 import {AccountService} from '../../services/oc-account.service';
 import {Contact} from '../../services/oc-account.service';
@@ -15,7 +11,7 @@ import {Contact} from '../../services/oc-account.service';
   directives: [MATERIAL_DIRECTIVES],
   providers: [
     AccountService,
-    MATERIAL_PROVIDERS,
+    MATERIAL_BROWSER_PROVIDERS,
     SidenavService
   ]
 })
@@ -59,7 +55,8 @@ export class OcContactListComponent implements OnInit
   }
 
   public hasMedia(breakSize: string): boolean {
-    return Media.hasMedia(breakSize);
+    return false;
+    // return Media.hasMedia(breakSize);
   }
   public open(name: string) {
     this.sidenav.show(name);

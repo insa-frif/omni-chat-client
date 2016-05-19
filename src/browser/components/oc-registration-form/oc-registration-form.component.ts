@@ -2,9 +2,9 @@
  * Created by Ruben on 06/03/2016.
  */
 
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from 'ng2-material/all';
-import {Router} from 'angular2/router'
+import {Router} from '@angular/router'
 
 @Component({
 	selector: "oc-connection-form",

@@ -1,11 +1,5 @@
-/**
- * Created by Ruben on 26/02/2016.
- */
-
-import {Component} from 'angular2/core';
-import {Type} from 'angular2/core';
-import {OnInit} from 'angular2/core';
-import {Router} from 'angular2/router';
+import {Component, OnInit, Type} from '@angular/core';
+import {Router} from '@angular/router';
 import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from 'ng2-material/all';
 
 import {SliderComponent} from '../oc-slider/oc-slider.component';

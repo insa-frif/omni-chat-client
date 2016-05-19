@@ -1,9 +1,5 @@
-/**
- * Created by Ruben on 06/03/2016.
- */
-
-import {Component, OnInit} from 'angular2/core';
-import {Router} from 'angular2/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from 'ng2-material/all';
 
 @Component({

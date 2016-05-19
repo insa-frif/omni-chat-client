@@ -1,8 +1,4 @@
-/**
- * Created by Ruben on 11/03/2016.
- */
-
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from "ng2-material/all";
 
 import {Contact} from '../../services/oc-account.service';

@@ -2,8 +2,7 @@
  * Created by Ruben on 24/02/2016.
  */
 
-import {Component} from 'angular2/core';
-import {OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 import {SliderService} from "../../services/oc-slider.service";
 
 @Component({

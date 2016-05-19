@@ -1,8 +1,4 @@
-/**
- * Created by Ruben on 24/02/2016.
- */
-
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 
 
 @Injectable()

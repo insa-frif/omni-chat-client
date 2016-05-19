@@ -8,14 +8,40 @@ var buildTools = require('via-build-tools');
 var sass = require('gulp-sass');
 
 var locations = new buildTools.config.Locations({
-  root: path.resolve(__dirname)
+  root: path.resolve(__dirname),
+  core: {
+    base: "src/core",
+    typescript: ["**/*.ts"],
+    definitions: ["../../typings/**/*.d.ts"]
+  },
+  targets: {
+    browser: {
+      base: "src/browser",
+      typescript: ["**/*.ts"],
+      main: "main",
+      definitions: []
+    },
+    electron: {
+      base: "src/electron",
+      typescript: ["**/*.ts"],
+      main: "main",
+      definitions: []
+    },
+    node: {
+      base: "src/node",
+      typescript: ["**/*.ts"],
+      main: "main",
+      definitions: []
+    }
+  }
 });
 
 buildTools.tasks.build(gulp, locations, {
   tsc: {
     typescript: typescript,
-    forceConsistentCasingInFileNames: true,
-    allowSyntheticDefaultImports: true
+    noExternalResolve: false,
+    module: "commonjs",
+    moduleResolution: "node"
   }
 });
 buildTools.tasks.install(gulp, locations);
