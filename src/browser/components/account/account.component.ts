@@ -6,8 +6,8 @@ import {DiscussionsTabsComponent} from '../discussions-tabs/oc-discussions-tabs.
 
 @Component({
   selector: "oc-account-view",
-  templateUrl: "./components/account-view/account-view.component.html",
-  styleUrls: ["./components/account-view/account-view.component.css"],
+  templateUrl: "./components/account/account.component.html",
+  styleUrls: ["./components/account/account.component.css"],
   directives: [
     ContactsListComponent,
     ToolbarComponent,
@@ -21,13 +21,8 @@ export class AccountComponent implements OnInit
 
   public ngOnInit(): void
   {
-    this.username = "Joseph";
-    // TODO(Ruben) : bind username
+    this.username = "USERNAME";
   }
 
-  constructor()
-  {
-    // TODO : fill it when necessary
-  }
-
+  constructor() {}
 }

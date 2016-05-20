@@ -19,7 +19,7 @@ export class ContactsListComponent implements OnInit {
   public title: string = "Contact List";
   public contacts: Contact[];
 	public selectedContact: Contact;
-  public searchQuery: string = "";
+  public searchQuery: string;
 
   private _accountService: AccountService;
 
@@ -27,9 +27,13 @@ export class ContactsListComponent implements OnInit {
     this._accountService = accountService;
   }
 
+  public ngOnInit(): void {
+    this.loadContacts();
+  }
+
   public loadContacts(): void {
     this._accountService.loadContacts("Someone")
-      .then( (contacts: Contact[]) => {
+      .then((contacts: Contact[]) => {
         this.contacts = contacts;
       });
   }
@@ -52,10 +56,6 @@ export class ContactsListComponent implements OnInit {
 	public selectContact(c: Contact): void {
 		this.selectedContact = c;
 	}
-
-  public ngOnInit(): void {
-    this.loadContacts();
-  }
 
   public hasMedia(breakSize: string): boolean {
     return false;

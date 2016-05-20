@@ -1,1 +1,17 @@
-router-outlet
+md-sidenav-layout(fullscreen="")
+  md-sidenav("#navMenu"="")
+    md-nav-list
+      a(md-list-item="", "[routerLink]"="['/']") Home
+      a(md-list-item="", "[routerLink]"="['/register']") Register
+      a(md-list-item="", "[routerLink]"="['/authenticate']") Authenticate
+    button(md-button="", "(click)"="navMenu.close()") CLOSE
+
+  div
+    md-toolbar(color="primary")
+      button(md-icon-button="", "(click)"="navMenu.open()")
+        md-icon.md-24 menu
+      .toolbar
+        h1 {{title}}
+
+    .content(dir="ltr")
+      router-outlet

@@ -1,11 +1,11 @@
-md-sidenav-layout(layout="row")
-  md-sidenav("#sidenav", "[mode]"="'side'")
-    md-toolbar
-      h1 Your contacts
-    md-input(type="text", "[(ngModel)]"="searchQuery", placeholder="Search...")
-    h2.md-no-sticky Recent...
-    md-list
-      md-list-item("*ngFor"="#c of contacts; #index = index", "[class.selected]"="c === selectedContact",
-        "(click)"="selectContact(c)")
-        h3.name {{c.username}}
-        button("*ngIf"="c === selectedContact", "md-raised-button"="", "(click)"="sendEvent()" ) Discuss
+// md-sidenav-layout(layout="row")
+  md-sidenav("[mode]"="'side'", opened="true")
+md-toolbar
+  h1 Your contacts
+// md-input(type="text", "[(ngModel)]"="searchQuery", placeholder="Search...")
+h2.md-no-sticky Recent...
+md-list
+  md-list-item("*ngFor"="let c of contacts", "[class.selected]"="c === selectedContact",
+    "(click)"="selectContact(c)")
+    h3.name {{c.username}}
+    button("*ngIf"="c === selectedContact", "md-raised-button"="", "(click)"="sendEvent()" ) Discuss

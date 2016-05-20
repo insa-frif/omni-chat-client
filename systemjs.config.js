@@ -20,6 +20,7 @@ System.config({
     "@angular2-material/card": "npm:@angular2-material/card@2.0.0-alpha.4",
     "@angular2-material/checkbox": "npm:@angular2-material/checkbox@2.0.0-alpha.4",
     "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4",
+    "@angular2-material/icon": "npm:@angular2-material/icon@2.0.0-alpha.4",
     "@angular2-material/input": "npm:@angular2-material/input@2.0.0-alpha.4",
     "@angular2-material/list": "npm:@angular2-material/list@2.0.0-alpha.4",
     "@angular2-material/sidenav": "npm:@angular2-material/sidenav@2.0.0-alpha.4",
@@ -72,10 +73,19 @@ System.config({
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:@angular/core@2.0.0-rc.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "rxjs": "npm:rxjs@5.0.0-beta.6",
+      "zone.js": "npm:zone.js@0.6.12"
+    },
     "npm:@angular/core@2.0.0-rc.1": {
       "process": "github:jspm/nodelibs-process@0.1.2",
       "rxjs": "npm:rxjs@5.0.0-beta.6",
       "zone.js": "npm:zone.js@0.6.12"
+    },
+    "npm:@angular/http@2.0.0-rc.0": {
+      "@angular/core": "npm:@angular/core@2.0.0-rc.0",
+      "rxjs": "npm:rxjs@5.0.0-beta.6"
     },
     "npm:@angular/http@2.0.0-rc.1": {
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
@@ -117,7 +127,11 @@ System.config({
     },
     "npm:@angular2-material/core@2.0.0-alpha.4": {
       "@angular/common": "npm:@angular/common@2.0.0-rc.1",
-      "@angular/core": "npm:@angular/core@2.0.0-rc.1"
+      "@angular/core": "npm:@angular/core@2.0.0-rc.0"
+    },
+    "npm:@angular2-material/icon@2.0.0-alpha.4": {
+      "@angular/http": "npm:@angular/http@2.0.0-rc.0",
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
     },
     "npm:@angular2-material/input@2.0.0-alpha.4": {
       "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"

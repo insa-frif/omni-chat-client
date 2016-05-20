@@ -1,6 +1,6 @@
 import {Component, OnInit, Type} from '@angular/core';
 import {Router, ROUTER_DIRECTIVES} from '@angular/router';
-import {MdButton} from '@angular2-material/button/button';
+import {MdAnchor} from '@angular2-material/button/button';
 import {MdCard} from '@angular2-material/card/card';
 import {MdToolbar} from '@angular2-material/toolbar/toolbar';
 
@@ -8,7 +8,7 @@ import {MdToolbar} from '@angular2-material/toolbar/toolbar';
   selector: "oc-home",
   templateUrl: "./components/home/home.component.html",
   styleUrls: ["./components/home/home.component.css"],
-  directives: [MdButton, MdCard, MdToolbar, ROUTER_DIRECTIVES]
+  directives: [MdAnchor, MdCard, MdToolbar, ROUTER_DIRECTIVES]
 })
 export class HomeComponent implements OnInit {
   title: string = "OmniChat";

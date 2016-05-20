@@ -1,13 +1,14 @@
-md-toolbar(color="primary")
-  h1.welcome {{title}}
+md-card(style="width: 400px; margin: auto;") Hoy
 
-div.global
-  md-card(style="width: 400px; margin: auto;")
-    div
-      a("md-button"="", title="Register", "[routerLink]"="['/authenticate']") Authenticate
-      // Force space between buttons
-      =  " "
-      a.md-primary("md-raised-button"="", title="Register", "[routerLink]"="['/register']") Register
-    // This is hack to force the inclusion of md-button
-    div(style="display: none;")
-      button("md-button"="")
+//md-toolbar(color="primary")
+//  h1.welcome {{title}}
+//
+//div.global
+//  md-card(style="width: 400px; margin: auto;")
+//    div
+//      a("md-button"="", title="Register", "[routerLink]"="['/authenticate']") Authenticate
+//      // Force space between buttons
+//      = " "
+//      a.md-primary("md-raised-button"="", title="Register", "[routerLink]"="['/register']") Register
+//      = " "
+//      a.md-primary("md-raised-button"="", title="Account", "[routerLink]"="['/account']") Account
