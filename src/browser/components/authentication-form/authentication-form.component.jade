@@ -1,5 +1,5 @@
 md-card
-  md-toolbar(color="primary") Registration
+  md-toolbar(color="primary") Authentication
   md-card-content
     form("(submit)"="submit($event)")
       table(style="width: 100%", cellspacing="0")
@@ -9,17 +9,20 @@ md-card
         tr
           td
             md-input(type="password", style="width: 100%", "[(ngModel)]"="password", placeholder="Password")
+        tr
+          td
+            md-checkbox("[(ngModel)]"="keep") Keep me connected
 
       input(type="submit",
         "md-raised-button"="",
-        title="Join us !",
+        title="Authenticate",
         "[class.ok]"="login && password",
         "[disabled]"="!login || !password",
-        value = "Register"
+        value = "Authenticate"
       )
 
     .divider
 
     .centered.awayfromtop(layout-gt-sm="column")
-      span Already a member ?
-      a("[routerLink]"="['/authenticate']") Authenticate !
+      span Not a member yet ?
+      a("[routerLink]"="['/register']") Join us!

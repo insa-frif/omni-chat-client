@@ -21,6 +21,8 @@ System.config({
     "@angular2-material/checkbox": "npm:@angular2-material/checkbox@2.0.0-alpha.4",
     "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4",
     "@angular2-material/input": "npm:@angular2-material/input@2.0.0-alpha.4",
+    "@angular2-material/list": "npm:@angular2-material/list@2.0.0-alpha.4",
+    "@angular2-material/sidenav": "npm:@angular2-material/sidenav@2.0.0-alpha.4",
     "@angular2-material/toolbar": "npm:@angular2-material/toolbar@2.0.0-alpha.4",
     "angular2": "npm:angular2@2.0.0-beta.14",
     "bluebird": "npm:bluebird@3.4.0",
@@ -118,6 +120,12 @@ System.config({
       "@angular/core": "npm:@angular/core@2.0.0-rc.1"
     },
     "npm:@angular2-material/input@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
+    },
+    "npm:@angular2-material/list@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
+    },
+    "npm:@angular2-material/sidenav@2.0.0-alpha.4": {
       "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
     },
     "npm:@angular2-material/toolbar@2.0.0-alpha.4": {

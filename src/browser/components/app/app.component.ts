@@ -4,9 +4,9 @@ import {Location} from '@angular/common';
 import {Component, Type} from '@angular/core';
 import {Router, Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 
+import {AuthenticationFormComponent} from "../authentication-form/authentication-form.component";
 import {HomeComponent} from '../home/home.component';
-import {OcAccountViewComponent} from '../oc-account-view/oc-account-view.component';
-import {OcConnectionFormComponent} from '../oc-connection-form/oc-connection-form.component';
+import {AccountComponent} from '../account/account.component';
 import {RegistrationFormComponent} from '../registration-form/registration-form.component';
 
 @Component({
@@ -17,12 +17,10 @@ import {RegistrationFormComponent} from '../registration-form/registration-form.
   providers: [ROUTER_PROVIDERS]
 })
 @Routes([
+  {path: '/account', component: AccountComponent},
+  {path: '/authenticate', component: AuthenticationFormComponent},
   {path: '/home', component: HomeComponent},
-  // {path: '/account', component: <Type>OcAccountViewComponent},
-  // {path: '/connection', component: <Type>OcConnectionFormComponent},
 	{path: '/register', component: RegistrationFormComponent}
-  // TODO : /account/:username + ?
-  // TODO : add a path to a sign up formular
 ])
 export class AppComponent
 {

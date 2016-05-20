@@ -1,8 +1,13 @@
-md-toolbar
-  button("md-raised-button"="", title="Connect") Connect
-  a("md-raised-button"="", title="Register", "[routerLink]"="['/register']") Register
+md-toolbar(color="primary")
+  h1.welcome {{title}}
 
 div.global
-  div.title
-    h1.welcome {{title}}
-  // slider Loading slider...
+  md-card(style="width: 400px; margin: auto;")
+    div
+      a("md-button"="", title="Register", "[routerLink]"="['/authenticate']") Authenticate
+      // Force space between buttons
+      =  " "
+      a.md-primary("md-raised-button"="", title="Register", "[routerLink]"="['/register']") Register
+    // This is hack to force the inclusion of md-button
+    div(style="display: none;")
+      button("md-button"="")

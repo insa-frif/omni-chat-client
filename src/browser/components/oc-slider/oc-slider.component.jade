@@ -1,8 +1,0 @@
-div.slider
-  div.centeredContent("*ngIf"="pictures")
-    div.superposition("*ngFor"="#pic of pictures ; #i=index", "[class.current]"="i === currentPic", "[class.hidden]"="i !== currentPic")
-      img.sliderPic("[class.current]"="i === currentPic", "[class.hidden]"="i !== currentPic", src="{{pic}}")
-      div.arrow.left("*ngIf"="i === currentPic")
-        img#leftarrow(src="../../pictures/arrowL.png", "(click)"="prevPicture()")
-      div.arrow.right("*ngIf"="i === currentPic")
-        img#rightarrow(src="../../pictures/arrowR.png", "(click)"="nextPicture()")
