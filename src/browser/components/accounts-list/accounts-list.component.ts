@@ -6,13 +6,15 @@ import {MdList, MdListItem} from '@angular2-material/list/list';
 
 import {AccountService} from '../../services/oc-account.service';
 import {Contact} from '../../services/oc-account.service';
+import {Observable} from "rxjs/Observable";
+import {UserService, UserAccount, ObservableUser} from "../../services/user.service";
 
 @Component({
   selector: "oc-accounts-list",
   templateUrl: "./components/accounts-list/accounts-list.component.html",
   styleUrls: ["./components/accounts-list/accounts-list.component.css"],
   directives: [MdAnchor, MdButton, MdIcon, MdList, MdListItem, ROUTER_DIRECTIVES],
-  providers: [AccountService]
+  providers: [AccountService, UserService]
 })
 export class AccountsListComponent implements OnInit {
   public title: string = "Accounts List";
@@ -20,13 +22,24 @@ export class AccountsListComponent implements OnInit {
 	public selectedContact: Contact;
   public searchQuery: string;
 
-  private _accountService: AccountService;
+  public user: ObservableUser;
 
-  constructor(accountService: AccountService) {
+  private _accountService: AccountService;
+  private _userService: UserService;
+
+  constructor(accountService: AccountService, userService: UserService) {
     this._accountService = accountService;
+    this._userService = userService;
   }
 
   public ngOnInit(): void {
+    this._userService.currentUser
+      .subscribe((user: ObservableUser) => {
+        this.user = user;
+      });
+
+    this._userService.resetCurrentUser();
+
     this.loadContacts();
   }
 
@@ -59,6 +72,12 @@ export class AccountsListComponent implements OnInit {
   public hasMedia(breakSize: string): boolean {
     return false;
     // return Media.hasMedia(breakSize);
+  }
+
+  public addAccount(): void {
+    if (this.user !== null) {
+      this.user.loadAccounts();
+    }
   }
 
   // public open(name: string) {

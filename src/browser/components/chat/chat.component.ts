@@ -30,14 +30,15 @@ import {ChatDiscussionComponent} from "../chat-discussion/chat-discussion.compon
   {path: '/', component: ChatHomeComponent},
   {path: '/discussion', component: ChatDiscussionComponent}
 ])
-export class ChatComponent implements OnInit
-{
+export class ChatComponent implements OnInit {
+  public user: any;
+  
   public title: string =  "Welcome you !";
   private username: string;
 
+  constructor() {}
+  
   public ngOnInit(): void {
     this.username = "USERNAME";
   }
-
-  constructor() {}
 }

@@ -1,15 +1,31 @@
 md-card
-  div
-    button(md-icon-button="", title="Add account")
+  .user-details
+    div {{user.syncUsername}}
+    div {{user.username | async}}
+    ul
+      li("*ngFor"="let acc of user.accounts | async")
+        h2
+          span {{acc.name}}
+          span {{acc.driver}}
+
+  .top-buttons
+    button(md-icon-button="", title="Add account", "(click)"="addAccount()")
       md-icon.md-24 add
+    = " "
     button(md-icon-button="", title="New MetaDiscussion")
       md-icon.md-24 forum
-    a(md-icon-button="", "[routerLink]"="['/chat']", title="Home", style="vertical-align: bottom; line-height: 36px")
+    = " "
+    a(md-icon-button="", "[routerLink]"="['/chat']", title="Home")
       md-icon.md-24 home
 
   // h2 Meta
     ul
       li(ngFor...)
+  ul
+    li("*ngFor"="let acc of accounts | async")
+      h2
+        span {{acc.name}}
+        span {{acc.life}}
   ul
     li("*ngFor"="let acc of contacts")
       h2

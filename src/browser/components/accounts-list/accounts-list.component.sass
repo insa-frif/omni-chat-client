@@ -1,17 +1,11 @@
 @import "../../style/material"
 
-md-divider
-  margin-top: 10px
-  margin-bottom: 10px
-
-md-input-container md-input
+.top-buttons
   text-align: center
 
-md-input-container
-  width: 99%  // Prevent a lateral scrollbar from appearing
+.top-buttons > [md-icon-button]:hover
+  background-color: rgba(0, 0, 0, 0.12)
 
-md-list-item:hover
-  background-color: md-color($md-accent, lighter)
-
-.selected, .selected:hover
-  background-color: md-color($md-accent)
+.top-buttons > a
+  vertical-align: bottom
+  line-height: 36px
