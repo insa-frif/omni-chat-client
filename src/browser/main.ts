@@ -12,7 +12,7 @@ bootstrap(AppComponent, [
   ROUTER_PROVIDERS,
   HTTP_PROVIDERS,
   provide(MdIconRegistry, {
-    useFactory: (http) => {
+    useFactory: (http: Http) => {
       return new MdIconRegistry(http);
     },
     deps: [Http]

@@ -4,7 +4,8 @@ md-sidenav-layout(fullscreen="")
       a(md-list-item="", "[routerLink]"="['/']") Home
       a(md-list-item="", "[routerLink]"="['/register']") Register
       a(md-list-item="", "[routerLink]"="['/authenticate']") Authenticate
-    button(md-button="", "(click)"="navMenu.close()") CLOSE
+      a(md-list-item="", "[routerLink]"="['/chat']") Chat
+    // button(md-button="", "(click)"="navMenu.close()") CLOSE
 
   div
     md-toolbar(color="primary")
@@ -13,5 +14,5 @@ md-sidenav-layout(fullscreen="")
       .toolbar
         h1 {{title}}
 
-    .content(dir="ltr")
+    .body(dir="ltr")
       router-outlet

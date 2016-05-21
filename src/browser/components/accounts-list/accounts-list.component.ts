@@ -9,14 +9,14 @@ import {AccountService} from '../../services/oc-account.service';
 import {Contact} from '../../services/oc-account.service';
 
 @Component({
-  selector: "oc-contacts-list",
-  templateUrl: "./components/contacts-list/contacts-list.component.html",
-  styleUrls: ["./components/contacts-list/contacts-list.component.css"],
-  directives: [MdSidenav, MdSidenavLayout],
+  selector: "oc-accounts-list",
+  templateUrl: "./components/accounts-list/accounts-list.component.html",
+  styleUrls: ["./components/accounts-list/accounts-list.component.css"],
+  directives: [MdButton, MdList, MdListItem, ROUTER_DIRECTIVES],
   providers: [AccountService]
 })
-export class ContactsListComponent implements OnInit {
-  public title: string = "Contact List";
+export class AccountsListComponent implements OnInit {
+  public title: string = "Accounts List";
   public contacts: Contact[];
 	public selectedContact: Contact;
   public searchQuery: string;

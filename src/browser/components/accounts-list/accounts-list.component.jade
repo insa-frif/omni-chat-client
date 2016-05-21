@@ -1,0 +1,31 @@
+md-card
+  button(md-button="") Add account
+  button(md-button="") New Meta
+  // h2 Meta
+    ul
+      li(ngFor...)
+  ul
+    li("*ngFor"="let acc of contacts")
+      h2
+        span {{acc.username}}
+        // TODO: add an icon here to show the driverName
+      .contacts
+        md-list
+          a(md-list-item="", "[routerLink]"="['/chat']")
+            .avatar
+            .name Contact1
+          a(md-list-item="", "[routerLink]"="['/chat']")
+            .avatar
+            .name Contact2
+
+// md-sidenav-layout(layout="row")
+  md-sidenav("[mode]"="'side'", opened="true")
+//md-toolbar
+//  h1 Your contacts
+//// md-input(type="text", "[(ngModel)]"="searchQuery", placeholder="Search...")
+//h2.md-no-sticky Recent...
+//md-list
+//  md-list-item("*ngFor"="let c of contacts", "[class.selected]"="c === selectedContact",
+//    "(click)"="selectContact(c)")
+//    h3.name {{c.username}}
+//    button("*ngIf"="c === selectedContact", "md-raised-button"="", "(click)"="sendEvent()" ) Discuss

@@ -11,7 +11,7 @@ import {MdToolbar} from '@angular2-material/toolbar/toolbar';
 
 import {AuthenticationFormComponent} from "../authentication-form/authentication-form.component";
 import {HomeComponent} from '../home/home.component';
-import {AccountComponent} from '../account/account.component';
+import {ChatComponent} from '../chat/chat.component';
 import {RegistrationFormComponent} from '../registration-form/registration-form.component';
 
 @Component({
@@ -23,7 +23,7 @@ import {RegistrationFormComponent} from '../registration-form/registration-form.
 })
 @Routes([
   {path: '/', component: HomeComponent},
-  // {path: '/account', component: AccountComponent},
+  {path: '/chat', component: ChatComponent},
   {path: '/authenticate', component: AuthenticationFormComponent},
 	{path: '/register', component: RegistrationFormComponent}
 ])
