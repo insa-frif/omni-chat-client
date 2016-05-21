@@ -16,21 +16,22 @@ System.config({
     "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
     "@angular/router": "npm:@angular/router@2.0.0-rc.1",
     "@angular/upgrade": "npm:@angular/upgrade@2.0.0-rc.1",
-    "@angular2-material/button": "npm:@angular2-material/button@2.0.0-alpha.4-3",
-    "@angular2-material/card": "npm:@angular2-material/card@2.0.0-alpha.4-3",
-    "@angular2-material/checkbox": "npm:@angular2-material/checkbox@2.0.0-alpha.4-3",
-    "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3",
-    "@angular2-material/icon": "npm:@angular2-material/icon@2.0.0-alpha.4-3",
-    "@angular2-material/input": "npm:@angular2-material/input@2.0.0-alpha.4-3",
-    "@angular2-material/list": "npm:@angular2-material/list@2.0.0-alpha.4-3",
-    "@angular2-material/sidenav": "npm:@angular2-material/sidenav@2.0.0-alpha.4-3",
-    "@angular2-material/toolbar": "npm:@angular2-material/toolbar@2.0.0-alpha.4-3",
+    "@angular2-material/button": "npm:@angular2-material/button@2.0.0-alpha.4",
+    "@angular2-material/card": "npm:@angular2-material/card@2.0.0-alpha.4",
+    "@angular2-material/checkbox": "npm:@angular2-material/checkbox@2.0.0-alpha.4",
+    "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4",
+    "@angular2-material/icon": "npm:@angular2-material/icon@2.0.0-alpha.4",
+    "@angular2-material/input": "npm:@angular2-material/input@2.0.0-alpha.4",
+    "@angular2-material/list": "npm:@angular2-material/list@2.0.0-alpha.4",
+    "@angular2-material/radio": "npm:@angular2-material/radio@2.0.0-alpha.4",
+    "@angular2-material/sidenav": "npm:@angular2-material/sidenav@2.0.0-alpha.4",
+    "@angular2-material/toolbar": "npm:@angular2-material/toolbar@2.0.0-alpha.4",
     "angular2": "npm:angular2@2.0.0-beta.17",
     "bluebird": "npm:bluebird@3.4.0",
     "crypto": "github:jspm/nodelibs-crypto@0.1.0",
     "incident": "npm:incident@1.0.6",
     "lodash": "npm:lodash@4.12.0",
-    "omni-chat": "npm:omni-chat@0.5.3",
+    "omni-chat": "npm:omni-chat@0.5.4",
     "palantiri-interfaces": "npm:palantiri-interfaces@0.3.4",
     "reflect-metadata": "npm:reflect-metadata@0.1.3",
     "rxjs": "npm:rxjs@5.0.0-beta.7",
@@ -75,10 +76,19 @@ System.config({
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:@angular/core@2.0.0-rc.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "rxjs": "npm:rxjs@5.0.0-beta.6",
+      "zone.js": "npm:zone.js@0.6.12"
+    },
     "npm:@angular/core@2.0.0-rc.1": {
       "process": "github:jspm/nodelibs-process@0.1.2",
       "rxjs": "npm:rxjs@5.0.0-beta.6",
       "zone.js": "npm:zone.js@0.6.12"
+    },
+    "npm:@angular/http@2.0.0-rc.0": {
+      "@angular/core": "npm:@angular/core@2.0.0-rc.0",
+      "rxjs": "npm:rxjs@5.0.0-beta.6"
     },
     "npm:@angular/http@2.0.0-rc.1": {
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
@@ -107,34 +117,39 @@ System.config({
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
       "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1"
     },
-    "npm:@angular2-material/button@2.0.0-alpha.4-3": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
+    "npm:@angular2-material/button@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
     },
-    "npm:@angular2-material/card@2.0.0-alpha.4-3": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
+    "npm:@angular2-material/card@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4",
+      "angular2": "npm:angular2@2.0.0-beta.17"
     },
-    "npm:@angular2-material/checkbox@2.0.0-alpha.4-3": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
+    "npm:@angular2-material/checkbox@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4",
+      "angular2": "npm:angular2@2.0.0-beta.17"
     },
-    "npm:@angular2-material/core@2.0.0-alpha.4-3": {
+    "npm:@angular2-material/core@2.0.0-alpha.4": {
       "@angular/common": "npm:@angular/common@2.0.0-rc.1",
       "@angular/core": "npm:@angular/core@2.0.0-rc.1"
     },
-    "npm:@angular2-material/icon@2.0.0-alpha.4-3": {
-      "@angular/http": "npm:@angular/http@2.0.0-rc.1",
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
+    "npm:@angular2-material/icon@2.0.0-alpha.4": {
+      "@angular/http": "npm:@angular/http@2.0.0-rc.0",
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
     },
-    "npm:@angular2-material/input@2.0.0-alpha.4-3": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
+    "npm:@angular2-material/input@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
     },
-    "npm:@angular2-material/list@2.0.0-alpha.4-3": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
+    "npm:@angular2-material/list@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
     },
-    "npm:@angular2-material/sidenav@2.0.0-alpha.4-3": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
+    "npm:@angular2-material/radio@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
     },
-    "npm:@angular2-material/toolbar@2.0.0-alpha.4-3": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
+    "npm:@angular2-material/sidenav@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
+    },
+    "npm:@angular2-material/toolbar@2.0.0-alpha.4": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
     },
     "npm:angular2@2.0.0-beta.17": {
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
@@ -311,7 +326,7 @@ System.config({
       "bn.js": "npm:bn.js@4.11.3",
       "brorand": "npm:brorand@1.0.5"
     },
-    "npm:omni-chat@0.5.3": {
+    "npm:omni-chat@0.5.4": {
       "bluebird": "npm:bluebird@3.4.0",
       "events": "github:jspm/nodelibs-events@0.1.1",
       "incident": "npm:incident@1.0.6",

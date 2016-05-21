@@ -8,7 +8,7 @@ md-card
     //      span {{acc.driver}}
 
   .top-buttons
-    button(md-icon-button="", title="Add account", "(click)"="addAccount()")
+    a(md-icon-button="", "[routerLink]"="['/chat/add-account']", title="Add Account")
       md-icon.md-24 add
     = " "
     button(md-icon-button="", title="New MetaDiscussion")

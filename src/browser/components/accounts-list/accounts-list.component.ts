@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router';
+import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 import {MdAnchor, MdButton} from '@angular2-material/button/button';
 import {MdIcon} from '@angular2-material/icon/icon';
 import {MdList, MdListItem} from '@angular2-material/list/list';
@@ -18,9 +18,12 @@ import {ObservableUser} from "../../../core/models/observable-user";
 export class AccountsListComponent implements OnInit {
   public user: ObservableUser;
 
+  private _router: Router;
   private _userService: UserService;
 
-  constructor(userService: UserService) {
+
+  constructor(router: Router, userService: UserService) {
+    this._router = router;
     this._userService = userService;
   }
 
@@ -66,7 +69,7 @@ export class AccountsListComponent implements OnInit {
 
   public addAccount(): void {
     if (this.user !== null) {
-      // router.navigate chat/add-account
+      this._router.navigate(["chat/add-account"]);
     }
   }
 
