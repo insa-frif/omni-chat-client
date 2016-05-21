@@ -1,10 +1,17 @@
 @import "../../style/material"
 
+$shadow-color: rgba(0, 0, 0, 0.12)
+
+.user-details
+  border-bottom: 1px solid $shadow-color
+  padding-bottom: 1rem
+  margin-bottom: 0.5rem
+
 .top-buttons
   text-align: center
 
 .top-buttons > [md-icon-button]:hover
-  background-color: rgba(0, 0, 0, 0.12)
+  background-color: $shadow-color
 
 .top-buttons > a
   vertical-align: bottom

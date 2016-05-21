@@ -13,14 +13,13 @@ import {AuthenticationFormComponent} from "../authentication-form/authentication
 import {HomeComponent} from '../home/home.component';
 import {ChatComponent} from '../chat/chat.component';
 import {RegistrationFormComponent} from '../registration-form/registration-form.component';
-import {SessionService} from "../../services/session.service";
 
 @Component({
   selector: "oc-app",
   templateUrl: "./components/app/app.component.html",
   styleUrls: ["./components/app/app.component.css"],
   directives: [MdButton, MdIcon, MdList, MdListItem, MdSidenav, MdSidenavLayout, MdToolbar, ROUTER_DIRECTIVES],
-  providers: [SessionService]
+  providers: []
 })
 @Routes([
   {path: '/', component: HomeComponent},
@@ -32,7 +31,6 @@ export class AppComponent {
   title: string = "OmniChat";
   private _router: Router;
   private _location: Location;
-  private _session: any;
 
   constructor(router: Router, location: Location) {
     this._router = router;

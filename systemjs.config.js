@@ -28,7 +28,9 @@ System.config({
     "angular2": "npm:angular2@2.0.0-beta.17",
     "bluebird": "npm:bluebird@3.4.0",
     "crypto": "github:jspm/nodelibs-crypto@0.1.0",
+    "incident": "npm:incident@1.0.6",
     "lodash": "npm:lodash@4.12.0",
+    "omni-chat": "npm:omni-chat@0.5.3",
     "palantiri-interfaces": "npm:palantiri-interfaces@0.3.4",
     "reflect-metadata": "npm:reflect-metadata@0.1.3",
     "rxjs": "npm:rxjs@5.0.0-beta.7",
@@ -294,6 +296,10 @@ System.config({
     "npm:hash.js@1.0.3": {
       "inherits": "npm:inherits@2.0.1"
     },
+    "npm:incident@1.0.6": {
+      "lodash": "npm:lodash@4.12.0",
+      "path": "github:jspm/nodelibs-path@0.1.0"
+    },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
@@ -304,6 +310,16 @@ System.config({
     "npm:miller-rabin@4.0.0": {
       "bn.js": "npm:bn.js@4.11.3",
       "brorand": "npm:brorand@1.0.5"
+    },
+    "npm:omni-chat@0.5.3": {
+      "bluebird": "npm:bluebird@3.4.0",
+      "events": "github:jspm/nodelibs-events@0.1.1",
+      "incident": "npm:incident@1.0.6",
+      "lodash": "npm:lodash@4.12.0",
+      "palantiri-interfaces": "npm:palantiri-interfaces@0.3.4",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "readline": "github:jspm/nodelibs-readline@0.1.0"
     },
     "npm:palantiri-interfaces@0.3.4": {
       "bluebird": "npm:bluebird@3.4.0",

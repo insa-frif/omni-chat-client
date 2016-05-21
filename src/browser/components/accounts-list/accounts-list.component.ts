@@ -5,30 +5,22 @@ import {MdIcon} from '@angular2-material/icon/icon';
 import {MdList, MdListItem} from '@angular2-material/list/list';
 
 import {AccountService} from '../../services/oc-account.service';
-import {Contact} from '../../services/oc-account.service';
-import {Observable} from "rxjs/Observable";
-import {UserService, UserAccount, ObservableUser} from "../../services/user.service";
+import {UserService} from "../../services/user.service";
+import {ObservableUser} from "../../../core/models/observable-user";
 
 @Component({
   selector: "oc-accounts-list",
   templateUrl: "./components/accounts-list/accounts-list.component.html",
   styleUrls: ["./components/accounts-list/accounts-list.component.css"],
   directives: [MdAnchor, MdButton, MdIcon, MdList, MdListItem, ROUTER_DIRECTIVES],
-  providers: [AccountService, UserService]
+  providers: []
 })
 export class AccountsListComponent implements OnInit {
-  public title: string = "Accounts List";
-  public contacts: Contact[];
-	public selectedContact: Contact;
-  public searchQuery: string;
-
   public user: ObservableUser;
 
-  private _accountService: AccountService;
   private _userService: UserService;
 
-  constructor(accountService: AccountService, userService: UserService) {
-    this._accountService = accountService;
+  constructor(userService: UserService) {
     this._userService = userService;
   }
 
@@ -38,45 +30,43 @@ export class AccountsListComponent implements OnInit {
         this.user = user;
       });
 
-    this._userService.resetCurrentUser();
-
-    this.loadContacts();
+    // this.loadContacts();
   }
 
-  public loadContacts(): void {
-    this._accountService.loadContacts("Someone")
-      .then((contacts: Contact[]) => {
-        this.contacts = contacts;
-      });
-  }
+  // public loadContacts(): void {
+  //   this._accountService.loadContacts("Someone")
+  //     .then((contacts: Contact[]) => {
+  //       this.contacts = contacts;
+  //     });
+  // }
 
-	public sendEvent(): void {
-		let myEvent = new CustomEvent(
-			"discussionWanted",
-			{
-				detail : {
-					contact: this.selectedContact,
-					bubbles: true,
-					cancelable: true
-				}
-			}
-		);
-		console.log("Event envoyé ! " + myEvent);
-		window.document.getElementById("handleEventDiscussionWanted").dispatchEvent(myEvent);
-	}
+  // public sendEvent(): void {
+  //   let myEvent = new CustomEvent(
+  //     "discussionWanted",
+  //     {
+  //       detail : {
+  //         contact: this.selectedContact,
+  //         bubbles: true,
+  //         cancelable: true
+  //       }
+  //     }
+  //   );
+  //   console.log("Event envoyé ! " + myEvent);
+  //   window.document.getElementById("handleEventDiscussionWanted").dispatchEvent(myEvent);
+  // }
 
-	public selectContact(c: Contact): void {
-		this.selectedContact = c;
-	}
+  // public selectContact(c: Contact): void {
+  //   this.selectedContact = c;
+  // }
 
-  public hasMedia(breakSize: string): boolean {
-    return false;
-    // return Media.hasMedia(breakSize);
-  }
+  // public hasMedia(breakSize: string): boolean {
+  //   return false;
+  //   // return Media.hasMedia(breakSize);
+  // }
 
   public addAccount(): void {
     if (this.user !== null) {
-      this.user.loadAccounts();
+      // router.navigate chat/add-account
     }
   }
 
@@ -86,6 +76,4 @@ export class AccountsListComponent implements OnInit {
   // public close(name: string) {
   //   this.sidenav.hide(name);
   // }
-
-
 }

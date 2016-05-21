@@ -1,12 +1,11 @@
 md-card
-  .user-details
-    div {{user.syncUsername}}
-    div {{user.username | async}}
-    ul
-      li("*ngFor"="let acc of user.accounts | async")
-        h2
-          span {{acc.name}}
-          span {{acc.driver}}
+  .user-details("*ngIf"="user !== null")
+    h2 {{user.name | async}}
+    //ul
+    //  li("*ngFor"="let acc of user.accounts | async")
+    //    h2
+    //      span {{acc.name}}
+    //      span {{acc.driver}}
 
   .top-buttons
     button(md-icon-button="", title="Add account", "(click)"="addAccount()")
@@ -21,12 +20,12 @@ md-card
   // h2 Meta
     ul
       li(ngFor...)
-  ul
+  // ul
     li("*ngFor"="let acc of accounts | async")
       h2
         span {{acc.name}}
         span {{acc.life}}
-  ul
+  // ul
     li("*ngFor"="let acc of contacts")
       h2
         span {{acc.username}}

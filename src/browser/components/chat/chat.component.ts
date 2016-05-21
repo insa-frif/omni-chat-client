@@ -12,6 +12,8 @@ import {ToolbarComponent} from '../toolbar/toolbar.component';
 import {DiscussionsTabsComponent} from '../discussions-tabs/oc-discussions-tabs.component';
 import {ChatHomeComponent} from "../chat-home/chat-home.component";
 import {ChatDiscussionComponent} from "../chat-discussion/chat-discussion.component";
+import {ObservableUser} from "../../../core/models/observable-user";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: "oc-account-view",
@@ -24,21 +26,25 @@ import {ChatDiscussionComponent} from "../chat-discussion/chat-discussion.compon
     AccountsListComponent,
     ToolbarComponent,
     DiscussionsTabsComponent
-  ]
+  ],
+  providers: [UserService]
 })
 @Routes([
   {path: '/', component: ChatHomeComponent},
   {path: '/discussion', component: ChatDiscussionComponent}
 ])
 export class ChatComponent implements OnInit {
-  public user: any;
-  
+  public user: ObservableUser;
   public title: string =  "Welcome you !";
-  private username: string;
 
-  constructor() {}
-  
+  private _userService: UserService;
+
+  constructor(userService: UserService) {
+    this._userService = userService;
+  }
+
   public ngOnInit(): void {
-    this.username = "USERNAME";
+    this.user = this._userService.createUser("Test User");
+    this._userService.setCurrentUser(this.user);
   }
 }

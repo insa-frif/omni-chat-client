@@ -3,6 +3,7 @@
   "dependencies": {
     "bluebird": "registry:npm/bluebird#3.3.4+20160515010139",
     "gulp": "registry:npm/gulp#3.8.0+20160211003958",
+    "incident": "npm:incident",
     "lodash": "registry:npm/lodash#4.0.0+20160416211519",
     "omni-chat": "npm:omni-chat",
     "semver": "registry:npm/semver#5.0.0+20160211003958",
