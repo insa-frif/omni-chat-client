@@ -1,6 +1,12 @@
 md-card
-  button(md-button="") Add account
-  button(md-button="") New Meta
+  div
+    button(md-icon-button="", title="Add account")
+      md-icon.md-24 add
+    button(md-icon-button="", title="New MetaDiscussion")
+      md-icon.md-24 forum
+    a(md-icon-button="", "[routerLink]"="['/chat']", title="Home", style="vertical-align: bottom; line-height: 36px")
+      md-icon.md-24 home
+
   // h2 Meta
     ul
       li(ngFor...)
@@ -10,11 +16,12 @@ md-card
         span {{acc.username}}
         // TODO: add an icon here to show the driverName
       .contacts
-        md-list
-          a(md-list-item="", "[routerLink]"="['/chat']")
+        md-nav-list
+          // todo: add parameters to routerLink (['/chat/discussion', discussionId])
+          a(md-list-item="", "[routerLink]"="['/chat/discussion']")
             .avatar
             .name Contact1
-          a(md-list-item="", "[routerLink]"="['/chat']")
+          a(md-list-item="", "[routerLink]"="['/chat/discussion']")
             .avatar
             .name Contact2
 

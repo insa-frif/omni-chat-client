@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router';
-import {MdButton} from '@angular2-material/button/button';
+import {MdAnchor, MdButton} from '@angular2-material/button/button';
+import {MdIcon} from '@angular2-material/icon/icon';
 import {MdList, MdListItem} from '@angular2-material/list/list';
-import {MdSidenav, MdSidenavLayout} from '@angular2-material/sidenav/sidenav';
-import {MdToolbar} from '@angular2-material/toolbar/toolbar';
 
 import {AccountService} from '../../services/oc-account.service';
 import {Contact} from '../../services/oc-account.service';
@@ -12,7 +11,7 @@ import {Contact} from '../../services/oc-account.service';
   selector: "oc-accounts-list",
   templateUrl: "./components/accounts-list/accounts-list.component.html",
   styleUrls: ["./components/accounts-list/accounts-list.component.css"],
-  directives: [MdButton, MdList, MdListItem, ROUTER_DIRECTIVES],
+  directives: [MdAnchor, MdButton, MdIcon, MdList, MdListItem, ROUTER_DIRECTIVES],
   providers: [AccountService]
 })
 export class AccountsListComponent implements OnInit {
