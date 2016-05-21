@@ -1,5 +1,6 @@
 import {Injectable, bind} from '@angular/core';
-import * as ocLib from "omni-chat";
+// import * as ocLib from "omni-chat";
+import * as palantiri from "palantiri-interfaces";
 import {Subject, BehaviorSubject} from 'rxjs';
 import {UserModel} from '../models/user.model';
 import {uuid} from "../../core/utils";
@@ -16,12 +17,19 @@ export class UserService {
     this.currentUser.next(newUser);
   }
 
-  public resetCurrentUser () {
-    this.setCurrentUser(new ObservableUser("foo"));
+  public createUser (username: string) {
+    // let ocLibUser = new ocLib.User(username);
+    // console.log(ocLibUser);
+    console.log(palantiri.Id.parseGlobal('["driver", "id"]'));
+    this.setCurrentUser(new ObservableUser(username));
   }
 
   public addAccount (user: ObservableUser, account: any) {
 
+  }
+
+  public resetCurrentUser() {
+    this.createUser("foo");
   }
 }
 
@@ -31,11 +39,10 @@ export interface UserAccount {
 }
 
 export class ObservableUser {
-  syncUsername: string = "foobar";
   username: Subject<string> = new BehaviorSubject<string>(null);
   accounts: Subject<UserAccount[]> = new BehaviorSubject<UserAccount[]>([]);
 
-  ocLibUser: any;
+  ocLibUser: any; // ocLib.User;
 
   constructor (ochatUser: any) {
     this.ocLibUser = ochatUser;

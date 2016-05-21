@@ -16,21 +16,21 @@ System.config({
     "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
     "@angular/router": "npm:@angular/router@2.0.0-rc.1",
     "@angular/upgrade": "npm:@angular/upgrade@2.0.0-rc.1",
-    "@angular2-material/button": "npm:@angular2-material/button@2.0.0-alpha.4",
-    "@angular2-material/card": "npm:@angular2-material/card@2.0.0-alpha.4",
-    "@angular2-material/checkbox": "npm:@angular2-material/checkbox@2.0.0-alpha.4",
-    "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4",
-    "@angular2-material/icon": "npm:@angular2-material/icon@2.0.0-alpha.4",
-    "@angular2-material/input": "npm:@angular2-material/input@2.0.0-alpha.4",
-    "@angular2-material/list": "npm:@angular2-material/list@2.0.0-alpha.4",
-    "@angular2-material/sidenav": "npm:@angular2-material/sidenav@2.0.0-alpha.4",
-    "@angular2-material/toolbar": "npm:@angular2-material/toolbar@2.0.0-alpha.4",
-    "angular2": "npm:angular2@2.0.0-beta.14",
+    "@angular2-material/button": "npm:@angular2-material/button@2.0.0-alpha.4-3",
+    "@angular2-material/card": "npm:@angular2-material/card@2.0.0-alpha.4-3",
+    "@angular2-material/checkbox": "npm:@angular2-material/checkbox@2.0.0-alpha.4-3",
+    "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3",
+    "@angular2-material/icon": "npm:@angular2-material/icon@2.0.0-alpha.4-3",
+    "@angular2-material/input": "npm:@angular2-material/input@2.0.0-alpha.4-3",
+    "@angular2-material/list": "npm:@angular2-material/list@2.0.0-alpha.4-3",
+    "@angular2-material/sidenav": "npm:@angular2-material/sidenav@2.0.0-alpha.4-3",
+    "@angular2-material/toolbar": "npm:@angular2-material/toolbar@2.0.0-alpha.4-3",
+    "angular2": "npm:angular2@2.0.0-beta.17",
     "bluebird": "npm:bluebird@3.4.0",
     "crypto": "github:jspm/nodelibs-crypto@0.1.0",
-    "lodash": "npm:lodash@4.8.2",
-    "ng2-material": "npm:ng2-material@0.3.4",
-    "reflect-metadata": "npm:reflect-metadata@0.1.2",
+    "lodash": "npm:lodash@4.12.0",
+    "palantiri-interfaces": "npm:palantiri-interfaces@0.3.4",
+    "reflect-metadata": "npm:reflect-metadata@0.1.3",
     "rxjs": "npm:rxjs@5.0.0-beta.7",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.0"
@@ -73,19 +73,10 @@ System.config({
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:@angular/core@2.0.0-rc.0": {
-      "process": "github:jspm/nodelibs-process@0.1.2",
-      "rxjs": "npm:rxjs@5.0.0-beta.6",
-      "zone.js": "npm:zone.js@0.6.12"
-    },
     "npm:@angular/core@2.0.0-rc.1": {
       "process": "github:jspm/nodelibs-process@0.1.2",
       "rxjs": "npm:rxjs@5.0.0-beta.6",
       "zone.js": "npm:zone.js@0.6.12"
-    },
-    "npm:@angular/http@2.0.0-rc.0": {
-      "@angular/core": "npm:@angular/core@2.0.0-rc.0",
-      "rxjs": "npm:rxjs@5.0.0-beta.6"
     },
     "npm:@angular/http@2.0.0-rc.1": {
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
@@ -114,55 +105,43 @@ System.config({
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
       "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1"
     },
-    "npm:@angular2-material/button@2.0.0-alpha.4": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
+    "npm:@angular2-material/button@2.0.0-alpha.4-3": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
     },
-    "npm:@angular2-material/card@2.0.0-alpha.4": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4",
-      "angular2": "npm:angular2@2.0.0-beta.17"
+    "npm:@angular2-material/card@2.0.0-alpha.4-3": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
     },
-    "npm:@angular2-material/checkbox@2.0.0-alpha.4": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4",
-      "angular2": "npm:angular2@2.0.0-beta.17"
+    "npm:@angular2-material/checkbox@2.0.0-alpha.4-3": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
     },
-    "npm:@angular2-material/core@2.0.0-alpha.4": {
+    "npm:@angular2-material/core@2.0.0-alpha.4-3": {
       "@angular/common": "npm:@angular/common@2.0.0-rc.1",
-      "@angular/core": "npm:@angular/core@2.0.0-rc.0"
+      "@angular/core": "npm:@angular/core@2.0.0-rc.1"
     },
-    "npm:@angular2-material/icon@2.0.0-alpha.4": {
-      "@angular/http": "npm:@angular/http@2.0.0-rc.0",
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
+    "npm:@angular2-material/icon@2.0.0-alpha.4-3": {
+      "@angular/http": "npm:@angular/http@2.0.0-rc.1",
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
     },
-    "npm:@angular2-material/input@2.0.0-alpha.4": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
+    "npm:@angular2-material/input@2.0.0-alpha.4-3": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
     },
-    "npm:@angular2-material/list@2.0.0-alpha.4": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
+    "npm:@angular2-material/list@2.0.0-alpha.4-3": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
     },
-    "npm:@angular2-material/sidenav@2.0.0-alpha.4": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
+    "npm:@angular2-material/sidenav@2.0.0-alpha.4-3": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
     },
-    "npm:@angular2-material/toolbar@2.0.0-alpha.4": {
-      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4"
-    },
-    "npm:angular2@2.0.0-beta.13": {
-      "reflect-metadata": "npm:reflect-metadata@0.1.2",
-      "rxjs": "npm:rxjs@5.0.0-beta.2",
-      "zone.js": "npm:zone.js@0.6.9"
-    },
-    "npm:angular2@2.0.0-beta.14": {
-      "reflect-metadata": "npm:reflect-metadata@0.1.2",
-      "rxjs": "npm:rxjs@5.0.0-beta.6",
-      "zone.js": "npm:zone.js@0.6.12"
+    "npm:@angular2-material/toolbar@2.0.0-alpha.4-3": {
+      "@angular2-material/core": "npm:@angular2-material/core@2.0.0-alpha.4-3"
     },
     "npm:angular2@2.0.0-beta.17": {
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
-      "rxjs": "npm:rxjs@5.0.0-beta.6",
+      "rxjs": "npm:rxjs@5.0.0-beta.7",
       "zone.js": "npm:zone.js@0.6.12"
     },
-    "npm:asn1.js@4.5.2": {
+    "npm:asn1.js@4.6.0": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
-      "bn.js": "npm:bn.js@4.11.1",
+      "bn.js": "npm:bn.js@4.11.3",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "inherits": "npm:inherits@2.0.1",
@@ -179,7 +158,7 @@ System.config({
     "npm:bluebird@3.4.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:bn.js@4.11.1": {
+    "npm:bn.js@4.11.3": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
     "npm:browserify-aes@1.0.6": {
@@ -191,7 +170,7 @@ System.config({
       "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "inherits": "npm:inherits@2.0.1",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:browserify-cipher@1.0.0": {
       "browserify-aes": "npm:browserify-aes@1.0.6",
@@ -208,20 +187,20 @@ System.config({
       "inherits": "npm:inherits@2.0.1"
     },
     "npm:browserify-rsa@4.0.1": {
-      "bn.js": "npm:bn.js@4.11.1",
+      "bn.js": "npm:bn.js@4.11.3",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "constants": "github:jspm/nodelibs-constants@0.1.0",
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "randombytes": "npm:randombytes@2.0.3"
     },
     "npm:browserify-sign@4.0.0": {
-      "bn.js": "npm:bn.js@4.11.1",
+      "bn.js": "npm:bn.js@4.11.3",
       "browserify-rsa": "npm:browserify-rsa@4.0.1",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "create-hash": "npm:create-hash@1.1.2",
       "create-hmac": "npm:create-hmac@1.1.4",
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
-      "elliptic": "npm:elliptic@6.2.3",
+      "elliptic": "npm:elliptic@6.2.5",
       "inherits": "npm:inherits@2.0.1",
       "parse-asn1": "npm:parse-asn1@5.0.0",
       "stream": "github:jspm/nodelibs-stream@0.1.0"
@@ -231,7 +210,7 @@ System.config({
     },
     "npm:buffer-xor@1.0.3": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:buffer@3.6.0": {
       "base64-js": "npm:base64-js@0.0.8",
@@ -248,16 +227,16 @@ System.config({
       "string_decoder": "github:jspm/nodelibs-string_decoder@0.1.0"
     },
     "npm:constants-browserify@0.0.1": {
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:core-util-is@1.0.2": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
     "npm:create-ecdh@4.0.0": {
-      "bn.js": "npm:bn.js@4.11.1",
+      "bn.js": "npm:bn.js@4.11.3",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
-      "elliptic": "npm:elliptic@6.2.3"
+      "elliptic": "npm:elliptic@6.2.5"
     },
     "npm:create-hash@1.1.2": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -293,25 +272,19 @@ System.config({
       "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
     },
     "npm:diffie-hellman@5.0.2": {
-      "bn.js": "npm:bn.js@4.11.1",
+      "bn.js": "npm:bn.js@4.11.3",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "miller-rabin": "npm:miller-rabin@4.0.0",
       "randombytes": "npm:randombytes@2.0.3",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
-    "npm:elliptic@6.2.3": {
-      "bn.js": "npm:bn.js@4.11.1",
+    "npm:elliptic@6.2.5": {
+      "bn.js": "npm:bn.js@4.11.3",
       "brorand": "npm:brorand@1.0.5",
       "hash.js": "npm:hash.js@1.0.3",
       "inherits": "npm:inherits@2.0.1",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
-    },
-    "npm:es6-promise@3.1.2": {
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:es6-shim@0.35.0": {
-      "process": "github:jspm/nodelibs-process@0.1.2"
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:evp_bytestokey@1.0.0": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -324,30 +297,27 @@ System.config({
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:lodash@4.8.2": {
+    "npm:lodash@4.12.0": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:miller-rabin@4.0.0": {
-      "bn.js": "npm:bn.js@4.11.1",
+      "bn.js": "npm:bn.js@4.11.3",
       "brorand": "npm:brorand@1.0.5"
     },
-    "npm:ng2-material@0.3.4": {
-      "angular2": "npm:angular2@2.0.0-beta.13",
-      "es6-promise": "npm:es6-promise@3.1.2",
-      "es6-shim": "npm:es6-shim@0.35.0",
-      "reflect-metadata": "npm:reflect-metadata@0.1.2",
-      "rxjs": "npm:rxjs@5.0.0-beta.2",
-      "zone.js": "npm:zone.js@0.6.9"
+    "npm:palantiri-interfaces@0.3.4": {
+      "bluebird": "npm:bluebird@3.4.0",
+      "lodash": "npm:lodash@4.12.0",
+      "path": "github:jspm/nodelibs-path@0.1.0"
     },
     "npm:parse-asn1@5.0.0": {
-      "asn1.js": "npm:asn1.js@4.5.2",
+      "asn1.js": "npm:asn1.js@4.6.0",
       "browserify-aes": "npm:browserify-aes@1.0.6",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "create-hash": "npm:create-hash@1.1.2",
       "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
       "pbkdf2": "npm:pbkdf2@3.0.4",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
@@ -359,13 +329,13 @@ System.config({
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:process@0.11.3": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"
     },
     "npm:public-encrypt@4.0.0": {
-      "bn.js": "npm:bn.js@4.11.1",
+      "bn.js": "npm:bn.js@4.11.3",
       "browserify-rsa": "npm:browserify-rsa@4.0.1",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "create-hash": "npm:create-hash@1.1.2",
@@ -378,7 +348,7 @@ System.config({
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:readable-stream@1.1.13": {
+    "npm:readable-stream@1.1.14": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "core-util-is": "npm:core-util-is@1.0.2",
       "events": "github:jspm/nodelibs-events@0.1.1",
@@ -393,10 +363,6 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:ripemd160@1.0.1": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:rxjs@5.0.0-beta.2": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
@@ -418,7 +384,7 @@ System.config({
     "npm:stream-browserify@1.0.0": {
       "events": "github:jspm/nodelibs-events@0.1.1",
       "inherits": "npm:inherits@2.0.1",
-      "readable-stream": "npm:readable-stream@1.1.13"
+      "readable-stream": "npm:readable-stream@1.1.14"
     },
     "npm:string_decoder@0.10.31": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
@@ -432,9 +398,6 @@ System.config({
     },
     "npm:zone.js@0.6.12": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:zone.js@0.6.9": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     }
   }
