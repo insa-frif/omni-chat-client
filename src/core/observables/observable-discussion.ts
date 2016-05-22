@@ -32,7 +32,7 @@ let discussions: {[id: string]: ObservableDiscussion} = {};
 export function wrapDiscussion (libDiscussion: LibDiscussion): ObservableDiscussion {
   let id: string = libDiscussion.getGlobalIdSync();
   if (!(id in discussions)) {
-    discussions[id] = new ObservableDiscussion(id);
+    discussions[id] = new ObservableDiscussion(libDiscussion);
   }
   return discussions[id];
 }
