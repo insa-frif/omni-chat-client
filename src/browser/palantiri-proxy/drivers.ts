@@ -1,4 +1,4 @@
-import {createDriver, Driver} from "./palantiri-proxy/proxy-connection";
+import {createDriver, Driver} from "./proxy-connection";
 
 export interface SkypeOptions {
   credentials: {

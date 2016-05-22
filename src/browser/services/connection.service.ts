@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {skypeDriver, SkypeOptions, facebookDriver, FacebookOptions} from "../../core/drivers";
+import {skypeDriver, SkypeOptions, facebookDriver, FacebookOptions} from "../palantiri-proxy/drivers";
 import {ObservableUserAccount, wrapUserAccount} from "../../core/observables/observable-user-account";
 import * as Bluebird from "bluebird";
 import * as palantiri from "palantiri-interfaces";

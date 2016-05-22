@@ -1,11 +1,11 @@
 import {interfaces} from "omni-chat";
-import {Subject, BehaviorSubject} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 import {uuid} from "../utils";
 
-export type LibMessage = interfaces.MessageInterface;
+export type LibMessage = interfaces.Message;
 
 export class ObservableMessage {
-  body: Subject<string> = new BehaviorSubject<string>(null);
+  body: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
   libMessage: any; // ocLib.interfaces.Message
 
@@ -22,7 +22,7 @@ export class ObservableMessage {
 }
 
 let messages: {[id: string]: ObservableMessage} = {};
-export function wrapMessages (libMessage: LibMessage): ObservableMessage {
+export function wrapMessage (libMessage: LibMessage): ObservableMessage {
   let id: string = libMessage.getGlobalIdSync();
   if (!(id in messages)) {
     messages[id] = new ObservableMessage(libMessage);

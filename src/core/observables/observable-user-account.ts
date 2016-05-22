@@ -1,15 +1,15 @@
 import {interfaces} from "omni-chat";
 import * as Bluebird from "bluebird";
 import * as palantiri from "palantiri-interfaces";
-import {Subject, BehaviorSubject} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 
-export type LibUserAccount = interfaces.UserAccountInterface;
+export type LibUserAccount = interfaces.UserAccount;
 
 export class ObservableUserAccount {
-  globalId: Subject<palantiri.AccountGlobalId> = new BehaviorSubject<palantiri.AccountGlobalId>(null);
-  driverName: Subject<string> = new BehaviorSubject<string>(null);
-  name: Subject<string> = new BehaviorSubject<string>(null);
-  contactAccounts: Subject<any[]> = new BehaviorSubject<any[]>([]);
+  globalId: BehaviorSubject<palantiri.AccountGlobalId> = new BehaviorSubject<palantiri.AccountGlobalId>(null);
+  driverName: BehaviorSubject<string> = new BehaviorSubject<string>(null);
+  name: BehaviorSubject<string> = new BehaviorSubject<string>(null);
+  contactAccounts: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
 
   libUserAccount: LibUserAccount;
 
