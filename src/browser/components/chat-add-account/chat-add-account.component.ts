@@ -11,6 +11,7 @@ import {MdRadioButton, MdRadioGroup, MdRadioDispatcher} from '@angular2-material
 })
 export class ChatAddAccountComponent implements OnInit {
   driverName: string;
+  errorMessage: string = null;
 
   constructor () {}
 

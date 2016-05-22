@@ -20,25 +20,16 @@ md-card
   // h2 Meta
     ul
       li(ngFor...)
-  // ul
-    li("*ngFor"="let acc of accounts | async")
+  ul("*ngIf"="user !== null")
+    li("*ngFor"="let acc of user.accounts | async")
       h2
-        span {{acc.name}}
-        span {{acc.life}}
-  // ul
-    li("*ngFor"="let acc of contacts")
-      h2
-        span {{acc.username}}
-        // TODO: add an icon here to show the driverName
+        span {{acc | json}}
       .contacts
         md-nav-list
-          // todo: add parameters to routerLink (['/chat/discussion', discussionId])
+          // TODO: button and use (click)="openDiscussionWithContact(userAccount, contactAccount)"
           a(md-list-item="", "[routerLink]"="['/chat/discussion']")
             .avatar
             .name Contact1
-          a(md-list-item="", "[routerLink]"="['/chat/discussion']")
-            .avatar
-            .name Contact2
 
 // md-sidenav-layout(layout="row")
   md-sidenav("[mode]"="'side'", opened="true")

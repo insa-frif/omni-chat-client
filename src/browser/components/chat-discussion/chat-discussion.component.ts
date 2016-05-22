@@ -1,14 +1,29 @@
 import {Component, OnInit} from '@angular/core';
 import {MdCard} from '@angular2-material/card/card';
+import {MdIcon} from '@angular2-material/icon/icon';
+import {MdList, MdListItem} from '@angular2-material/list/list';
+import {DiscussionService} from "../../services/discussion.service";
+import {ObservableDiscussion} from "../../../core/models/observable-discussion";
 
 @Component({
   selector: "oc-chat-discussion",
   templateUrl: "./components/chat-discussion/chat-discussion.component.html",
   styleUrls: ["./components/chat-discussion/chat-discussion.component.css"],
-  directives: [MdCard]
+  directives: [MdCard, MdIcon, MdList, MdListItem]
 })
 export class ChatDiscussionComponent implements OnInit {
-  constructor () {}
+  public discussion: ObservableDiscussion;
 
-  public ngOnInit(): void {}
+  private _discussionService: DiscussionService;
+
+  constructor (discussionService: DiscussionService) {
+    this._discussionService = discussionService;
+  }
+
+  public ngOnInit(): void {
+    this._discussionService.currentDiscussion
+      .subscribe((discussion: ObservableDiscussion) => {
+        this.discussion = discussion;
+      });
+  }
 }

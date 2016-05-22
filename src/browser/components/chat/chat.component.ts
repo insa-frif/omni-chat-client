@@ -9,12 +9,12 @@ import {MdToolbar} from '@angular2-material/toolbar/toolbar';
 
 import {AccountsListComponent} from '../accounts-list/accounts-list.component';
 import {ToolbarComponent} from '../toolbar/toolbar.component';
-import {DiscussionsTabsComponent} from '../discussions-tabs/oc-discussions-tabs.component';
 import {ChatHomeComponent} from "../chat-home/chat-home.component";
 import {ChatDiscussionComponent} from "../chat-discussion/chat-discussion.component";
 import {ObservableUser} from "../../../core/models/observable-user";
 import {UserService} from "../../services/user.service";
 import {ChatAddAccountComponent} from "../chat-add-account/chat-add-account.component";
+import {DiscussionService} from "../../services/discussion.service";
 
 @Component({
   selector: "oc-account-view",
@@ -25,10 +25,9 @@ import {ChatAddAccountComponent} from "../chat-add-account/chat-add-account.comp
     ROUTER_DIRECTIVES,
     // custom:
     AccountsListComponent,
-    ToolbarComponent,
-    DiscussionsTabsComponent
+    ToolbarComponent
   ],
-  providers: [UserService]
+  providers: [DiscussionService, UserService]
 })
 @Routes([
   {path: '/', component: ChatHomeComponent},

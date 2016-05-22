@@ -1,6 +1,8 @@
-import {User as LibUser} from "omni-chat";
+import {interfaces} from "omni-chat";
 import {Subject, BehaviorSubject} from 'rxjs';
 import {ObservableUserAccount} from "./observable-user-account";
+
+export type LibUser = interfaces.UserInterface;
 
 export class ObservableUser {
   name: Subject<string> = new BehaviorSubject<string>(null);
@@ -13,7 +15,13 @@ export class ObservableUser {
 
   constructor (libUser: LibUser) {
     this.libUser = libUser;
+    this.load();
+  }
+
+  // force a reload
+  load() {
     this.libUser.getName().then(name => this.name.next(name));
+    this.loadAccounts();
   }
 
   loadAccounts () {

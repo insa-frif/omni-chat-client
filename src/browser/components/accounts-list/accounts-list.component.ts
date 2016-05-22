@@ -4,7 +4,6 @@ import {MdAnchor, MdButton} from '@angular2-material/button/button';
 import {MdIcon} from '@angular2-material/icon/icon';
 import {MdList, MdListItem} from '@angular2-material/list/list';
 
-import {AccountService} from '../../services/oc-account.service';
 import {UserService} from "../../services/user.service";
 import {ObservableUser} from "../../../core/models/observable-user";
 
