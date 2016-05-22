@@ -20,3 +20,12 @@ export class ObservableMessage {
     // this.libMessage.getBody().then(body => this.body.next(body));
   }
 }
+
+let messages: {[id: string]: ObservableMessage} = {};
+export function wrapDiscussion (libDiscussion: LibMessage): ObservableMessage {
+  let id: string = libDiscussion.getGlobalIdSync();
+  if (!(id in messages)) {
+    messages[id] = new ObservableMessage(id);
+  }
+  return messages[id];
+}

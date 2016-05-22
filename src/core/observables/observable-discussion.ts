@@ -23,3 +23,16 @@ export class ObservableDiscussion {
     ]);
   }
 }
+
+/**
+ * Wrap the ocLib-Discussion to a unique ObservableDiscussion
+ * @param libDiscussion
+ */
+let discussions: {[id: string]: ObservableDiscussion} = {};
+export function wrapDiscussion (libDiscussion: LibDiscussion): ObservableDiscussion {
+  let id: string = libDiscussion.getGlobalIdSync();
+  if (!(id in discussions)) {
+    discussions[id] = new ObservableDiscussion(id);
+  }
+  return discussions[id];
+}
