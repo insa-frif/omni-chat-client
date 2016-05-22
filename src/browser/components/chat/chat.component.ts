@@ -11,7 +11,7 @@ import {AccountsListComponent} from '../accounts-list/accounts-list.component';
 import {ToolbarComponent} from '../toolbar/toolbar.component';
 import {ChatHomeComponent} from "../chat-home/chat-home.component";
 import {ChatDiscussionComponent} from "../chat-discussion/chat-discussion.component";
-import {ObservableUser} from "../../../core/models/observable-user";
+import {ObservableUser} from "../../../core/observables/observable-user";
 import {UserService} from "../../services/user.service";
 import {ChatAddAccountComponent} from "../chat-add-account/chat-add-account.component";
 import {DiscussionService} from "../../services/discussion.service";

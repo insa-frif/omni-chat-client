@@ -3,7 +3,7 @@ import {MdCard} from '@angular2-material/card/card';
 import {MdIcon} from '@angular2-material/icon/icon';
 import {MdList, MdListItem} from '@angular2-material/list/list';
 import {DiscussionService} from "../../services/discussion.service";
-import {ObservableDiscussion} from "../../../core/models/observable-discussion";
+import {ObservableDiscussion} from "../../../core/observables/observable-discussion";
 
 @Component({
   selector: "oc-chat-discussion",

@@ -5,7 +5,8 @@ import {MdIcon} from '@angular2-material/icon/icon';
 import {MdList, MdListItem} from '@angular2-material/list/list';
 
 import {UserService} from "../../services/user.service";
-import {ObservableUser} from "../../../core/models/observable-user";
+import {ObservableUser} from "../../../core/observables/observable-user";
+import {ObservableUserAccount} from "../../../core/observables/observable-user-account";
 
 @Component({
   selector: "oc-accounts-list",
@@ -66,6 +67,12 @@ export class AccountsListComponent implements OnInit {
   //   // return Media.hasMedia(breakSize);
   // }
 
+  public openDiscussionWithContact(userAccount: ObservableUserAccount, contactAccount: any): void {
+    // TODO
+    // this._discussionService.setCurrentDiscussion(...);
+    // this._router.navigate(["chat/discussion"])
+  }
+  
   public addAccount(): void {
     if (this.user !== null) {
       this._router.navigate(["chat/add-account"]);

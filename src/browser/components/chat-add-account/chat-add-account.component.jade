@@ -1,6 +1,6 @@
 md-card
   h2 Add Account
-  form("(submit)"="onSubmit()")
+  form("(submit)"="onSubmit($event)")
     md-radio-group("[(ngModel)]"="driverName")
       div
         md-radio-button(value="facebook") Facebook

@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {User as LibUser} from "omni-chat";
 import {Subject, BehaviorSubject} from 'rxjs';
 
-import {ObservableUser} from "../../core/models/observable-user";
-import {ObservableUserAccount} from "../../core/models/observable-user-account";
+import {ObservableUser} from "../../core/observables/observable-user";
+import {ObservableUserAccount} from "../../core/observables/observable-user-account";
 
 @Injectable()
 export class UserService {
