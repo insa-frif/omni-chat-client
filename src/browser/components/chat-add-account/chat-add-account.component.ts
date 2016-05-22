@@ -1,16 +1,22 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {MdButton} from '@angular2-material/button/button';
 import {MdCard} from '@angular2-material/card/card';
+import {MdInput} from '@angular2-material/input/input';
 import {MdRadioButton, MdRadioGroup, MdRadioDispatcher} from '@angular2-material/radio/radio';
+import * as Bluebird from "bluebird";
+
 import {UserService} from "../../services/user.service";
 import {ObservableUser} from "../../../core/observables/observable-user";
 import {ObservableUserAccount} from "../../../core/observables/observable-user-account";
+import {ConnectionService} from "../../services/connection.service";
+import {FacebookOptions, SkypeOptions} from "../../../core/drivers";
 
 @Component({
   selector: "oc-chat-discussion",
   templateUrl: "./components/chat-add-account/chat-add-account.component.html",
   styleUrls: ["./components/chat-add-account/chat-add-account.component.css"],
-  directives: [MdCard, MdRadioButton, MdRadioGroup],
+  directives: [MdButton, MdCard, MdInput, MdRadioButton, MdRadioGroup],
   providers: [MdRadioDispatcher]
 })
 export class ChatAddAccountComponent implements OnInit {
@@ -24,11 +30,12 @@ export class ChatAddAccountComponent implements OnInit {
 
   private _router: Router;
   private _userService: UserService;
+  private _connectionService: ConnectionService;
 
-
-  constructor(router: Router, userService: UserService) { // ConnectionService
+  constructor(router: Router, userService: UserService, connectionService: ConnectionService) { // ConnectionService
     this._router = router;
     this._userService = userService;
+    this._connectionService = connectionService;
   }
 
   public ngOnInit(): void {
@@ -46,20 +53,46 @@ export class ChatAddAccountComponent implements OnInit {
       return;
     }
 
+    let userAccountPromise: Bluebird<ObservableUserAccount>;
+
     switch (this.driverName) {
-      case "facebook":
+      case "facebook": {
+        let options: FacebookOptions = {
+          credentials: {
+            email: this.facebookEmail || "",
+            password: this.facebookPassword || ""
+          }
+        };
+        userAccountPromise = this._connectionService.getNewFacebookAccount(options);
         break;
-      case "skype":
+      }
+      case "skype": {
+        let options: SkypeOptions = {
+          credentials: {
+            username: this.skypeUsername || "",
+            password: this.skypePassword || ""
+          }
+        };
+        userAccountPromise = this._connectionService.getNewSkypeAccount(options);
         break;
+      }
       default:
-        this.errorMessage = "You have to choose a driver";
+        this.errorMessage = "You have to choose a driverName";
         return;
     }
 
-    // This function should retrieve the connection, establish a link, get the palantiri data, create an ocLib account and then create an ObservableUserAccount
-
+    // TODO: set pending state during verification of account
     console.log("Adding an account...");
 
-    this.user.addAccount(new ObservableUserAccount(null)); // null should be an ocLib userAccount
+    userAccountPromise
+      .then((userAccount: ObservableUserAccount) => {
+        this.user.addAccount(userAccount);
+        // .then ?
+        console.log("Successfully added account");
+      })
+      .catch((error: Error) => {
+        console.log("Error while adding account");
+        this.errorMessage = error.message;
+      });
   }
 }

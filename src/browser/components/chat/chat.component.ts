@@ -15,6 +15,7 @@ import {ObservableUser} from "../../../core/observables/observable-user";
 import {UserService} from "../../services/user.service";
 import {ChatAddAccountComponent} from "../chat-add-account/chat-add-account.component";
 import {DiscussionService} from "../../services/discussion.service";
+import {ConnectionService} from "../../services/connection.service";
 
 @Component({
   selector: "oc-account-view",
@@ -27,7 +28,7 @@ import {DiscussionService} from "../../services/discussion.service";
     AccountsListComponent,
     ToolbarComponent
   ],
-  providers: [DiscussionService, UserService]
+  providers: [DiscussionService, ConnectionService, UserService]
 })
 @Routes([
   {path: '/', component: ChatHomeComponent},

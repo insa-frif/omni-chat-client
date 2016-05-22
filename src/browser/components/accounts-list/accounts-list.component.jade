@@ -23,7 +23,8 @@ md-card
   ul("*ngIf"="user !== null")
     li("*ngFor"="let acc of user.accounts | async")
       h2
-        span {{acc | json}}
+        span {{acc.name | async}}
+
       .contacts
         md-nav-list
           // TODO: button and use (click)="openDiscussionWithContact(userAccount, contactAccount)"

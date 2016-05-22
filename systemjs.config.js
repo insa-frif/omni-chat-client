@@ -29,6 +29,7 @@ System.config({
     "angular2": "npm:angular2@2.0.0-beta.17",
     "bluebird": "npm:bluebird@3.4.0",
     "crypto": "github:jspm/nodelibs-crypto@0.1.0",
+    "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "incident": "npm:incident@1.0.6",
     "lodash": "npm:lodash@4.12.0",
     "omni-chat": "npm:omni-chat@0.5.6",

@@ -1,7 +1,7 @@
 import * as Bluebird from "bluebird";
 import {interfaces} from "omni-chat";
 import {Subject, BehaviorSubject} from 'rxjs';
-import {ObservableUserAccount} from "./observable-user-account";
+import {ObservableUserAccount, wrapUserAccount} from "./observable-user-account";
 
 export type LibUser = interfaces.UserInterface;
 export type LibUserAccount = interfaces.UserAccountInterface;
@@ -28,17 +28,29 @@ export class ObservableUser {
 
   // reload the accounts and update the view
   loadAccounts (): Bluebird<this> {
-    // this.libUser.getAccounts().map(account => observableAccount).then(accs => this.accounts.next(accs)) ...
-    this.accounts.next([]); // TODO: remove this line and use the line above
-    return Bluebird.resolve(this);
+    return Bluebird.resolve(this.libUser.getAccounts())
+      .map((userAccount: LibUserAccount) => {
+        return wrapUserAccount(userAccount);
+      })
+      .then((accounts) => {
+        this.accounts.next(accounts);
+        return this;
+      });
   }
 
   addAccount (userAccount: ObservableUserAccount): Bluebird<this> {
-    return Bluebird.resolve(this.libUser /*this.libUser.addAccount(userAccount.libUserAccount)*/)
+    return Bluebird.resolve(this.libUser.addAccount(userAccount.libUserAccount))
       .then(() => {
-        // return this.loadAccounts()
-        this.accounts.next([userAccount]); // TODO: remove this line and use the line above
-        return this;
-      })
+        return this.loadAccounts()
+      });
   }
+}
+
+// No id for the user (there is only one user for the moment :/)
+let user: ObservableUser = null;
+export function wrapUser (libUser: LibUser): ObservableUser {
+  if (user === null) {
+    user = new ObservableUser(libUser);
+  }
+  return user;
 }

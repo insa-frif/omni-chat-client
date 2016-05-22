@@ -8,12 +8,17 @@ md-card
         md-radio-button(value="skype") Skype
     div("[ngSwitch]"="driverName")
       div("*ngSwitchWhen"="'facebook'")
-        div facebookEmail
-        div facebookPassword
+        div
+          md-input(style="width: 100%", "[(ngModel)]"="facebookEmail", placeholder="Facebook email")
+        div
+          md-input(type="password", style="width: 100%", "[(ngModel)]"="facebookPassword", placeholder="Facebook password")
       div("*ngSwitchWhen"="'skype'")
-        div skypeUsername
-        div skypePassword
+        div
+          md-input(style="width: 100%", "[(ngModel)]"="skypeUsername", placeholder="Skype username")
+        div
+          md-input(type="password", style="width: 100%", "[(ngModel)]"="skypePassword", placeholder="Skype password")
+        div
     // TODO: disable button when data are invalid
-    input(type="submit", value="Add account")
+    input("md-raised-button"="", type="submit", value="Add account")
   .error("*ngIf"="errorMessage !== null")
     span {{errorMessage}}

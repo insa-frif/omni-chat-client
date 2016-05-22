@@ -3,12 +3,12 @@ import {EventEmitter} from "events";
 import {Incident} from "incident";
 import * as _ from "lodash";
 import * as Pltr from "palantiri-interfaces";
+import {uuid} from "../utils";
 
 export class ProxyApi extends EventEmitter implements Pltr.Api {
   driverName: string;
-  user: Pltr.UserAccount = null;
-
-
+  currentUser: Pltr.UserAccount = null;
+  
   // TODO: get more infos about the current user
   constructor (driverName: string) {
     super();
@@ -34,7 +34,21 @@ export class ProxyApi extends EventEmitter implements Pltr.Api {
   }
 
   getCurrentUser(): Bluebird<Pltr.UserAccount> {
-    return Bluebird.reject(new Incident("todo", "getCurrentUser is not implemented yet"));
+    if (this.currentUser !== null) {
+      return Bluebird.resolve(this.currentUser);
+    }
+    // TODO: fetch from server with proxy
+    let account: Pltr.Account;
+
+    account = {
+      driverName: this.driverName,
+      id: uuid("proxyUserAccount"),
+      avatarUrl: null,
+      name: `${this.driverName}-userAccount`,
+      driverData: {}
+    };
+
+    return Bluebird.resolve(account);
   }
 
   /**
