@@ -22,7 +22,7 @@ export class ObservableMessage {
 }
 
 let messages: {[id: string]: ObservableMessage} = {};
-export function wrapDiscussion (libDiscussion: LibMessage): ObservableMessage {
+export function wrapMessages (libDiscussion: LibMessage): ObservableMessage {
   let id: string = libDiscussion.getGlobalIdSync();
   if (!(id in messages)) {
     messages[id] = new ObservableMessage(id);

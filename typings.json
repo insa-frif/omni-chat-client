@@ -6,6 +6,7 @@
     "incident": "npm:incident",
     "lodash": "registry:npm/lodash#4.0.0+20160416211519",
     "omni-chat": "npm:omni-chat",
+    "palantiri-interfaces": "npm:palantiri-interfaces",
     "semver": "registry:npm/semver#5.0.0+20160211003958",
     "typings-core": "npm:typings-core"
   },
