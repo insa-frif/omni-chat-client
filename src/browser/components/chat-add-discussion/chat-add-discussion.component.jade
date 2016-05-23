@@ -1,21 +1,10 @@
 md-card
-  h2 Discussion
-  // Check if the discussion is available
-  div("[ngSwitch]"="discussion")
-    div("*ngSwitchWhen"="null")
-      p There is no active discussion. Choose a contact or discussion on the left.
-
-    div("*ngSwitchDefault"="")
-      // The discussion is available
-
-      ul.participants
-        // TODO
-
-      ul.messages("*ngIf"="discussion.messages !== null")
-        li("*ngFor"="let msg of discussion.messages | async")
-          span("*ngIf"="msg !== null") {{msg.body | async}}
-
-      .controls
-        textarea
-        button(md-icon-button="", title="Send")
-          md-icon.md-24 send
+	ul("*ngIf"="user !== null")
+		li("*ngFor"="let userAccount of user.accounts | async")
+			h2
+				span {{userAccount.name | async}}
+			.contacts
+				md-nav-list
+					div("*ngFor"="let contactAccount of userAccount.contactAccounts | async")
+						a(md-list-item="")
+							md-checkbox {{contactAccount.name | async}}

@@ -14,6 +14,7 @@ import {ChatDiscussionComponent} from "../chat-discussion/chat-discussion.compon
 import {ObservableUser} from "../../../core/observables/observable-user";
 import {UserService} from "../../services/user.service";
 import {ChatAddAccountComponent} from "../chat-add-account/chat-add-account.component";
+import {ChatAddDiscussionComponent} from "../chat-add-discussion/chat-add-discussion.component";
 import {DiscussionService} from "../../services/discussion.service";
 import {ConnectionService} from "../../services/connection.service";
 
@@ -33,7 +34,7 @@ import {ConnectionService} from "../../services/connection.service";
 @Routes([
   {path: '/', component: ChatHomeComponent},
   {path: '/add-account', component: ChatAddAccountComponent},
-  {path: '/discussion', component: ChatDiscussionComponent}
+  {path: '/add-discussion', component: ChatAddDiscussionComponent}
 ])
 export class ChatComponent implements OnInit {
   public user: ObservableUser;
