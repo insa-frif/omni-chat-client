@@ -36,7 +36,7 @@ import {ConnectionService} from "../../services/connection.service";
   {path: '/discussion', component: ChatDiscussionComponent}
 ])
 export class ChatComponent implements OnInit {
-  public user: ObservableUser;
+  public user: ObservableUser = null;
   public title: string =  "Welcome you !";
 
   private _userService: UserService;
@@ -46,7 +46,9 @@ export class ChatComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.user = this._userService.createUser("Test User");
-    this._userService.setCurrentUser(this.user);
+    this._userService.currentUser
+      .subscribe((user: ObservableUser) => {
+        this.user = user;
+      });
   }
 }

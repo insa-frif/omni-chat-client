@@ -16,6 +16,4 @@ export class UserService {
   public createUser (username: string): ObservableUser {
     return new ObservableUser(new LibUser(username));
   }
-
-  public addAccount (user: ObservableUser, account: ObservableUserAccount) {}
 }

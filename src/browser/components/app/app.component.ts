@@ -34,9 +34,19 @@ export class AppComponent {
   title: string = "OmniChat";
   private _router: Router;
   private _location: Location;
+  private _userService: UserService;
 
-  constructor(router: Router, location: Location) {
+  constructor(router: Router, location: Location, userService: UserService) {
     this._router = router;
     this._location = location;
+    this._userService = userService;
+  }
+
+  public ngOnInit(): void {
+    Bluebird.resolve(this._userService.createUser("Test User"))
+      .tap(user => user.init())
+      .then((user) => {
+        this._userService.setCurrentUser(user);
+      });
   }
 }

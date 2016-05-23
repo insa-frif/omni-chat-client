@@ -36,13 +36,13 @@ export class ObservableUserAccount {
     console.log("Loading data for user-account");
     return Bluebird.join(
       this.libUserAccount.getGlobalId(),
-      this.libUserAccount.getName(),
+      "username", // this.libUserAccount.getName(),
       Bluebird.resolve(this.libUserAccount.getContactAccounts()).map(getContactAccount),
       (id: string, name: string, contactAccounts: ObservableContactAccount[]) => {
         let ref: palantiri.AccountReference = palantiri.Id.asReference(id);
         this.globalId.next(id);
         this.driverName.next(ref.driverName);
-        this.name.next(name);
+        this.name.next(`${ref.id}@${ref.driverName}`);
         this.contactAccounts.next(contactAccounts);
         return this;
       }
