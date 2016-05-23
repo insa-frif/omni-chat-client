@@ -37,14 +37,15 @@ export class ObservableDiscussion {
   // Force a reload
   load (): Bluebird<this> {
     this._loaded = true;
-    return Bluebird
-      .all([
-        this.loadCreationDate(),
-        this.loadDescription(),
-        this.loadName(),
-        this.loadMessages()
-      ])
-      .thenReturn(this);
+    return Bluebird.resolve(this);
+    // return Bluebird
+    //   .all([
+    //     this.loadCreationDate(),
+    //     this.loadDescription(),
+    //     this.loadName(),
+    //     this.loadMessages()
+    //   ])
+    //   .thenReturn(this);
   }
 
   loadCreationDate (): Bluebird<Date> {

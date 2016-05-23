@@ -119,7 +119,7 @@ export class ProxyApi extends EventEmitter implements Pltr.Api {
         return this.proxySocket.request("get-discussions", {options: compatibleOptions});
       })
       .then((discussions: Pltr.Discussion[]) => {
-        if ("filter" in options) {
+        if (options && ("filter" in options)) {
           return Bluebird.filter(discussions, (discussion: Pltr.Discussion, index: number, size: number) => {
             return Bluebird.resolve(options.filter(discussion));
           });
@@ -142,7 +142,7 @@ export class ProxyApi extends EventEmitter implements Pltr.Api {
         return this.proxySocket.request("get-messages-from-discussion", {options: compatibleOptions});
       })
       .then((messages: Pltr.Message[]) => {
-        if ("filter" in options) {
+        if (options && ("filter" in options)) {
           return Bluebird.filter(messages, (message: Pltr.Message, index: number, size: number) => {
             return Bluebird.resolve(options.filter(message));
           });

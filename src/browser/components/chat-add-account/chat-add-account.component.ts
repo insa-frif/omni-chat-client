@@ -93,6 +93,7 @@ export class ChatAddAccountComponent implements OnInit {
       })
       .catch((error: Error) => {
         console.log("Error while adding account");
+        console.error(error);
         this.errorMessage = error.message;
       });
   }
