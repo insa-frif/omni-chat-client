@@ -38,6 +38,14 @@ export class ObservableUser {
       });
   }
 
+	getAccounts(): Bluebird<ObservableUserAccount[]> {
+		return Bluebird
+			.resolve(this.libUser.getAccounts())
+			.map((userAccount: interfaces.UserAccount) => {
+				return wrapUserAccount(userAccount);
+			});
+	}
+
   addAccount (userAccount: ObservableUserAccount): Bluebird<this> {
     return Bluebird.resolve(this.libUser.addAccount(userAccount.libUserAccount))
       .then(() => {

@@ -1,10 +1,12 @@
 md-card
-	ul("*ngIf"="user !== null")
-		li("*ngFor"="let userAccount of user.accounts | async")
-			h2
-				span {{userAccount.name | async}}
-			.contacts
-				md-nav-list
-					div("*ngFor"="let contactAccount of userAccount.contactAccounts | async")
-						a(md-list-item="")
-							md-checkbox {{contactAccount.name | async}}
+	.wrapper
+		ul("*ngIf"="user !== null && contacts !== null")
+			li("*ngFor"="let userAccount of user.accounts | async")
+				h2
+					span {{userAccount.name | async}}
+				.contacts
+					md-nav-list
+						div("*ngFor"="let contactAccount of userAccount.contactAccounts | async")
+							a(md-list-item="")
+								md-checkbox("[checked]"="false", "(change)"="onChange(contactAccount, $event)") {{contactAccount.name | async}}
+		button.createDiscussion(md-raised-button="", "(click)"="createDiscussion()", "[disabled]"="participants.length === 0") "Create Discussion"
