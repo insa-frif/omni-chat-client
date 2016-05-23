@@ -63,7 +63,8 @@ gulp.task('build.browser.assets', function(){
       'src/browser/**/*.css',
       'src/browser/**/*.html',
       'src/browser/**/*.jpg',
-      'src/browser/**/*.png'
+      'src/browser/**/*.png',
+      'src/browser/**/*.svg'
     ], {base: 'src/browser'})
     .pipe(gulp.dest('build/browser'));
 });

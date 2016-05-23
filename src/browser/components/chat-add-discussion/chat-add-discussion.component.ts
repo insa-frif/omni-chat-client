@@ -12,9 +12,6 @@ import {MdButton} from '@angular2-material/button/button';
 import {UserService} from "../../services/user.service";
 import {MdCheckbox} from "@angular2-material/checkbox/checkbox";
 import {wrapDiscussion} from "../../../core/observables/observable-discussion";
-import {wrapContactAccount} from "../../../core/observables/observable-contact-account";
-import {ObservableContactAccount} from "../../../core/observables/observable-contact-account";
-import {ObservableUserAccount} from "../../../core/observables/observable-user-account";
 
 @Component({
   selector: "oc-chat-add-discussion",
