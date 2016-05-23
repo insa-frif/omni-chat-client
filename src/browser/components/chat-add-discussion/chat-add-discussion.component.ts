@@ -7,6 +7,7 @@ import {ROUTER_DIRECTIVES} from '@angular/router';
 import {MdList, MdListItem} from '@angular2-material/list/list';
 import {DiscussionService} from "../../services/discussion.service";
 import {ObservableDiscussion} from "../../../core/observables/observable-discussion";
+import {ObservableContactAccount} from "../../../core/observables/observable-contact-account";
 import {ObservableUser} from "../../../core/observables/observable-user";
 import {MdButton} from '@angular2-material/button/button';
 import {UserService} from "../../services/user.service";
@@ -43,12 +44,12 @@ export class ChatAddDiscussionComponent implements OnInit {
 		  });
   }
 
-	public onChange(contact: interfaces.ContactAccount, event: boolean): void {
+	public onChange(contact: ObservableContactAccount, event: boolean): void {
 		if(event) {
-			this.participants.push(contact);
+			this.participants.push(contact.libContactAccount);
 			console.log(this.participants +" added from participants");
 		} else {
-			this.participants.splice(this.participants.indexOf(contact), 1);
+			this.participants.splice(this.participants.indexOf(contact.libContactAccount), 1);
 			console.log(this.participants +" removed from participants");
 		}
 		console.log(this.participants);
