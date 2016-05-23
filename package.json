@@ -88,7 +88,7 @@
       "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
       "incident": "npm:incident@^1.0.6",
       "lodash": "npm:lodash@^4.12.0",
-      "omni-chat": "npm:omni-chat@^0.5.9",
+      "omni-chat": "npm:omni-chat@^0.5.11",
       "palantiri-interfaces": "npm:palantiri-interfaces@^0.3.5",
       "reflect-metadata": "npm:reflect-metadata@0.1.3",
       "rxjs": "npm:rxjs@5.0.0-beta.7",
