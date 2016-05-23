@@ -15,6 +15,6 @@ md-card
 			//  li("*ngFor"="let msg of discussion.messages | async")
 			//    span("*ngIf"="msg !== null") {{msg.body | async}}
 
-			.controls
+			form.controls("(submit)"="sendMessage()")
 				md-input(style="width: 70%", "[(ngModel)]"="msg", placeholder="Your message")
-				input(md-raised-button="", value="Send message", "(click)"="sendMessage()")
+				input(type="submit", md-raised-button="", value="Send message")
