@@ -32,40 +32,7 @@ export class AccountsListComponent implements OnInit {
       .subscribe((user: ObservableUser) => {
         this.user = user;
       });
-
-    // this.loadContacts();
   }
-
-  // public loadContacts(): void {
-  //   this._accountService.loadContacts("Someone")
-  //     .then((contacts: Contact[]) => {
-  //       this.contacts = contacts;
-  //     });
-  // }
-
-  // public sendEvent(): void {
-  //   let myEvent = new CustomEvent(
-  //     "discussionWanted",
-  //     {
-  //       detail : {
-  //         contact: this.selectedContact,
-  //         bubbles: true,
-  //         cancelable: true
-  //       }
-  //     }
-  //   );
-  //   console.log("Event envoyé ! " + myEvent);
-  //   window.document.getElementById("handleEventDiscussionWanted").dispatchEvent(myEvent);
-  // }
-
-  // public selectContact(c: Contact): void {
-  //   this.selectedContact = c;
-  // }
-
-  // public hasMedia(breakSize: string): boolean {
-  //   return false;
-  //   // return Media.hasMedia(breakSize);
-  // }
 
   public openDiscussionWithContact(userAccount: ObservableUserAccount, contactAccount: any): void {
     // TODO

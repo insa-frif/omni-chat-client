@@ -13,13 +13,16 @@ import {AuthenticationFormComponent} from "../authentication-form/authentication
 import {HomeComponent} from '../home/home.component';
 import {ChatComponent} from '../chat/chat.component';
 import {RegistrationFormComponent} from '../registration-form/registration-form.component';
+import {DiscussionService} from "../../services/discussion.service";
+import {ConnectionService} from "../../services/connection.service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: "oc-app",
   templateUrl: "./components/app/app.component.html",
   styleUrls: ["./components/app/app.component.css"],
   directives: [MdButton, MdIcon, MdList, MdListItem, MdSidenav, MdSidenavLayout, MdToolbar, ROUTER_DIRECTIVES],
-  providers: []
+  providers: [DiscussionService, ConnectionService, UserService]
 })
 @Routes([
   {path: '/', component: HomeComponent},
@@ -31,9 +34,19 @@ export class AppComponent {
   title: string = "OmniChat";
   private _router: Router;
   private _location: Location;
+  private _userService: UserService;
 
-  constructor(router: Router, location: Location) {
+  constructor(router: Router, location: Location, userService: UserService) {
     this._router = router;
     this._location = location;
+    this._userService = userService;
+  }
+
+  public ngOnInit(): void {
+    Bluebird.resolve(this._userService.createUser("Test User"))
+      .tap(user => user.init())
+      .then((user) => {
+        this._userService.setCurrentUser(user);
+      });
   }
 }

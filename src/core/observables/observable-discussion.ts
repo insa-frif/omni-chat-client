@@ -6,6 +6,8 @@ import * as Bluebird from "bluebird";
 export type LibDiscussion = interfaces.Discussion;
 
 export class ObservableDiscussion {
+  protected _loaded: boolean = false;
+
   name: BehaviorSubject<string> = new BehaviorSubject<string>(null);
   description: BehaviorSubject<string> = new BehaviorSubject<string>(null);
   creationDate: BehaviorSubject<Date> = new BehaviorSubject<Date>(null);
@@ -15,7 +17,6 @@ export class ObservableDiscussion {
 
   constructor (libDiscussion: LibDiscussion) {
     this.libDiscussion = libDiscussion;
-    this.load();
 
     // TODO: make this work
     // this.libDiscussion.on("message", (message) => {
@@ -25,36 +26,25 @@ export class ObservableDiscussion {
     // });
   }
 
+  init(): Bluebird<this> {
+    if (this._loaded) {
+      return Bluebird.resolve(this);
+    } else {
+      return this.load();
+    }
+  }
+
   // Force a reload
-  load () {
-		this.loadName();
-	  this.loadDescription();
-	  this.loadCreationDate();
-	  this.loadMessages();
-  }
-
-  loadName (): Bluebird<string> {
-    return Bluebird.resolve(this.libDiscussion.getName())
-      .then((name: string) => {
-        this.name.next(name);
-        return name;
-      })
-  }
-
-  getName (): Bluebird<string> {
-    return this.loadName();
-  }
-
-  loadDescription (): Bluebird<string> {
-    return Bluebird.resolve(this.libDiscussion.getDescription())
-      .then((description: string) => {
-        this.description.next(description);
-        return description;
-      })
-  }
-
-  getDescription (): Bluebird<string> {
-    return this.loadDescription();
+  load (): Bluebird<this> {
+    this._loaded = true;
+    return Bluebird
+      .all([
+        this.loadCreationDate(),
+        this.loadDescription(),
+        this.loadName(),
+        this.loadMessages()
+      ])
+      .thenReturn(this);
   }
 
   loadCreationDate (): Bluebird<Date> {
@@ -67,6 +57,18 @@ export class ObservableDiscussion {
 
   getCreationDate (): Bluebird<Date> {
     return this.loadCreationDate();
+  }
+
+  loadDescription (): Bluebird<string> {
+    return Bluebird.resolve(this.libDiscussion.getDescription())
+      .then((description: string) => {
+        this.description.next(description);
+        return description;
+      })
+  }
+
+  getDescription (): Bluebird<string> {
+    return this.loadDescription();
   }
 
   loadMessages (options?: interfaces.Discussion.GetMessagesOptions): Bluebird<ObservableMessage[]> {
@@ -87,6 +89,18 @@ export class ObservableDiscussion {
     return this.loadMessages(options);
   }
 
+  loadName (): Bluebird<string> {
+    return Bluebird.resolve(this.libDiscussion.getName())
+      .then((name: string) => {
+        this.name.next(name);
+        return name;
+      })
+  }
+
+  getName (): Bluebird<string> {
+    return this.loadName();
+  }
+
   sendMessage (newMessage: interfaces.Discussion.NewMessage): Bluebird<ObservableMessage> {
     return Bluebird.resolve(this.libDiscussion.sendMessage(newMessage))
       .then((libMessage: interfaces.Message) => {
@@ -101,7 +115,6 @@ export class ObservableDiscussion {
         return observableMessage;
       });
   }
-
 }
 
 /**
@@ -115,4 +128,8 @@ export function wrapDiscussion (libDiscussion: LibDiscussion): ObservableDiscuss
     discussions[id] = new ObservableDiscussion(libDiscussion);
   }
   return discussions[id];
+}
+
+export function getDiscussion (libDiscussion: LibDiscussion): Bluebird<ObservableDiscussion> {
+  return wrapDiscussion(libDiscussion).init();
 }
