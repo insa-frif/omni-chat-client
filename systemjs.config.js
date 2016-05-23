@@ -36,6 +36,7 @@ System.config({
     "palantiri-interfaces": "npm:palantiri-interfaces@0.3.4",
     "reflect-metadata": "npm:reflect-metadata@0.1.3",
     "rxjs": "npm:rxjs@5.0.0-beta.7",
+    "socket.io-client": "github:socketio/socket.io-client@1.4.6",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.0"
     },

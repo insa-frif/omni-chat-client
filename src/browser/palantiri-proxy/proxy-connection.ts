@@ -3,6 +3,7 @@ import {EventEmitter} from "events";
 import {Incident} from "incident";
 import * as Bluebird from "bluebird";
 import {ProxyApi} from "./proxy-api";
+import {ProxySocket} from "./proxy-socket";
 
 export interface Driver<TOptions> {
   driver: string;
@@ -54,7 +55,18 @@ export function createDriver<TOptions> (driverName: string): Driver<TOptions> {
         return Bluebird.try(() => this.getApi());
       }
 
-      return Bluebird.resolve(new ProxyApi(driverName));
+      return Bluebird.try(() => {
+        let proxySocket = new ProxySocket();
+        proxySocket.connect();
+        return proxySocket
+          .request("start-proxy", {
+            driverName: this.driver,
+            options: this.options
+          })
+          .then(() => {
+            return new ProxyApi(driverName, proxySocket);
+          });
+      });
     }
 
     disconnect(): Bluebird<this> {

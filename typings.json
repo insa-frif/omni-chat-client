@@ -21,6 +21,7 @@
     "mime": "registry:dt/mime#0.0.0+20160316155526",
     "mocha": "registry:env/mocha#2.2.5+20160321223601",
     "node": "github:demurgos/env-node/4#d64f790aaa018e9ae9e02bf7b4666f15eef39c08",
-    "serve-static": "registry:dt/serve-static#0.0.0+20160501131543"
+    "serve-static": "registry:dt/serve-static#0.0.0+20160501131543",
+    "socket.io-client": "registry:dt/socket.io-client#1.4.4+20160317120654"
   }
 }
