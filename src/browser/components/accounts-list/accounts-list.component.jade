@@ -21,16 +21,15 @@ md-card
     ul
       li(ngFor...)
   ul("*ngIf"="user !== null")
-    li("*ngFor"="let acc of user.accounts | async")
+    li("*ngFor"="let userAccount of user.accounts | async")
       h2
-        span {{acc.name | async}}
-
+        span {{userAccount.name | async}}
       .contacts
         md-nav-list
-          // TODO: button and use (click)="openDiscussionWithContact(userAccount, contactAccount)"
-          a(md-list-item="", "[routerLink]"="['/chat/discussion']")
-            .avatar
-            .name Contact1
+          div("*ngFor"="let contactAccount of userAccount.contactAccounts | async")
+            a(md-list-item="", "[routerLink]"="['/chat/discussion']")
+              .avatar
+              .name  {{contactAccount.name | async}}
 
 // md-sidenav-layout(layout="row")
   md-sidenav("[mode]"="'side'", opened="true")

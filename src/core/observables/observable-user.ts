@@ -1,14 +1,14 @@
 import * as Bluebird from "bluebird";
 import {interfaces} from "omni-chat";
-import {Subject, BehaviorSubject} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 import {ObservableUserAccount, wrapUserAccount} from "./observable-user-account";
 
-export type LibUser = interfaces.UserInterface;
-export type LibUserAccount = interfaces.UserAccountInterface;
+export type LibUser = interfaces.User;
+export type LibUserAccount = interfaces.UserAccount;
 
 export class ObservableUser {
-  name: Subject<string> = new BehaviorSubject<string>(null);
-  accounts: Subject<ObservableUserAccount[]> = new BehaviorSubject<ObservableUserAccount[]>([]);
+  name: BehaviorSubject<string> = new BehaviorSubject<string>(null);
+  accounts: BehaviorSubject<ObservableUserAccount[]> = new BehaviorSubject<ObservableUserAccount[]>([]);
 
   // public name: Observable<string> = this._name.asObservable();
   // public accounts: Observable<string> = this._accounts.asObservable();

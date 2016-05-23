@@ -10,7 +10,7 @@ import {UserService} from "../../services/user.service";
 import {ObservableUser} from "../../../core/observables/observable-user";
 import {ObservableUserAccount} from "../../../core/observables/observable-user-account";
 import {ConnectionService} from "../../services/connection.service";
-import {FacebookOptions, SkypeOptions} from "../../../core/drivers";
+import {FacebookOptions, SkypeOptions} from "../../palantiri-proxy/drivers";
 
 @Component({
   selector: "oc-chat-discussion",

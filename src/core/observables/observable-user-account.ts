@@ -1,36 +1,40 @@
 import {interfaces} from "omni-chat";
 import * as Bluebird from "bluebird";
 import * as palantiri from "palantiri-interfaces";
-import {Subject, BehaviorSubject} from 'rxjs';
+import * as _ from "lodash";
+import {BehaviorSubject} from 'rxjs';
+import {wrapContactAccount} from "./observable-contact-account";
 
-export type LibUserAccount = interfaces.UserAccountInterface;
+export type LibUserAccount = interfaces.UserAccount;
 
 export class ObservableUserAccount {
-  globalId: Subject<palantiri.AccountGlobalId> = new BehaviorSubject<palantiri.AccountGlobalId>(null);
-  driverName: Subject<string> = new BehaviorSubject<string>(null);
-  name: Subject<string> = new BehaviorSubject<string>(null);
-  contactAccounts: Subject<any[]> = new BehaviorSubject<any[]>([]);
+  globalId: BehaviorSubject<palantiri.AccountGlobalId> = new BehaviorSubject<palantiri.AccountGlobalId>(null);
+  driverName: BehaviorSubject<string> = new BehaviorSubject<string>(null);
+  name: BehaviorSubject<string> = new BehaviorSubject<string>(null);
+  contactAccounts: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
 
   libUserAccount: LibUserAccount;
 
   constructor (libUserAccount: LibUserAccount) {
     this.libUserAccount = libUserAccount;
-    this.load();
   }
 
   // force a reload
   load(): Bluebird<this> {
+    console.log("Loading data for user");
     return Bluebird.join(
       this.libUserAccount.getGlobalId(),
       // TODO
       // this.libUserAccount.getName(),
-      // this.libUserAccount.getContactAccounts(),
-      (id: string) => {
+      this.libUserAccount.getContactAccounts(),
+      (id: string, contactAccounts: interfaces.ContactAccount[]) => {
         let ref: palantiri.AccountReference = palantiri.Id.asReference(id);
         this.globalId.next(id);
         this.driverName.next(ref.driverName);
         this.name.next(`${ref.id}@${ref.driverName}`); // TODO, add getName to omni-chat
-        this.contactAccounts.next([]); // TODO: accounts.map(wrapUserAccount)
+        console.log("contacts:");
+        console.log(contactAccounts);
+        this.contactAccounts.next(_.map(contactAccounts, wrapContactAccount));
         return this;
       }
     );
