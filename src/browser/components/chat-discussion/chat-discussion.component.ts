@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MdCard} from '@angular2-material/card/card';
 import {MdIcon} from '@angular2-material/icon/icon';
+import {MdInput} from '@angular2-material/input/input';
 import {MdList, MdListItem} from '@angular2-material/list/list';
 import {DiscussionService} from "../../services/discussion.service";
 import {ObservableDiscussion} from "../../../core/observables/observable-discussion";
@@ -9,10 +10,11 @@ import {ObservableDiscussion} from "../../../core/observables/observable-discuss
   selector: "oc-chat-discussion",
   templateUrl: "./components/chat-discussion/chat-discussion.component.html",
   styleUrls: ["./components/chat-discussion/chat-discussion.component.css"],
-  directives: [MdCard, MdIcon, MdList, MdListItem]
+  directives: [MdCard, MdIcon, MdList, MdListItem, MdInput]
 })
 export class ChatDiscussionComponent implements OnInit {
   public discussion: ObservableDiscussion;
+	public msg: string;
 
   private _discussionService: DiscussionService;
 
@@ -26,4 +28,8 @@ export class ChatDiscussionComponent implements OnInit {
         this.discussion = discussion;
       });
   }
+
+	public sendMessage(): void {
+		console.log("Oups, not implemented yet !");
+	}
 }
