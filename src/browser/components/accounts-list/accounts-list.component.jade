@@ -21,12 +21,12 @@ md-card
 		li("*ngFor"="let userAccount of user.accounts | async")
 			h2
 				span {{userAccount.name | async}}
-			.discussions
-				md-nav-list
-					div("*ngFor"="let discussion of userAccount.discussions | async")
-						a(md-list-item="", "[routerLink]"="['/chat/discussion']")
-							.avatar
-							.name  {{discussion | json}}
+			//.discussions
+			//	md-nav-list
+			//		div("*ngFor"="let discussion of userAccount.discussions | async")
+			//			a(md-list-item="", "[routerLink]"="['/chat/discussion']")
+			//				.avatar
+			//				.name  {{discussion | json}}
 			.contacts
 				md-nav-list
 					div("*ngFor"="let contactAccount of userAccount.contactAccounts | async")
