@@ -13,13 +13,16 @@ import {AuthenticationFormComponent} from "../authentication-form/authentication
 import {HomeComponent} from '../home/home.component';
 import {ChatComponent} from '../chat/chat.component';
 import {RegistrationFormComponent} from '../registration-form/registration-form.component';
+import {DiscussionService} from "../../services/discussion.service";
+import {ConnectionService} from "../../services/connection.service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: "oc-app",
   templateUrl: "./components/app/app.component.html",
   styleUrls: ["./components/app/app.component.css"],
   directives: [MdButton, MdIcon, MdList, MdListItem, MdSidenav, MdSidenavLayout, MdToolbar, ROUTER_DIRECTIVES],
-  providers: []
+  providers: [DiscussionService, ConnectionService, UserService]
 })
 @Routes([
   {path: '/', component: HomeComponent},

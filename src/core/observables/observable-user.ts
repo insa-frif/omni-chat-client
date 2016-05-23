@@ -7,6 +7,8 @@ export type LibUser = interfaces.User;
 export type LibUserAccount = interfaces.UserAccount;
 
 export class ObservableUser {
+  protected _loaded: boolean = false;
+
   name: BehaviorSubject<string> = new BehaviorSubject<string>(null);
   accounts: BehaviorSubject<ObservableUserAccount[]> = new BehaviorSubject<ObservableUserAccount[]>([]);
 
@@ -17,13 +19,26 @@ export class ObservableUser {
 
   constructor (libUser: LibUser) {
     this.libUser = libUser;
-    this.load();
+  }
+
+  init(): Bluebird<this> {
+    if (this._loaded) {
+      return Bluebird.resolve(this);
+    } else {
+      return this.load();
+    }
   }
 
   // force a reload
-  load() {
-    this.libUser.getName().then(name => this.name.next(name));
-    this.loadAccounts();
+  load(): Bluebird<this> {
+    this._loaded = true;
+
+    return Bluebird
+      .all([
+        this.libUser.getName().then(name => this.name.next(name)),
+        this.loadAccounts()
+      ])
+      .thenReturn(this);
   }
 
   // reload the accounts and update the view
@@ -53,4 +68,8 @@ export function wrapUser (libUser: LibUser): ObservableUser {
     user = new ObservableUser(libUser);
   }
   return user;
+}
+
+export function getUser (libUser: LibUser): Bluebird<ObservableUser> {
+  return wrapUser(libUser).init();
 }

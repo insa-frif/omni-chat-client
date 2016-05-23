@@ -28,7 +28,7 @@ import {ConnectionService} from "../../services/connection.service";
     AccountsListComponent,
     ToolbarComponent
   ],
-  providers: [DiscussionService, ConnectionService, UserService]
+  providers: []
 })
 @Routes([
   {path: '/', component: ChatHomeComponent},

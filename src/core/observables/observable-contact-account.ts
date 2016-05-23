@@ -6,6 +6,8 @@ import {BehaviorSubject} from 'rxjs';
 export type LibContactAccount = interfaces.ContactAccount;
 
 export class ObservableContactAccount {
+  protected _loaded: boolean = false;
+
   globalId: BehaviorSubject<palantiri.AccountGlobalId> = new BehaviorSubject<palantiri.AccountGlobalId>(null);
   driverName: BehaviorSubject<string> = new BehaviorSubject<string>(null);
   name: BehaviorSubject<string> = new BehaviorSubject<string>(null);
@@ -16,17 +18,22 @@ export class ObservableContactAccount {
   constructor (libContactAccount: LibContactAccount) {
     console.log("Created observable user account");
     this.libContactAccount = libContactAccount;
-    this.load();
+  }
+
+  init(): Bluebird<this> {
+    if (this._loaded) {
+      return Bluebird.resolve(this);
+    } else {
+      return this.load();
+    }
   }
 
   // force a reload
   load(): Bluebird<this> {
-    console.log("loading contact name");
+    this._loaded = true;
     return Bluebird.resolve(this.libContactAccount.getName())
       .then((name: string) => {
-        console.log("loaded name");
         this.name.next(name);
-        console.log("loaded name");
       })
       .thenReturn(this);
   }
@@ -39,6 +46,10 @@ export function wrapContactAccount (libContactAccount: LibContactAccount): Obser
     contactAccounts[id] = new ObservableContactAccount(libContactAccount);
   }
   return contactAccounts[id];
+}
+
+export function getContactAccount (libContactAccount: LibContactAccount): Bluebird<ObservableContactAccount> {
+  return wrapContactAccount(libContactAccount).init();
 }
 
 export default ObservableContactAccount;
