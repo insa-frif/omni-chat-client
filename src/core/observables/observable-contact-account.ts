@@ -14,13 +14,21 @@ export class ObservableContactAccount {
   libContactAccount: LibContactAccount;
 
   constructor (libContactAccount: LibContactAccount) {
+    console.log("Created observable user account");
     this.libContactAccount = libContactAccount;
     this.load();
   }
 
   // force a reload
   load(): Bluebird<this> {
-    return Bluebird.reject(new Error("todo: observableContactAccount"));
+    console.log("loading contact name");
+    return Bluebird.resolve(this.libContactAccount.getName())
+      .then((name: string) => {
+        console.log("loaded name");
+        this.name.next(name);
+        console.log("loaded name");
+      })
+      .thenReturn(this);
   }
 }
 

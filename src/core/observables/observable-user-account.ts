@@ -1,7 +1,9 @@
 import {interfaces} from "omni-chat";
 import * as Bluebird from "bluebird";
 import * as palantiri from "palantiri-interfaces";
+import * as _ from "lodash";
 import {BehaviorSubject} from 'rxjs';
+import {wrapContactAccount} from "./observable-contact-account";
 
 export type LibUserAccount = interfaces.UserAccount;
 
@@ -15,22 +17,24 @@ export class ObservableUserAccount {
 
   constructor (libUserAccount: LibUserAccount) {
     this.libUserAccount = libUserAccount;
-    this.load();
   }
 
   // force a reload
   load(): Bluebird<this> {
+    console.log("Loading data for user");
     return Bluebird.join(
       this.libUserAccount.getGlobalId(),
       // TODO
       // this.libUserAccount.getName(),
-      // this.libUserAccount.getContactAccounts(),
-      (id: string) => {
+      this.libUserAccount.getContactAccounts(),
+      (id: string, contactAccounts: interfaces.ContactAccount[]) => {
         let ref: palantiri.AccountReference = palantiri.Id.asReference(id);
         this.globalId.next(id);
         this.driverName.next(ref.driverName);
         this.name.next(`${ref.id}@${ref.driverName}`); // TODO, add getName to omni-chat
-        this.contactAccounts.next([]); // TODO: accounts.map(wrapUserAccount)
+        console.log("contacts:");
+        console.log(contactAccounts);
+        this.contactAccounts.next(_.map(contactAccounts, wrapContactAccount));
         return this;
       }
     );

@@ -64,7 +64,9 @@ export function createDriver<TOptions> (driverName: string): Driver<TOptions> {
             options: this.options
           })
           .then(() => {
-            return new ProxyApi(driverName, proxySocket);
+            this.connectionState = ConnectionState.CONNECTED;
+            this.api = new ProxyApi(driverName, proxySocket);
+            return this.api;
           });
       });
     }

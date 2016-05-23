@@ -15,16 +15,20 @@ export class ConnectionService {
     let connection = new facebookDriver(options);
     return Bluebird.resolve(connection.connect())
       .then((api: palantiri.Api) => {
+        console.log("connected");
         return api.getCurrentUser();
       })
       .then((palantiriAccount: palantiri.Account) => {
+        console.log("got palantiri data for user account");
         return new LibUserAccount(palantiriAccount);
       })
       .tap((libUserAccount: LibUserAccount) => {
+        console.log("created ochat user");
         return driversStore.addActiveConnection(libUserAccount, connection);
       })
       .then((libUserAccount: LibUserAccount) => {
-        return wrapUserAccount(libUserAccount);
+        console.log("createdObservable user");
+        return wrapUserAccount(libUserAccount).load();
       });
   }
 

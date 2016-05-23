@@ -16,24 +16,67 @@ export class ProxyApi extends EventEmitter implements Pltr.Api {
     super();
     this.driverName = driverName;
     this.proxySocket = proxySocket;
+    this.proxySocket.socket.on("event", (event: any) => {
+      this.handleEvent(event);
+    });
   }
 
-  protected handleMessageEvent (nativeEvent: any) {}
+  protected handleEvent (event: any) {
+    if (event && event.type === "message") {
+      this.handleMessageEvent (event.data);
+    }
+  }
+
+  protected handleMessageEvent (event: Pltr.Api.events.MessageEvent) {
+     this.emit("message", event);
+  }
 
   addMembersToDiscussion(members: Array<Pltr.AccountReference | Pltr.AccountGlobalId>, discussion: Pltr.DiscussionReference | Pltr.DiscussionGlobalId, options?: any): Bluebird<this> {
-    return Bluebird.reject(new Incident("todo", "addMembersToDiscussion is not implemented yet"));
+    return Bluebird
+      .try(() => {
+        let membersId = _.map(members, Pltr.Id.asGlobalId);
+        let discussionId = Pltr.Id.asGlobalId(discussion);
+        return this.proxySocket.request("add-members-to-discussion", {members: membersId, discussion: discussionId});
+      })
+      .thenReturn(this);
   }
 
   createDiscussion(members: Array<Pltr.AccountReference | Pltr.AccountGlobalId>, options?: Pltr.Api.CreateDiscussionOptions): Bluebird<Pltr.Discussion> {
-    return Bluebird.reject(new Incident("todo", "createDiscussion is not implemented yet"));
+    return Bluebird
+      .try(() => {
+        let membersId = _.map(members, Pltr.Id.asGlobalId);
+        let compatibleOptions: Pltr.Api.CreateDiscussionOptions = {};
+        if (options) {
+          if ("name" in options) {
+            compatibleOptions.name = options.name;
+          }
+          if ("description" in options) {
+            compatibleOptions.description = options.description;
+          }
+        }
+        return this.proxySocket.request("create-discussion", {members: membersId, options: compatibleOptions});
+      })
+      .then((discussion: Pltr.Discussion) => {
+        return discussion;
+      });
   }
 
   getAccount(account: Pltr.AccountReference | Pltr.AccountGlobalId): Bluebird<Pltr.Account> {
-    return Bluebird.reject(new Incident("todo", "getAccount is not implemented yet"));
+    return Bluebird
+      .try(() => {
+        let accountId = Pltr.Id.asGlobalId(account);
+        return this.proxySocket.request("get-account", {account: accountId});
+      })
+      .then((account: Pltr.Account) => {
+        return account;
+      });
   }
 
   getContacts(options?: any): Bluebird<Pltr.Account[]> {
-    return Bluebird.reject(new Incident("todo", "getContacts is not implemented yet"));
+    return this.proxySocket.request("get-contacts", null)
+      .then((contacts: Pltr.Account[]) => {
+        return contacts;
+      });
   }
 
   getCurrentUser(): Bluebird<Pltr.UserAccount> {
@@ -50,30 +93,92 @@ export class ProxyApi extends EventEmitter implements Pltr.Api {
 
   /**
    * PROTECTED
-   * Returns the information associated to a thread from a threadID
+   * Returns the information associated to a single discussion
    * @param threadID
    */
-  protected getDiscussion(threadID: string): Bluebird<Pltr.Discussion> {
-    return Bluebird.reject(new Incident("todo", "getDiscussion is not implemented yet"));
+  protected getDiscussion(discussion: Pltr.DiscussionReference | Pltr.DiscussionGlobalId): Bluebird<Pltr.Discussion> {
+    return Bluebird
+      .try(() => {
+        let discussionId = Pltr.Id.asGlobalId(discussion);
+        return this.proxySocket.request("get-discussion", {discussion: discussionId});
+      })
+      .then((discussion: Pltr.Discussion) => {
+        return discussion;
+      });
   }
 
   getDiscussions(options?: Pltr.Api.GetDiscussionsOptions): Bluebird<Pltr.Discussion[]> {
-    return Bluebird.reject(new Incident("todo", "getDiscussions is not implemented yet"));
+    return Bluebird
+      .try(() => {
+        let compatibleOptions: Pltr.Api.GetDiscussionsOptions = {};
+        if (options) {
+          if ("max" in options) {
+            compatibleOptions.max = options.max;
+          }
+        }
+        return this.proxySocket.request("get-discussions", {options: compatibleOptions});
+      })
+      .then((discussions: Pltr.Discussion[]) => {
+        if ("filter" in options) {
+          return Bluebird.filter(discussions, (discussion: Pltr.Discussion, index: number, size: number) => {
+            return Bluebird.resolve(options.filter(discussion));
+          });
+        } else {
+          return Bluebird.resolve(discussions);
+        }
+      });
   }
 
   getMessagesFromDiscussion(discussion: Pltr.DiscussionReference | Pltr.DiscussionGlobalId, options?: Pltr.Api.GetMessagesFromDiscussionOptions): Bluebird<Pltr.Message[]> {
-    return Bluebird.reject(new Incident("todo", "getMessagesFromDiscussion is not implemented yet"));
+    return Bluebird
+      .try(() => {
+        let discussionId = Pltr.Id.asGlobalId(discussion);
+        let compatibleOptions: Pltr.Api.GetMessagesFromDiscussionOptions = {};
+        if (options) {
+          if ("max" in options) {
+            compatibleOptions.max = options.max;
+          }
+        }
+        return this.proxySocket.request("get-messages-from-discussion", {options: compatibleOptions});
+      })
+      .then((messages: Pltr.Message[]) => {
+        if ("filter" in options) {
+          return Bluebird.filter(messages, (message: Pltr.Message, index: number, size: number) => {
+            return Bluebird.resolve(options.filter(message));
+          });
+        } else {
+          return Bluebird.resolve(messages);
+        }
+      });
   }
 
   leaveDiscussion(discussion: Pltr.DiscussionReference | Pltr.DiscussionGlobalId, options?: any): Bluebird<this> {
-    return Bluebird.reject(new Incident("todo", "leaveDiscussion is not implemented yet"));
+    return Bluebird
+      .try(() => {
+        let discussionId = Pltr.Id.asGlobalId(discussion);
+        return this.proxySocket.request("leave-discussion", {discussion: discussionId});
+      })
+      .thenReturn(this);
   }
 
   removeMembersFromDiscussion(members: Array<Pltr.AccountReference | Pltr.AccountGlobalId>, discussion: Pltr.DiscussionReference | Pltr.DiscussionGlobalId, options?: any): Bluebird<this> {
-    return Bluebird.reject(new Incident("todo", "removeMembersFromDiscussion is not implemented yet"));
+    return Bluebird
+      .try(() => {
+        let membersId = _.map(members, Pltr.Id.asGlobalId);
+        let discussionId = Pltr.Id.asGlobalId(discussion);
+        return this.proxySocket.request("remove-members-from-discussion", {members: membersId, discussion: discussionId});
+      })
+      .thenReturn(this);
   }
 
   sendMessage(message: Pltr.Api.NewMessage, discussion: Pltr.DiscussionReference | Pltr.DiscussionGlobalId, options?: any): Bluebird<Pltr.Message> {
-    return Bluebird.reject(new Incident("todo", "sendMessage is not implemented yet"));
+    return Bluebird
+      .try(() => {
+        let discussionId = Pltr.Id.asGlobalId(discussion);
+        return this.proxySocket.request("send-message", {message: message, discussion: discussionId});
+      })
+      .then((message: Pltr.Message) => {
+        return message;
+      });
   }
 }
