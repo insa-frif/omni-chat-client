@@ -31,9 +31,9 @@ System.config({
     "crypto": "github:jspm/nodelibs-crypto@0.1.0",
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "incident": "npm:incident@1.0.7",
-    "lodash": "npm:lodash@4.13.0",
-    "omni-chat": "npm:omni-chat@0.5.7",
-    "palantiri-interfaces": "npm:palantiri-interfaces@0.3.4",
+    "lodash": "npm:lodash@4.13.1",
+    "omni-chat": "npm:omni-chat@0.5.9",
+    "palantiri-interfaces": "npm:palantiri-interfaces@0.3.5",
     "reflect-metadata": "npm:reflect-metadata@0.1.3",
     "rxjs": "npm:rxjs@5.0.0-beta.7",
     "socket.io-client": "npm:socket.io-client@1.4.6",
@@ -390,13 +390,13 @@ System.config({
       "inherits": "npm:inherits@2.0.1"
     },
     "npm:incident@1.0.7": {
-      "lodash": "npm:lodash@4.13.0",
+      "lodash": "npm:lodash@4.13.1",
       "path": "github:jspm/nodelibs-path@0.1.0"
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:lodash@4.13.0": {
+    "npm:lodash@4.13.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
@@ -408,11 +408,11 @@ System.config({
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "crypto": "github:jspm/nodelibs-crypto@0.1.0"
     },
-    "npm:omni-chat@0.5.7": {
+    "npm:omni-chat@0.5.9": {
       "bluebird": "npm:bluebird@3.4.0",
       "events": "github:jspm/nodelibs-events@0.1.1",
       "incident": "npm:incident@1.0.7",
-      "lodash": "npm:lodash@4.13.0",
+      "lodash": "npm:lodash@4.13.1",
       "node-uuid": "npm:node-uuid@1.4.7",
       "palantiri-interfaces": "npm:palantiri-interfaces@0.3.4",
       "path": "github:jspm/nodelibs-path@0.1.0",
@@ -421,7 +421,12 @@ System.config({
     },
     "npm:palantiri-interfaces@0.3.4": {
       "bluebird": "npm:bluebird@3.4.0",
-      "lodash": "npm:lodash@4.13.0",
+      "lodash": "npm:lodash@4.13.1",
+      "path": "github:jspm/nodelibs-path@0.1.0"
+    },
+    "npm:palantiri-interfaces@0.3.5": {
+      "bluebird": "npm:bluebird@3.4.0",
+      "lodash": "npm:lodash@4.13.1",
       "path": "github:jspm/nodelibs-path@0.1.0"
     },
     "npm:parse-asn1@5.0.0": {

@@ -17,28 +17,19 @@ md-card
 		a(md-icon-button="", "[routerLink]"="['/chat']", title="Home")
 			md-icon.md-24 home
 
-	// h2 Meta
-		ul
-			li(ngFor...)
 	ul("*ngIf"="user !== null")
 		li("*ngFor"="let userAccount of user.accounts | async")
 			h2
 				span {{userAccount.name | async}}
+			.discussions
+				md-nav-list
+					div("*ngFor"="let discussion of userAccount.discussions | async")
+						a(md-list-item="", "[routerLink]"="['/chat/discussion']")
+							.avatar
+							.name  {{discussion | json}}
 			.contacts
 				md-nav-list
 					div("*ngFor"="let contactAccount of userAccount.contactAccounts | async")
 						a(md-list-item="", "[routerLink]"="['/chat/discussion']")
 							.avatar
 							.name  {{contactAccount.name | async}}
-
-// md-sidenav-layout(layout="row")
-	md-sidenav("[mode]"="'side'", opened="true")
-//md-toolbar
-//  h1 Your contacts
-//// md-input(type="text", "[(ngModel)]"="searchQuery", placeholder="Search...")
-//h2.md-no-sticky Recent...
-//md-list
-//  md-list-item("*ngFor"="let c of contacts", "[class.selected]"="c === selectedContact",
-//    "(click)"="selectContact(c)")
-//    h3.name {{c.username}}
-//    button("*ngIf"="c === selectedContact", "md-raised-button"="", "(click)"="sendEvent()" ) Discuss

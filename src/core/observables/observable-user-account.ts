@@ -4,6 +4,7 @@ import * as palantiri from "palantiri-interfaces";
 import * as _ from "lodash";
 import {BehaviorSubject} from 'rxjs';
 import {wrapContactAccount, getContactAccount, ObservableContactAccount} from "./observable-contact-account";
+import {ObservableDiscussion, getDiscussion} from "./observable-discussion";
 
 export type LibUserAccount = interfaces.UserAccount;
 
@@ -13,7 +14,8 @@ export class ObservableUserAccount {
   globalId: BehaviorSubject<palantiri.AccountGlobalId> = new BehaviorSubject<palantiri.AccountGlobalId>(null);
   driverName: BehaviorSubject<string> = new BehaviorSubject<string>(null);
   name: BehaviorSubject<string> = new BehaviorSubject<string>(null);
-  contactAccounts: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  contactAccounts: BehaviorSubject<ObservableContactAccount[]> = new BehaviorSubject<ObservableContactAccount[]>([]);
+  discussions: BehaviorSubject<ObservableDiscussion[]> = new BehaviorSubject<ObservableDiscussion[]>([]);
 
   libUserAccount: LibUserAccount;
 
@@ -34,19 +36,76 @@ export class ObservableUserAccount {
     this._loaded = true;
 
     console.log("Loading data for user-account");
-    return Bluebird.join(
-      this.libUserAccount.getGlobalId(),
-      "username", // this.libUserAccount.getName(),
-      Bluebird.resolve(this.libUserAccount.getContactAccounts()).map(getContactAccount),
-      (id: string, name: string, contactAccounts: ObservableContactAccount[]) => {
-        let ref: palantiri.AccountReference = palantiri.Id.asReference(id);
-        this.globalId.next(id);
-        this.driverName.next(ref.driverName);
-        this.name.next(`${ref.id}@${ref.driverName}`);
+    return Bluebird
+      .all([
+        this.loadContactAccounts(),
+        this.loadDiscussions(),
+        this.loadGlobalId(),
+        this.loadName()
+      ])
+      .thenReturn(this);
+  }
+
+  loadContactAccounts(): Bluebird<ObservableContactAccount[]> {
+    return Bluebird
+      .try(() => {
+        return this.libUserAccount.getContactAccounts();
+      })
+      .map(getContactAccount)
+      .then((contactAccounts: ObservableContactAccount[]) => {
         this.contactAccounts.next(contactAccounts);
-        return this;
-      }
-    );
+        return contactAccounts;
+      });
+  }
+
+  getContactAccounts(): Bluebird<ObservableContactAccount[]> {
+    return this.loadContactAccounts();
+  }
+
+  loadDiscussions(): Bluebird<ObservableDiscussion[]> {
+    return Bluebird
+      .try(() => {
+        return this.libUserAccount.getDiscussions();
+      })
+      .map(getDiscussion)
+      .then((discussions: ObservableDiscussion[]) => {
+        this.discussions.next(discussions);
+        return discussions;
+      });
+  }
+
+  getDiscussions(): Bluebird<ObservableDiscussion[]> {
+    return this.loadDiscussions();
+  }
+
+  loadGlobalId(): Bluebird<palantiri.AccountGlobalId> {
+    return Bluebird
+      .try(() => {
+        return this.libUserAccount.getGlobalId();
+      })
+      .tap((globalId: palantiri.AccountGlobalId) => {
+        this.globalId.next(globalId);
+        return globalId;
+      });
+  }
+
+  getGlobalId(): Bluebird<palantiri.AccountGlobalId> {
+    return this.loadGlobalId();
+  }
+
+  loadName(): Bluebird<string> {
+    return Bluebird
+      .try(() => {
+        return this.libUserAccount.getName();
+      })
+      .tap((name: string) => {
+        this.name.next(name);
+        return name;
+      });
+  }
+
+  getName(): Bluebird<string> {
+    return this.loadName();
   }
 }
 
