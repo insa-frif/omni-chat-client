@@ -27,7 +27,10 @@ export class ObservableDiscussion {
 
   // Force a reload
   load () {
-
+		this.loadName();
+	  this.loadDescription();
+	  this.loadCreationDate();
+	  this.loadMessages();
   }
 
   loadName (): Bluebird<string> {
@@ -67,11 +70,17 @@ export class ObservableDiscussion {
   }
 
   loadMessages (options?: interfaces.Discussion.GetMessagesOptions): Bluebird<ObservableMessage[]> {
-    this.messages.next([
-      new ObservableMessage(null), // todo: use an oc message
-      new ObservableMessage(null)
-    ]);
-    return Bluebird.resolve(this.messages.getValue());
+    return Bluebird
+	    .try(() => {
+		    return this.libDiscussion.getMessages(options);
+	    })
+	    .map((msg: interfaces.Message) => {
+		    return wrapMessage(msg);
+	    })
+	    .then((messages: ObservableMessage[]) => {
+		    this.messages.next(messages);
+	    })
+	    .thenReturn(this.messages.getValue());
   }
 
   getMessages (options?: interfaces.Discussion.GetMessagesOptions): Bluebird<ObservableMessage[]> {

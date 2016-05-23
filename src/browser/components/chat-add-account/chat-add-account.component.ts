@@ -13,7 +13,7 @@ import {ConnectionService} from "../../services/connection.service";
 import {FacebookOptions, SkypeOptions} from "../../palantiri-proxy/drivers";
 
 @Component({
-  selector: "oc-chat-discussion",
+  selector: "oc-chat-add-account",
   templateUrl: "./components/chat-add-account/chat-add-account.component.html",
   styleUrls: ["./components/chat-add-account/chat-add-account.component.css"],
   directives: [MdButton, MdCard, MdInput, MdRadioButton, MdRadioGroup],

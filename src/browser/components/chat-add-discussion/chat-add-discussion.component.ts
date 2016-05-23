@@ -6,12 +6,12 @@ import {DiscussionService} from "../../services/discussion.service";
 import {ObservableDiscussion} from "../../../core/observables/observable-discussion";
 
 @Component({
-  selector: "oc-chat-discussion",
+  selector: "oc-chat-add-discussion",
   templateUrl: "./components/chat-discussion/chat-discussion.component.html",
   styleUrls: ["./components/chat-discussion/chat-discussion.component.css"],
   directives: [MdCard, MdIcon, MdList, MdListItem]
 })
-export class ChatDiscussionComponent implements OnInit {
+export class ChatAddDiscussionComponent implements OnInit {
   public discussion: ObservableDiscussion;
 
   private _discussionService: DiscussionService;
