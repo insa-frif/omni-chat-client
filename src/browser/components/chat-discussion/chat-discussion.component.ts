@@ -14,7 +14,7 @@ import {ObservableDiscussion} from "../../../core/observables/observable-discuss
 })
 export class ChatDiscussionComponent implements OnInit {
   public discussion: ObservableDiscussion;
-	public msg: string;
+	public message: string = "";
 
   private _discussionService: DiscussionService;
 
@@ -30,6 +30,11 @@ export class ChatDiscussionComponent implements OnInit {
   }
 
 	public sendMessage(): void {
-		this.discussion.sendMessage({body: this.msg});
+    if (this.discussion !== null && this.message) {
+      this.discussion.sendMessage({
+        body: this.message
+      });
+      this.message = "";
+    }
 	}
 }

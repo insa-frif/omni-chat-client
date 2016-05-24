@@ -32,7 +32,7 @@ System.config({
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "incident": "npm:incident@1.0.7",
     "lodash": "npm:lodash@4.13.1",
-    "omni-chat": "npm:omni-chat@0.5.12",
+    "omni-chat": "npm:omni-chat@0.5.14",
     "palantiri-interfaces": "npm:palantiri-interfaces@0.3.5",
     "reflect-metadata": "npm:reflect-metadata@0.1.3",
     "rxjs": "npm:rxjs@5.0.0-beta.7",
@@ -408,7 +408,7 @@ System.config({
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "crypto": "github:jspm/nodelibs-crypto@0.1.0"
     },
-    "npm:omni-chat@0.5.12": {
+    "npm:omni-chat@0.5.14": {
       "bluebird": "npm:bluebird@3.4.0",
       "events": "github:jspm/nodelibs-events@0.1.1",
       "incident": "npm:incident@1.0.7",

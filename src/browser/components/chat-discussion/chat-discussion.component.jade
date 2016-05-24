@@ -1,20 +1,22 @@
 md-card
-	h2 Discussion
-	// Check if the discussion is available
-	div("[ngSwitch]"="discussion")
-		//div("*ngSwitchWhen"="null")
-			//p There is no active discussion. Choose a contact or discussion on the left.
+  h2 Discussion
+  // Check if the discussion is available
+  div("[ngSwitch]"="discussion")
+    // Ensure that there is no error if the user navigates to /chat/discussion manually
+    div("*ngSwitchWhen"="null")
+      p There is no active discussion. Choose a contact or discussion on the left.
 
-		div("*ngSwitchDefault"="")
-			// The discussion is available
+    // The discussion is available
+    div("*ngSwitchDefault"="")
+      h3 {{discussion.name | async}}
 
-			ul.participants
-				// TODO
+      ul.participants
+        // TODO
 
-			//ul.messages("*ngIf"="discussion.messages !== null")
-			//  li("*ngFor"="let msg of discussion.messages | async")
-			//    span("*ngIf"="msg !== null") {{msg.body | async}}
+      //ul.messages("*ngIf"="discussion.messages !== null")
+      //  li("*ngFor"="let msg of discussion.messages | async")
+      //    span("*ngIf"="msg !== null") {{msg.body | async}}
 
-			form.controls("(submit)"="sendMessage()")
-				md-input(style="width: 70%", "[(ngModel)]"="msg", placeholder="Your message")
-				input(type="submit", md-raised-button="", value="Send message")
+      .controls
+        md-input(style="width: 70%", "[(ngModel)]"="message", placeholder="Your message")
+        input(md-raised-button="", value="Send message", "(click)"="sendMessage()")
