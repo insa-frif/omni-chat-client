@@ -13,10 +13,15 @@ md-card
       ul.participants
         // TODO
 
-      //ul.messages("*ngIf"="discussion.messages !== null")
-      //  li("*ngFor"="let msg of discussion.messages | async")
-      //    span("*ngIf"="msg !== null") {{msg.body | async}}
+      div.messages("[ngSwitch]"="discussion.messages.getValue()")
+        div("*ngSwitchWhen"="null")
+          p.no-messages No available messages
 
-      .controls
+        div("*ngSwitchDefault"="")
+          ul
+            li("*ngFor"="let msg of discussion.messages | async")
+              span("*ngIf"="msg !== null") {{msg.body | async}}
+
+      form.controls("(submit)"="sendMessage()")
         md-input(style="width: 70%", "[(ngModel)]"="message", placeholder="Your message")
-        input(md-raised-button="", value="Send message", "(click)"="sendMessage()")
+        input(type="submit", md-raised-button="", value="Send message")
