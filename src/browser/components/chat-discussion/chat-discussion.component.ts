@@ -30,6 +30,6 @@ export class ChatDiscussionComponent implements OnInit {
   }
 
 	public sendMessage(): void {
-		console.log("Oups, not implemented yet !");
+		this.discussion.sendMessage({body: this.msg});
 	}
 }
