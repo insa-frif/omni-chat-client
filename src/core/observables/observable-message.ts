@@ -1,7 +1,6 @@
 import * as Bluebird from "bluebird";
 import {interfaces} from "omni-chat";
 import {BehaviorSubject} from 'rxjs';
-import {uuid} from "../utils";
 
 export type LibMessage = interfaces.Message;
 
@@ -10,7 +9,7 @@ export class ObservableMessage {
 
   body: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
-  libMessage: any; // ocLib.interfaces.Message
+  libMessage: LibMessage;
 
   constructor (libMessage: LibMessage) {
     this.libMessage = libMessage;
@@ -25,14 +24,24 @@ export class ObservableMessage {
   }
 
   // Force a reload
-  load () {
-    this._loaded = true;
-
-    // this.libMessage.getBody().then(body => this.body.next(body));
-    this.body.next(uuid("message-body"));
-
-    return Bluebird.resolve(this);
+  load (): Bluebird<this> {
+	  this._loaded = true;
+	  return Bluebird
+		  .all([
+			  this.loadBody()
+		  ])
+		  .thenReturn(this);
   }
+
+	loadBody(): Bluebird<string> {
+		return Bluebird.try(() =>{
+			return this.libMessage.getBody();
+		})
+		.then((body: string) => {
+			this.body.next(body);
+			return body;
+		});
+	}
 }
 
 let messages: {[id: string]: ObservableMessage} = {};
