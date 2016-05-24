@@ -28,6 +28,7 @@ export class ProxyApi extends EventEmitter implements Pltr.Api {
   }
 
   protected handleMessageEvent (event: Pltr.Api.events.MessageEvent) {
+    console.log(event);
      this.emit("message", event);
   }
 

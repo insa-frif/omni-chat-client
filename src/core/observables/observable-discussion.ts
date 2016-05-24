@@ -1,4 +1,4 @@
-import {interfaces} from "omni-chat";
+import {interfaces, events} from "omni-chat";
 import {BehaviorSubject} from 'rxjs';
 import {ObservableMessage, wrapMessage, getMessage} from "./observable-message";
 import * as Bluebird from "bluebird";
@@ -30,7 +30,23 @@ export class ObservableDiscussion {
     if (this._loaded) {
       return Bluebird.resolve(this);
     } else {
-      return this.load();
+      this.libDiscussion.on("message", (event: events.Message) => {
+        return getMessage(event.message)
+          .then((observableMessage: ObservableMessage) => {
+            let currentMessages: ObservableMessage[] = this.messages.getValue();
+            if (currentMessages === null) {
+              currentMessages = [observableMessage];
+            } else {
+              currentMessages.push(observableMessage);
+            }
+            this.messages.next(currentMessages);
+          });
+      });
+
+      return Bluebird.resolve(this.libDiscussion.listen())
+        .then(() => {
+          return this.load();
+        });
     }
   }
 
