@@ -1,9 +1,8 @@
 import * as Bluebird from "bluebird";
-import * as _ from "lodash";
 import {interfaces} from "omni-chat";
 import {Component, OnInit} from '@angular/core';
 import {MdCard} from '@angular2-material/card/card';
-import {ROUTER_DIRECTIVES} from '@angular/router';
+import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 import {MdList, MdListItem} from '@angular2-material/list/list';
 import {DiscussionService} from "../../services/discussion.service";
 import {ObservableDiscussion} from "../../../core/observables/observable-discussion";
@@ -27,10 +26,12 @@ export class ChatAddDiscussionComponent implements OnInit {
 
   private _discussionService: DiscussionService;
 	private _userService: UserService;
+	private _router: Router;
 
-  constructor (discussionService: DiscussionService, userService: UserService) {
+  constructor (discussionService: DiscussionService, userService: UserService, router: Router) {
     this._discussionService = discussionService;
 	  this._userService = userService;
+	  this._router = router;
   }
 
   public ngOnInit(): void {
@@ -66,6 +67,7 @@ export class ChatAddDiscussionComponent implements OnInit {
 					console.log("Discussion created");
 					this._discussionService.setCurrentDiscussion(wrapDiscussion(discussion));
 					console.log("Discussion set as the current discussion");
+					this._router.navigate(["chat/discussion"]);
 				});
 		});
 	}
