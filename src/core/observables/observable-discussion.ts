@@ -37,12 +37,13 @@ export class ObservableDiscussion {
   // Force a reload
   load (): Bluebird<this> {
     this._loaded = true;
+	  let options: interfaces.Discussion.GetMessagesOptions = {maxMessages: 5};
     return Bluebird
       .all([
         this.loadCreationDate(),
         this.loadDescription(),
-        this.loadName()//,
-        // this.loadMessages()
+        this.loadName(),
+	      this.loadMessages(options)
       ])
       .thenReturn(this);
   }

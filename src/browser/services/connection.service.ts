@@ -19,6 +19,7 @@ export class ConnectionService {
         return api.getCurrentUser();
       })
       .then((palantiriAccount: palantiri.Account) => {
+	      console.log(palantiriAccount);
         return new LibUserAccount(palantiriAccount);
       })
       .tap((libUserAccount: LibUserAccount) => {

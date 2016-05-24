@@ -39,6 +39,12 @@ export class AccountsListComponent implements OnInit {
 
   public openDiscussion(discussion: ObservableDiscussion, event: Event): void {
     console.log("opening discussion");
+	  console.log(discussion.libDiscussion);
+	  // (<SimpleDiscussion>discussion.libDiscussion).getUserAccountGlobalID()
+		 //  .then((id:string) => {
+			//   console.log(id);
+		 //  });
+	  // TODO: CEST QUOI CE BORDEL
     event.preventDefault();
     this._discussionService.setCurrentDiscussion(discussion);
     this._router.navigate(["chat/discussion"]);
